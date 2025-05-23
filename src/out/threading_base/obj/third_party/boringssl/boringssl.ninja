@@ -1,0 +1,956 @@
+defines = -DUSE_AURA=1 "-DCR_CLANG_REVISION=\"llvmorg-21-init-5118-g52cd27e6-5\"" -D_LIBCPP_HARDENING_MODE=_LIBCPP_HARDENING_MODE_NONE -D_HAS_EXCEPTIONS=0 -D__STD_C -D_CRT_RAND_S -D_CRT_SECURE_NO_DEPRECATE -D_SCL_SECURE_NO_DEPRECATE -D_ATL_NO_OPENGL -D_WINDOWS -DCERT_CHAIN_PARA_HAS_EXTRA_FIELDS -DPSAPI_VERSION=2 -DWIN32 -D_SECURE_ATL -DWINAPI_FAMILY=WINAPI_FAMILY_DESKTOP_APP -DWIN32_LEAN_AND_MEAN -DNOMINMAX -D_UNICODE -DUNICODE -DNTDDI_VERSION=NTDDI_WIN11_GE -D_WIN32_WINNT=0x0A00 -DWINVER=0x0A00 -DNDEBUG -DNVALGRIND -DDYNAMIC_ANNOTATIONS_ENABLED=0 -DBORINGSSL_IMPLEMENTATION -DOPENSSL_SMALL -D_CRT_NONSTDC_NO_WARNINGS -D_WINSOCK_DEPRECATED_NO_WARNINGS
+include_dirs = -I../.. -Igen -I../../third_party/boringssl/src/include
+cflags = -fno-delete-null-pointer-checks /clang$:-fno-strict-overflow -fno-ident -fcolor-diagnostics -fmerge-all-constants /Zc$:sizedDealloc- -fcrash-diagnostics-dir=../../tools/clang/crashreports -mllvm -instcombine-lower-dbg-declare=0 -mllvm -split-threshold-for-reg-with-hint=0 /clang$:-ffp-contract=off -fcomplete-member-pointers /Gy /FS /bigobj /utf-8 /Zc$:twoPhase -ffile-reproducible /D__WRL_ENABLE_FUNCTION_STATICS__ -fmsc-version=1934 -m64 -msse3 /Brepro -Wno-builtin-macro-redefined -D__DATE__= -D__TIME__= -D__TIMESTAMP__= -ffile-compilation-dir=. -no-canonical-prefixes -Xclang --warning-suppression-mappings=../../build/config/warning_suppression.txt -ftrivial-auto-var-init=pattern /guard$:cf /MT -Wheader-hygiene -Wstring-conversion -Wtautological-overlap-compare -Xclang -add-plugin -Xclang find-bad-constructs -Xclang -plugin-arg-find-bad-constructs -Xclang span-ctor-from-string-literal -Xclang -plugin-arg-find-bad-constructs -Xclang raw-ref-template-as-trivial-member -Xclang -plugin-arg-find-bad-constructs -Xclang raw-span-template-as-trivial-member -Xclang -plugin-arg-find-bad-constructs -Xclang check-stack-allocated -Xclang -add-plugin -Xclang raw-ptr-plugin -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ptr-to-stack-allocated -Xclang -plugin-arg-raw-ptr-plugin -Xclang disable-check-raw-ptr-to-stack-allocated-error -Xclang -plugin-arg-raw-ptr-plugin -Xclang raw-ptr-exclude-path=../../third_party/dawn/ -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ptr-fields -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-span-fields -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ref-fields /W3 /wd4800 /wd4267 -Wno-unused-variable -Wno-c++11-narrowing -Wno-unused-but-set-variable -Wno-misleading-indentation -Wno-missing-field-initializers -Wno-unused-parameter -Wno-psabi -Wloop-analysis -Wno-unneeded-internal-declaration -Wno-nonportable-include-path -Wno-cast-function-type -Wno-thread-safety-reference-return -Wno-nontrivial-memcall /O2 /Oy- /Zc$:inline /Gw /clang$:-fno-math-errno
+cflags_cc = /std$:c++20 -Wno-trigraphs /TP /GR- -Wno-invalid-offsetof -Wenum-compare-conditional -Wno-nullability-completeness -Wno-c++11-narrowing-const-reference -Wno-missing-template-arg-list-after-template-kw
+label_name = boringssl
+target_out_dir = obj/third_party/boringssl
+target_output_name = boringssl
+
+build phony/third_party/boringssl/boringssl.inputs: phony ../../build/config/unsafe_buffers_paths.txt ../../build/config/warning_suppression.txt
+build obj/third_party/boringssl/boringssl/bcm.obj: cxx ../../third_party/boringssl/src/crypto/fipsmodule/bcm.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = bcm.cc
+  source_name_part = bcm
+build obj/third_party/boringssl/boringssl/aes.obj: cxx ../../third_party/boringssl/src/crypto/aes/aes.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = aes.cc
+  source_name_part = aes
+build obj/third_party/boringssl/boringssl/a_bitstr.obj: cxx ../../third_party/boringssl/src/crypto/asn1/a_bitstr.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = a_bitstr.cc
+  source_name_part = a_bitstr
+build obj/third_party/boringssl/boringssl/a_bool.obj: cxx ../../third_party/boringssl/src/crypto/asn1/a_bool.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = a_bool.cc
+  source_name_part = a_bool
+build obj/third_party/boringssl/boringssl/a_d2i_fp.obj: cxx ../../third_party/boringssl/src/crypto/asn1/a_d2i_fp.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = a_d2i_fp.cc
+  source_name_part = a_d2i_fp
+build obj/third_party/boringssl/boringssl/a_dup.obj: cxx ../../third_party/boringssl/src/crypto/asn1/a_dup.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = a_dup.cc
+  source_name_part = a_dup
+build obj/third_party/boringssl/boringssl/a_gentm.obj: cxx ../../third_party/boringssl/src/crypto/asn1/a_gentm.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = a_gentm.cc
+  source_name_part = a_gentm
+build obj/third_party/boringssl/boringssl/a_i2d_fp.obj: cxx ../../third_party/boringssl/src/crypto/asn1/a_i2d_fp.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = a_i2d_fp.cc
+  source_name_part = a_i2d_fp
+build obj/third_party/boringssl/boringssl/a_int.obj: cxx ../../third_party/boringssl/src/crypto/asn1/a_int.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = a_int.cc
+  source_name_part = a_int
+build obj/third_party/boringssl/boringssl/a_mbstr.obj: cxx ../../third_party/boringssl/src/crypto/asn1/a_mbstr.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = a_mbstr.cc
+  source_name_part = a_mbstr
+build obj/third_party/boringssl/boringssl/a_object.obj: cxx ../../third_party/boringssl/src/crypto/asn1/a_object.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = a_object.cc
+  source_name_part = a_object
+build obj/third_party/boringssl/boringssl/a_octet.obj: cxx ../../third_party/boringssl/src/crypto/asn1/a_octet.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = a_octet.cc
+  source_name_part = a_octet
+build obj/third_party/boringssl/boringssl/a_strex.obj: cxx ../../third_party/boringssl/src/crypto/asn1/a_strex.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = a_strex.cc
+  source_name_part = a_strex
+build obj/third_party/boringssl/boringssl/a_strnid.obj: cxx ../../third_party/boringssl/src/crypto/asn1/a_strnid.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = a_strnid.cc
+  source_name_part = a_strnid
+build obj/third_party/boringssl/boringssl/a_time.obj: cxx ../../third_party/boringssl/src/crypto/asn1/a_time.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = a_time.cc
+  source_name_part = a_time
+build obj/third_party/boringssl/boringssl/a_type.obj: cxx ../../third_party/boringssl/src/crypto/asn1/a_type.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = a_type.cc
+  source_name_part = a_type
+build obj/third_party/boringssl/boringssl/a_utctm.obj: cxx ../../third_party/boringssl/src/crypto/asn1/a_utctm.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = a_utctm.cc
+  source_name_part = a_utctm
+build obj/third_party/boringssl/boringssl/asn1_lib.obj: cxx ../../third_party/boringssl/src/crypto/asn1/asn1_lib.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = asn1_lib.cc
+  source_name_part = asn1_lib
+build obj/third_party/boringssl/boringssl/asn1_par.obj: cxx ../../third_party/boringssl/src/crypto/asn1/asn1_par.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = asn1_par.cc
+  source_name_part = asn1_par
+build obj/third_party/boringssl/boringssl/asn_pack.obj: cxx ../../third_party/boringssl/src/crypto/asn1/asn_pack.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = asn_pack.cc
+  source_name_part = asn_pack
+build obj/third_party/boringssl/boringssl/f_int.obj: cxx ../../third_party/boringssl/src/crypto/asn1/f_int.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = f_int.cc
+  source_name_part = f_int
+build obj/third_party/boringssl/boringssl/f_string.obj: cxx ../../third_party/boringssl/src/crypto/asn1/f_string.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = f_string.cc
+  source_name_part = f_string
+build obj/third_party/boringssl/boringssl/posix_time.obj: cxx ../../third_party/boringssl/src/crypto/asn1/posix_time.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = posix_time.cc
+  source_name_part = posix_time
+build obj/third_party/boringssl/boringssl/tasn_dec.obj: cxx ../../third_party/boringssl/src/crypto/asn1/tasn_dec.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = tasn_dec.cc
+  source_name_part = tasn_dec
+build obj/third_party/boringssl/boringssl/tasn_enc.obj: cxx ../../third_party/boringssl/src/crypto/asn1/tasn_enc.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = tasn_enc.cc
+  source_name_part = tasn_enc
+build obj/third_party/boringssl/boringssl/tasn_fre.obj: cxx ../../third_party/boringssl/src/crypto/asn1/tasn_fre.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = tasn_fre.cc
+  source_name_part = tasn_fre
+build obj/third_party/boringssl/boringssl/tasn_new.obj: cxx ../../third_party/boringssl/src/crypto/asn1/tasn_new.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = tasn_new.cc
+  source_name_part = tasn_new
+build obj/third_party/boringssl/boringssl/tasn_typ.obj: cxx ../../third_party/boringssl/src/crypto/asn1/tasn_typ.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = tasn_typ.cc
+  source_name_part = tasn_typ
+build obj/third_party/boringssl/boringssl/tasn_utl.obj: cxx ../../third_party/boringssl/src/crypto/asn1/tasn_utl.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = tasn_utl.cc
+  source_name_part = tasn_utl
+build obj/third_party/boringssl/boringssl/base64.obj: cxx ../../third_party/boringssl/src/crypto/base64/base64.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = base64.cc
+  source_name_part = base64
+build obj/third_party/boringssl/boringssl/bio.obj: cxx ../../third_party/boringssl/src/crypto/bio/bio.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = bio.cc
+  source_name_part = bio
+build obj/third_party/boringssl/boringssl/bio_mem.obj: cxx ../../third_party/boringssl/src/crypto/bio/bio_mem.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = bio_mem.cc
+  source_name_part = bio_mem
+build obj/third_party/boringssl/boringssl/connect.obj: cxx ../../third_party/boringssl/src/crypto/bio/connect.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = connect.cc
+  source_name_part = connect
+build obj/third_party/boringssl/boringssl/errno.obj: cxx ../../third_party/boringssl/src/crypto/bio/errno.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = errno.cc
+  source_name_part = errno
+build obj/third_party/boringssl/boringssl/fd.obj: cxx ../../third_party/boringssl/src/crypto/bio/fd.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = fd.cc
+  source_name_part = fd
+build obj/third_party/boringssl/boringssl/file.obj: cxx ../../third_party/boringssl/src/crypto/bio/file.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = file.cc
+  source_name_part = file
+build obj/third_party/boringssl/boringssl/hexdump.obj: cxx ../../third_party/boringssl/src/crypto/bio/hexdump.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = hexdump.cc
+  source_name_part = hexdump
+build obj/third_party/boringssl/boringssl/pair.obj: cxx ../../third_party/boringssl/src/crypto/bio/pair.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = pair.cc
+  source_name_part = pair
+build obj/third_party/boringssl/boringssl/printf.obj: cxx ../../third_party/boringssl/src/crypto/bio/printf.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = printf.cc
+  source_name_part = printf
+build obj/third_party/boringssl/boringssl/socket.obj: cxx ../../third_party/boringssl/src/crypto/bio/socket.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = socket.cc
+  source_name_part = socket
+build obj/third_party/boringssl/boringssl/socket_helper.obj: cxx ../../third_party/boringssl/src/crypto/bio/socket_helper.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = socket_helper.cc
+  source_name_part = socket_helper
+build obj/third_party/boringssl/boringssl/blake2.obj: cxx ../../third_party/boringssl/src/crypto/blake2/blake2.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = blake2.cc
+  source_name_part = blake2
+build obj/third_party/boringssl/boringssl/bn_asn1.obj: cxx ../../third_party/boringssl/src/crypto/bn/bn_asn1.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = bn_asn1.cc
+  source_name_part = bn_asn1
+build obj/third_party/boringssl/boringssl/convert.obj: cxx ../../third_party/boringssl/src/crypto/bn/convert.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = convert.cc
+  source_name_part = convert
+build obj/third_party/boringssl/boringssl/exponentiation.obj: cxx ../../third_party/boringssl/src/crypto/bn/exponentiation.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = exponentiation.cc
+  source_name_part = exponentiation
+build obj/third_party/boringssl/boringssl/buf.obj: cxx ../../third_party/boringssl/src/crypto/buf/buf.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = buf.cc
+  source_name_part = buf
+build obj/third_party/boringssl/boringssl/asn1_compat.obj: cxx ../../third_party/boringssl/src/crypto/bytestring/asn1_compat.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = asn1_compat.cc
+  source_name_part = asn1_compat
+build obj/third_party/boringssl/boringssl/ber.obj: cxx ../../third_party/boringssl/src/crypto/bytestring/ber.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = ber.cc
+  source_name_part = ber
+build obj/third_party/boringssl/boringssl/cbb.obj: cxx ../../third_party/boringssl/src/crypto/bytestring/cbb.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = cbb.cc
+  source_name_part = cbb
+build obj/third_party/boringssl/boringssl/cbs.obj: cxx ../../third_party/boringssl/src/crypto/bytestring/cbs.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = cbs.cc
+  source_name_part = cbs
+build obj/third_party/boringssl/boringssl/unicode.obj: cxx ../../third_party/boringssl/src/crypto/bytestring/unicode.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = unicode.cc
+  source_name_part = unicode
+build obj/third_party/boringssl/boringssl/chacha.obj: cxx ../../third_party/boringssl/src/crypto/chacha/chacha.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = chacha.cc
+  source_name_part = chacha
+build obj/third_party/boringssl/boringssl/derive_key.obj: cxx ../../third_party/boringssl/src/crypto/cipher/derive_key.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = derive_key.cc
+  source_name_part = derive_key
+build obj/third_party/boringssl/boringssl/e_aesctrhmac.obj: cxx ../../third_party/boringssl/src/crypto/cipher/e_aesctrhmac.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = e_aesctrhmac.cc
+  source_name_part = e_aesctrhmac
+build obj/third_party/boringssl/boringssl/e_aeseax.obj: cxx ../../third_party/boringssl/src/crypto/cipher/e_aeseax.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = e_aeseax.cc
+  source_name_part = e_aeseax
+build obj/third_party/boringssl/boringssl/e_aesgcmsiv.obj: cxx ../../third_party/boringssl/src/crypto/cipher/e_aesgcmsiv.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = e_aesgcmsiv.cc
+  source_name_part = e_aesgcmsiv
+build obj/third_party/boringssl/boringssl/e_chacha20poly1305.obj: cxx ../../third_party/boringssl/src/crypto/cipher/e_chacha20poly1305.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = e_chacha20poly1305.cc
+  source_name_part = e_chacha20poly1305
+build obj/third_party/boringssl/boringssl/e_des.obj: cxx ../../third_party/boringssl/src/crypto/cipher/e_des.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = e_des.cc
+  source_name_part = e_des
+build obj/third_party/boringssl/boringssl/e_null.obj: cxx ../../third_party/boringssl/src/crypto/cipher/e_null.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = e_null.cc
+  source_name_part = e_null
+build obj/third_party/boringssl/boringssl/e_rc2.obj: cxx ../../third_party/boringssl/src/crypto/cipher/e_rc2.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = e_rc2.cc
+  source_name_part = e_rc2
+build obj/third_party/boringssl/boringssl/e_rc4.obj: cxx ../../third_party/boringssl/src/crypto/cipher/e_rc4.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = e_rc4.cc
+  source_name_part = e_rc4
+build obj/third_party/boringssl/boringssl/e_tls.obj: cxx ../../third_party/boringssl/src/crypto/cipher/e_tls.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = e_tls.cc
+  source_name_part = e_tls
+build obj/third_party/boringssl/boringssl/get_cipher.obj: cxx ../../third_party/boringssl/src/crypto/cipher/get_cipher.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = get_cipher.cc
+  source_name_part = get_cipher
+build obj/third_party/boringssl/boringssl/tls_cbc.obj: cxx ../../third_party/boringssl/src/crypto/cipher/tls_cbc.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = tls_cbc.cc
+  source_name_part = tls_cbc
+build obj/third_party/boringssl/boringssl/conf.obj: cxx ../../third_party/boringssl/src/crypto/conf/conf.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = conf.cc
+  source_name_part = conf
+build obj/third_party/boringssl/boringssl/cpu_aarch64_apple.obj: cxx ../../third_party/boringssl/src/crypto/cpu_aarch64_apple.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = cpu_aarch64_apple.cc
+  source_name_part = cpu_aarch64_apple
+build obj/third_party/boringssl/boringssl/cpu_aarch64_fuchsia.obj: cxx ../../third_party/boringssl/src/crypto/cpu_aarch64_fuchsia.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = cpu_aarch64_fuchsia.cc
+  source_name_part = cpu_aarch64_fuchsia
+build obj/third_party/boringssl/boringssl/cpu_aarch64_linux.obj: cxx ../../third_party/boringssl/src/crypto/cpu_aarch64_linux.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = cpu_aarch64_linux.cc
+  source_name_part = cpu_aarch64_linux
+build obj/third_party/boringssl/boringssl/cpu_aarch64_openbsd.obj: cxx ../../third_party/boringssl/src/crypto/cpu_aarch64_openbsd.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = cpu_aarch64_openbsd.cc
+  source_name_part = cpu_aarch64_openbsd
+build obj/third_party/boringssl/boringssl/cpu_aarch64_sysreg.obj: cxx ../../third_party/boringssl/src/crypto/cpu_aarch64_sysreg.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = cpu_aarch64_sysreg.cc
+  source_name_part = cpu_aarch64_sysreg
+build obj/third_party/boringssl/boringssl/cpu_aarch64_win.obj: cxx ../../third_party/boringssl/src/crypto/cpu_aarch64_win.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = cpu_aarch64_win.cc
+  source_name_part = cpu_aarch64_win
+build obj/third_party/boringssl/boringssl/cpu_arm_freebsd.obj: cxx ../../third_party/boringssl/src/crypto/cpu_arm_freebsd.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = cpu_arm_freebsd.cc
+  source_name_part = cpu_arm_freebsd
+build obj/third_party/boringssl/boringssl/cpu_arm_linux.obj: cxx ../../third_party/boringssl/src/crypto/cpu_arm_linux.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = cpu_arm_linux.cc
+  source_name_part = cpu_arm_linux
+build obj/third_party/boringssl/boringssl/cpu_intel.obj: cxx ../../third_party/boringssl/src/crypto/cpu_intel.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = cpu_intel.cc
+  source_name_part = cpu_intel
+build obj/third_party/boringssl/boringssl/crypto.obj: cxx ../../third_party/boringssl/src/crypto/crypto.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = crypto.cc
+  source_name_part = crypto
+build obj/third_party/boringssl/boringssl/curve25519.obj: cxx ../../third_party/boringssl/src/crypto/curve25519/curve25519.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = curve25519.cc
+  source_name_part = curve25519
+build obj/third_party/boringssl/boringssl/curve25519_64_adx.obj: cxx ../../third_party/boringssl/src/crypto/curve25519/curve25519_64_adx.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = curve25519_64_adx.cc
+  source_name_part = curve25519_64_adx
+build obj/third_party/boringssl/boringssl/spake25519.obj: cxx ../../third_party/boringssl/src/crypto/curve25519/spake25519.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = spake25519.cc
+  source_name_part = spake25519
+build obj/third_party/boringssl/boringssl/des.obj: cxx ../../third_party/boringssl/src/crypto/des/des.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = des.cc
+  source_name_part = des
+build obj/third_party/boringssl/boringssl/dh_asn1.obj: cxx ../../third_party/boringssl/src/crypto/dh/dh_asn1.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = dh_asn1.cc
+  source_name_part = dh_asn1
+build obj/third_party/boringssl/boringssl/params.obj: cxx ../../third_party/boringssl/src/crypto/dh/params.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = params.cc
+  source_name_part = params
+build obj/third_party/boringssl/boringssl/digest_extra.obj: cxx ../../third_party/boringssl/src/crypto/digest/digest_extra.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = digest_extra.cc
+  source_name_part = digest_extra
+build obj/third_party/boringssl/boringssl/dsa.obj: cxx ../../third_party/boringssl/src/crypto/dsa/dsa.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = dsa.cc
+  source_name_part = dsa
+build obj/third_party/boringssl/boringssl/dsa_asn1.obj: cxx ../../third_party/boringssl/src/crypto/dsa/dsa_asn1.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = dsa_asn1.cc
+  source_name_part = dsa_asn1
+build obj/third_party/boringssl/boringssl/ec_asn1.obj: cxx ../../third_party/boringssl/src/crypto/ec/ec_asn1.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = ec_asn1.cc
+  source_name_part = ec_asn1
+build obj/third_party/boringssl/boringssl/ec_derive.obj: cxx ../../third_party/boringssl/src/crypto/ec/ec_derive.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = ec_derive.cc
+  source_name_part = ec_derive
+build obj/third_party/boringssl/boringssl/hash_to_curve.obj: cxx ../../third_party/boringssl/src/crypto/ec/hash_to_curve.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = hash_to_curve.cc
+  source_name_part = hash_to_curve
+build obj/third_party/boringssl/boringssl/ecdh.obj: cxx ../../third_party/boringssl/src/crypto/ecdh/ecdh.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = ecdh.cc
+  source_name_part = ecdh
+build obj/third_party/boringssl/boringssl/ecdsa_asn1.obj: cxx ../../third_party/boringssl/src/crypto/ecdsa/ecdsa_asn1.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = ecdsa_asn1.cc
+  source_name_part = ecdsa_asn1
+build obj/third_party/boringssl/boringssl/engine.obj: cxx ../../third_party/boringssl/src/crypto/engine/engine.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = engine.cc
+  source_name_part = engine
+build obj/third_party/boringssl/boringssl/err.obj: cxx ../../third_party/boringssl/src/crypto/err/err.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = err.cc
+  source_name_part = err
+build obj/third_party/boringssl/boringssl/evp.obj: cxx ../../third_party/boringssl/src/crypto/evp/evp.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = evp.cc
+  source_name_part = evp
+build obj/third_party/boringssl/boringssl/evp_asn1.obj: cxx ../../third_party/boringssl/src/crypto/evp/evp_asn1.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = evp_asn1.cc
+  source_name_part = evp_asn1
+build obj/third_party/boringssl/boringssl/evp_ctx.obj: cxx ../../third_party/boringssl/src/crypto/evp/evp_ctx.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = evp_ctx.cc
+  source_name_part = evp_ctx
+build obj/third_party/boringssl/boringssl/p_dh.obj: cxx ../../third_party/boringssl/src/crypto/evp/p_dh.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = p_dh.cc
+  source_name_part = p_dh
+build obj/third_party/boringssl/boringssl/p_dh_asn1.obj: cxx ../../third_party/boringssl/src/crypto/evp/p_dh_asn1.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = p_dh_asn1.cc
+  source_name_part = p_dh_asn1
+build obj/third_party/boringssl/boringssl/p_dsa_asn1.obj: cxx ../../third_party/boringssl/src/crypto/evp/p_dsa_asn1.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = p_dsa_asn1.cc
+  source_name_part = p_dsa_asn1
+build obj/third_party/boringssl/boringssl/p_ec.obj: cxx ../../third_party/boringssl/src/crypto/evp/p_ec.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = p_ec.cc
+  source_name_part = p_ec
+build obj/third_party/boringssl/boringssl/p_ec_asn1.obj: cxx ../../third_party/boringssl/src/crypto/evp/p_ec_asn1.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = p_ec_asn1.cc
+  source_name_part = p_ec_asn1
+build obj/third_party/boringssl/boringssl/p_ed25519.obj: cxx ../../third_party/boringssl/src/crypto/evp/p_ed25519.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = p_ed25519.cc
+  source_name_part = p_ed25519
+build obj/third_party/boringssl/boringssl/p_ed25519_asn1.obj: cxx ../../third_party/boringssl/src/crypto/evp/p_ed25519_asn1.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = p_ed25519_asn1.cc
+  source_name_part = p_ed25519_asn1
+build obj/third_party/boringssl/boringssl/p_hkdf.obj: cxx ../../third_party/boringssl/src/crypto/evp/p_hkdf.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = p_hkdf.cc
+  source_name_part = p_hkdf
+build obj/third_party/boringssl/boringssl/p_rsa.obj: cxx ../../third_party/boringssl/src/crypto/evp/p_rsa.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = p_rsa.cc
+  source_name_part = p_rsa
+build obj/third_party/boringssl/boringssl/p_rsa_asn1.obj: cxx ../../third_party/boringssl/src/crypto/evp/p_rsa_asn1.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = p_rsa_asn1.cc
+  source_name_part = p_rsa_asn1
+build obj/third_party/boringssl/boringssl/p_x25519.obj: cxx ../../third_party/boringssl/src/crypto/evp/p_x25519.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = p_x25519.cc
+  source_name_part = p_x25519
+build obj/third_party/boringssl/boringssl/p_x25519_asn1.obj: cxx ../../third_party/boringssl/src/crypto/evp/p_x25519_asn1.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = p_x25519_asn1.cc
+  source_name_part = p_x25519_asn1
+build obj/third_party/boringssl/boringssl/pbkdf.obj: cxx ../../third_party/boringssl/src/crypto/evp/pbkdf.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = pbkdf.cc
+  source_name_part = pbkdf
+build obj/third_party/boringssl/boringssl/print.obj: cxx ../../third_party/boringssl/src/crypto/evp/print.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = print.cc
+  source_name_part = print
+build obj/third_party/boringssl/boringssl/scrypt.obj: cxx ../../third_party/boringssl/src/crypto/evp/scrypt.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = scrypt.cc
+  source_name_part = scrypt
+build obj/third_party/boringssl/boringssl/sign.obj: cxx ../../third_party/boringssl/src/crypto/evp/sign.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = sign.cc
+  source_name_part = sign
+build obj/third_party/boringssl/boringssl/ex_data.obj: cxx ../../third_party/boringssl/src/crypto/ex_data.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = ex_data.cc
+  source_name_part = ex_data
+build obj/third_party/boringssl/boringssl/fips_shared_support.obj: cxx ../../third_party/boringssl/src/crypto/fipsmodule/fips_shared_support.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = fips_shared_support.cc
+  source_name_part = fips_shared_support
+build obj/third_party/boringssl/boringssl/fuzzer_mode.obj: cxx ../../third_party/boringssl/src/crypto/fuzzer_mode.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = fuzzer_mode.cc
+  source_name_part = fuzzer_mode
+build obj/third_party/boringssl/boringssl/hpke.obj: cxx ../../third_party/boringssl/src/crypto/hpke/hpke.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = hpke.cc
+  source_name_part = hpke
+build obj/third_party/boringssl/boringssl/hrss.obj: cxx ../../third_party/boringssl/src/crypto/hrss/hrss.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = hrss.cc
+  source_name_part = hrss
+build obj/third_party/boringssl/boringssl/kyber.obj: cxx ../../third_party/boringssl/src/crypto/kyber/kyber.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = kyber.cc
+  source_name_part = kyber
+build obj/third_party/boringssl/boringssl/lhash.obj: cxx ../../third_party/boringssl/src/crypto/lhash/lhash.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = lhash.cc
+  source_name_part = lhash
+build obj/third_party/boringssl/boringssl/md4.obj: cxx ../../third_party/boringssl/src/crypto/md4/md4.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = md4.cc
+  source_name_part = md4
+build obj/third_party/boringssl/boringssl/md5.obj: cxx ../../third_party/boringssl/src/crypto/md5/md5.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = md5.cc
+  source_name_part = md5
+build obj/third_party/boringssl/boringssl/mem.obj: cxx ../../third_party/boringssl/src/crypto/mem.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = mem.cc
+  source_name_part = mem
+build obj/third_party/boringssl/boringssl/mldsa.obj: cxx ../../third_party/boringssl/src/crypto/mldsa/mldsa.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = mldsa.cc
+  source_name_part = mldsa
+build obj/third_party/boringssl/boringssl/mlkem.obj: cxx ../../third_party/boringssl/src/crypto/mlkem/mlkem.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = mlkem.cc
+  source_name_part = mlkem
+build obj/third_party/boringssl/boringssl/obj.obj: cxx ../../third_party/boringssl/src/crypto/obj/obj.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = obj.cc
+  source_name_part = obj
+build obj/third_party/boringssl/boringssl/obj_xref.obj: cxx ../../third_party/boringssl/src/crypto/obj/obj_xref.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = obj_xref.cc
+  source_name_part = obj_xref
+build obj/third_party/boringssl/boringssl/pem_all.obj: cxx ../../third_party/boringssl/src/crypto/pem/pem_all.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = pem_all.cc
+  source_name_part = pem_all
+build obj/third_party/boringssl/boringssl/pem_info.obj: cxx ../../third_party/boringssl/src/crypto/pem/pem_info.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = pem_info.cc
+  source_name_part = pem_info
+build obj/third_party/boringssl/boringssl/pem_lib.obj: cxx ../../third_party/boringssl/src/crypto/pem/pem_lib.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = pem_lib.cc
+  source_name_part = pem_lib
+build obj/third_party/boringssl/boringssl/pem_oth.obj: cxx ../../third_party/boringssl/src/crypto/pem/pem_oth.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = pem_oth.cc
+  source_name_part = pem_oth
+build obj/third_party/boringssl/boringssl/pem_pk8.obj: cxx ../../third_party/boringssl/src/crypto/pem/pem_pk8.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = pem_pk8.cc
+  source_name_part = pem_pk8
+build obj/third_party/boringssl/boringssl/pem_pkey.obj: cxx ../../third_party/boringssl/src/crypto/pem/pem_pkey.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = pem_pkey.cc
+  source_name_part = pem_pkey
+build obj/third_party/boringssl/boringssl/pem_x509.obj: cxx ../../third_party/boringssl/src/crypto/pem/pem_x509.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = pem_x509.cc
+  source_name_part = pem_x509
+build obj/third_party/boringssl/boringssl/pem_xaux.obj: cxx ../../third_party/boringssl/src/crypto/pem/pem_xaux.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = pem_xaux.cc
+  source_name_part = pem_xaux
+build obj/third_party/boringssl/boringssl/pkcs7.obj: cxx ../../third_party/boringssl/src/crypto/pkcs7/pkcs7.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = pkcs7.cc
+  source_name_part = pkcs7
+build obj/third_party/boringssl/boringssl/pkcs7_x509.obj: cxx ../../third_party/boringssl/src/crypto/pkcs7/pkcs7_x509.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = pkcs7_x509.cc
+  source_name_part = pkcs7_x509
+build obj/third_party/boringssl/boringssl/p5_pbev2.obj: cxx ../../third_party/boringssl/src/crypto/pkcs8/p5_pbev2.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = p5_pbev2.cc
+  source_name_part = p5_pbev2
+build obj/third_party/boringssl/boringssl/pkcs8.obj: cxx ../../third_party/boringssl/src/crypto/pkcs8/pkcs8.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = pkcs8.cc
+  source_name_part = pkcs8
+build obj/third_party/boringssl/boringssl/pkcs8_x509.obj: cxx ../../third_party/boringssl/src/crypto/pkcs8/pkcs8_x509.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = pkcs8_x509.cc
+  source_name_part = pkcs8_x509
+build obj/third_party/boringssl/boringssl/poly1305.obj: cxx ../../third_party/boringssl/src/crypto/poly1305/poly1305.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = poly1305.cc
+  source_name_part = poly1305
+build obj/third_party/boringssl/boringssl/poly1305_arm.obj: cxx ../../third_party/boringssl/src/crypto/poly1305/poly1305_arm.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = poly1305_arm.cc
+  source_name_part = poly1305_arm
+build obj/third_party/boringssl/boringssl/poly1305_vec.obj: cxx ../../third_party/boringssl/src/crypto/poly1305/poly1305_vec.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = poly1305_vec.cc
+  source_name_part = poly1305_vec
+build obj/third_party/boringssl/boringssl/pool.obj: cxx ../../third_party/boringssl/src/crypto/pool/pool.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = pool.cc
+  source_name_part = pool
+build obj/third_party/boringssl/boringssl/deterministic.obj: cxx ../../third_party/boringssl/src/crypto/rand/deterministic.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = deterministic.cc
+  source_name_part = deterministic
+build obj/third_party/boringssl/boringssl/fork_detect.obj: cxx ../../third_party/boringssl/src/crypto/rand/fork_detect.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = fork_detect.cc
+  source_name_part = fork_detect
+build obj/third_party/boringssl/boringssl/forkunsafe.obj: cxx ../../third_party/boringssl/src/crypto/rand/forkunsafe.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = forkunsafe.cc
+  source_name_part = forkunsafe
+build obj/third_party/boringssl/boringssl/getentropy.obj: cxx ../../third_party/boringssl/src/crypto/rand/getentropy.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = getentropy.cc
+  source_name_part = getentropy
+build obj/third_party/boringssl/boringssl/ios.obj: cxx ../../third_party/boringssl/src/crypto/rand/ios.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = ios.cc
+  source_name_part = ios
+build obj/third_party/boringssl/boringssl/passive.obj: cxx ../../third_party/boringssl/src/crypto/rand/passive.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = passive.cc
+  source_name_part = passive
+build obj/third_party/boringssl/boringssl/rand.obj: cxx ../../third_party/boringssl/src/crypto/rand/rand.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = rand.cc
+  source_name_part = rand
+build obj/third_party/boringssl/boringssl/trusty.obj: cxx ../../third_party/boringssl/src/crypto/rand/trusty.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = trusty.cc
+  source_name_part = trusty
+build obj/third_party/boringssl/boringssl/urandom.obj: cxx ../../third_party/boringssl/src/crypto/rand/urandom.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = urandom.cc
+  source_name_part = urandom
+build obj/third_party/boringssl/boringssl/windows.obj: cxx ../../third_party/boringssl/src/crypto/rand/windows.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = windows.cc
+  source_name_part = windows
+build obj/third_party/boringssl/boringssl/rc4.obj: cxx ../../third_party/boringssl/src/crypto/rc4/rc4.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = rc4.cc
+  source_name_part = rc4
+build obj/third_party/boringssl/boringssl/refcount.obj: cxx ../../third_party/boringssl/src/crypto/refcount.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = refcount.cc
+  source_name_part = refcount
+build obj/third_party/boringssl/boringssl/rsa_asn1.obj: cxx ../../third_party/boringssl/src/crypto/rsa/rsa_asn1.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = rsa_asn1.cc
+  source_name_part = rsa_asn1
+build obj/third_party/boringssl/boringssl/rsa_crypt.obj: cxx ../../third_party/boringssl/src/crypto/rsa/rsa_crypt.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = rsa_crypt.cc
+  source_name_part = rsa_crypt
+build obj/third_party/boringssl/boringssl/rsa_extra.obj: cxx ../../third_party/boringssl/src/crypto/rsa/rsa_extra.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = rsa_extra.cc
+  source_name_part = rsa_extra
+build obj/third_party/boringssl/boringssl/rsa_print.obj: cxx ../../third_party/boringssl/src/crypto/rsa/rsa_print.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = rsa_print.cc
+  source_name_part = rsa_print
+build obj/third_party/boringssl/boringssl/sha1.obj: cxx ../../third_party/boringssl/src/crypto/sha/sha1.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = sha1.cc
+  source_name_part = sha1
+build obj/third_party/boringssl/boringssl/sha256.obj: cxx ../../third_party/boringssl/src/crypto/sha/sha256.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = sha256.cc
+  source_name_part = sha256
+build obj/third_party/boringssl/boringssl/sha512.obj: cxx ../../third_party/boringssl/src/crypto/sha/sha512.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = sha512.cc
+  source_name_part = sha512
+build obj/third_party/boringssl/boringssl/siphash.obj: cxx ../../third_party/boringssl/src/crypto/siphash/siphash.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = siphash.cc
+  source_name_part = siphash
+build obj/third_party/boringssl/boringssl/slhdsa.obj: cxx ../../third_party/boringssl/src/crypto/slhdsa/slhdsa.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = slhdsa.cc
+  source_name_part = slhdsa
+build obj/third_party/boringssl/boringssl/spake2plus.obj: cxx ../../third_party/boringssl/src/crypto/spake2plus/spake2plus.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = spake2plus.cc
+  source_name_part = spake2plus
+build obj/third_party/boringssl/boringssl/stack.obj: cxx ../../third_party/boringssl/src/crypto/stack/stack.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = stack.cc
+  source_name_part = stack
+build obj/third_party/boringssl/boringssl/thread.obj: cxx ../../third_party/boringssl/src/crypto/thread.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = thread.cc
+  source_name_part = thread
+build obj/third_party/boringssl/boringssl/thread_none.obj: cxx ../../third_party/boringssl/src/crypto/thread_none.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = thread_none.cc
+  source_name_part = thread_none
+build obj/third_party/boringssl/boringssl/thread_pthread.obj: cxx ../../third_party/boringssl/src/crypto/thread_pthread.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = thread_pthread.cc
+  source_name_part = thread_pthread
+build obj/third_party/boringssl/boringssl/thread_win.obj: cxx ../../third_party/boringssl/src/crypto/thread_win.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = thread_win.cc
+  source_name_part = thread_win
+build obj/third_party/boringssl/boringssl/pmbtoken.obj: cxx ../../third_party/boringssl/src/crypto/trust_token/pmbtoken.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = pmbtoken.cc
+  source_name_part = pmbtoken
+build obj/third_party/boringssl/boringssl/trust_token.obj: cxx ../../third_party/boringssl/src/crypto/trust_token/trust_token.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = trust_token.cc
+  source_name_part = trust_token
+build obj/third_party/boringssl/boringssl/voprf.obj: cxx ../../third_party/boringssl/src/crypto/trust_token/voprf.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = voprf.cc
+  source_name_part = voprf
+build obj/third_party/boringssl/boringssl/a_digest.obj: cxx ../../third_party/boringssl/src/crypto/x509/a_digest.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = a_digest.cc
+  source_name_part = a_digest
+build obj/third_party/boringssl/boringssl/a_sign.obj: cxx ../../third_party/boringssl/src/crypto/x509/a_sign.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = a_sign.cc
+  source_name_part = a_sign
+build obj/third_party/boringssl/boringssl/a_verify.obj: cxx ../../third_party/boringssl/src/crypto/x509/a_verify.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = a_verify.cc
+  source_name_part = a_verify
+build obj/third_party/boringssl/boringssl/algorithm.obj: cxx ../../third_party/boringssl/src/crypto/x509/algorithm.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = algorithm.cc
+  source_name_part = algorithm
+build obj/third_party/boringssl/boringssl/asn1_gen.obj: cxx ../../third_party/boringssl/src/crypto/x509/asn1_gen.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = asn1_gen.cc
+  source_name_part = asn1_gen
+build obj/third_party/boringssl/boringssl/by_dir.obj: cxx ../../third_party/boringssl/src/crypto/x509/by_dir.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = by_dir.cc
+  source_name_part = by_dir
+build obj/third_party/boringssl/boringssl/by_file.obj: cxx ../../third_party/boringssl/src/crypto/x509/by_file.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = by_file.cc
+  source_name_part = by_file
+build obj/third_party/boringssl/boringssl/i2d_pr.obj: cxx ../../third_party/boringssl/src/crypto/x509/i2d_pr.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = i2d_pr.cc
+  source_name_part = i2d_pr
+build obj/third_party/boringssl/boringssl/name_print.obj: cxx ../../third_party/boringssl/src/crypto/x509/name_print.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = name_print.cc
+  source_name_part = name_print
+build obj/third_party/boringssl/boringssl/policy.obj: cxx ../../third_party/boringssl/src/crypto/x509/policy.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = policy.cc
+  source_name_part = policy
+build obj/third_party/boringssl/boringssl/rsa_pss.obj: cxx ../../third_party/boringssl/src/crypto/x509/rsa_pss.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = rsa_pss.cc
+  source_name_part = rsa_pss
+build obj/third_party/boringssl/boringssl/t_crl.obj: cxx ../../third_party/boringssl/src/crypto/x509/t_crl.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = t_crl.cc
+  source_name_part = t_crl
+build obj/third_party/boringssl/boringssl/t_req.obj: cxx ../../third_party/boringssl/src/crypto/x509/t_req.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = t_req.cc
+  source_name_part = t_req
+build obj/third_party/boringssl/boringssl/t_x509.obj: cxx ../../third_party/boringssl/src/crypto/x509/t_x509.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = t_x509.cc
+  source_name_part = t_x509
+build obj/third_party/boringssl/boringssl/t_x509a.obj: cxx ../../third_party/boringssl/src/crypto/x509/t_x509a.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = t_x509a.cc
+  source_name_part = t_x509a
+build obj/third_party/boringssl/boringssl/v3_akey.obj: cxx ../../third_party/boringssl/src/crypto/x509/v3_akey.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = v3_akey.cc
+  source_name_part = v3_akey
+build obj/third_party/boringssl/boringssl/v3_akeya.obj: cxx ../../third_party/boringssl/src/crypto/x509/v3_akeya.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = v3_akeya.cc
+  source_name_part = v3_akeya
+build obj/third_party/boringssl/boringssl/v3_alt.obj: cxx ../../third_party/boringssl/src/crypto/x509/v3_alt.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = v3_alt.cc
+  source_name_part = v3_alt
+build obj/third_party/boringssl/boringssl/v3_bcons.obj: cxx ../../third_party/boringssl/src/crypto/x509/v3_bcons.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = v3_bcons.cc
+  source_name_part = v3_bcons
+build obj/third_party/boringssl/boringssl/v3_bitst.obj: cxx ../../third_party/boringssl/src/crypto/x509/v3_bitst.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = v3_bitst.cc
+  source_name_part = v3_bitst
+build obj/third_party/boringssl/boringssl/v3_conf.obj: cxx ../../third_party/boringssl/src/crypto/x509/v3_conf.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = v3_conf.cc
+  source_name_part = v3_conf
+build obj/third_party/boringssl/boringssl/v3_cpols.obj: cxx ../../third_party/boringssl/src/crypto/x509/v3_cpols.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = v3_cpols.cc
+  source_name_part = v3_cpols
+build obj/third_party/boringssl/boringssl/v3_crld.obj: cxx ../../third_party/boringssl/src/crypto/x509/v3_crld.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = v3_crld.cc
+  source_name_part = v3_crld
+build obj/third_party/boringssl/boringssl/v3_enum.obj: cxx ../../third_party/boringssl/src/crypto/x509/v3_enum.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = v3_enum.cc
+  source_name_part = v3_enum
+build obj/third_party/boringssl/boringssl/v3_extku.obj: cxx ../../third_party/boringssl/src/crypto/x509/v3_extku.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = v3_extku.cc
+  source_name_part = v3_extku
+build obj/third_party/boringssl/boringssl/v3_genn.obj: cxx ../../third_party/boringssl/src/crypto/x509/v3_genn.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = v3_genn.cc
+  source_name_part = v3_genn
+build obj/third_party/boringssl/boringssl/v3_ia5.obj: cxx ../../third_party/boringssl/src/crypto/x509/v3_ia5.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = v3_ia5.cc
+  source_name_part = v3_ia5
+build obj/third_party/boringssl/boringssl/v3_info.obj: cxx ../../third_party/boringssl/src/crypto/x509/v3_info.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = v3_info.cc
+  source_name_part = v3_info
+build obj/third_party/boringssl/boringssl/v3_int.obj: cxx ../../third_party/boringssl/src/crypto/x509/v3_int.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = v3_int.cc
+  source_name_part = v3_int
+build obj/third_party/boringssl/boringssl/v3_lib.obj: cxx ../../third_party/boringssl/src/crypto/x509/v3_lib.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = v3_lib.cc
+  source_name_part = v3_lib
+build obj/third_party/boringssl/boringssl/v3_ncons.obj: cxx ../../third_party/boringssl/src/crypto/x509/v3_ncons.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = v3_ncons.cc
+  source_name_part = v3_ncons
+build obj/third_party/boringssl/boringssl/v3_ocsp.obj: cxx ../../third_party/boringssl/src/crypto/x509/v3_ocsp.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = v3_ocsp.cc
+  source_name_part = v3_ocsp
+build obj/third_party/boringssl/boringssl/v3_pcons.obj: cxx ../../third_party/boringssl/src/crypto/x509/v3_pcons.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = v3_pcons.cc
+  source_name_part = v3_pcons
+build obj/third_party/boringssl/boringssl/v3_pmaps.obj: cxx ../../third_party/boringssl/src/crypto/x509/v3_pmaps.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = v3_pmaps.cc
+  source_name_part = v3_pmaps
+build obj/third_party/boringssl/boringssl/v3_prn.obj: cxx ../../third_party/boringssl/src/crypto/x509/v3_prn.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = v3_prn.cc
+  source_name_part = v3_prn
+build obj/third_party/boringssl/boringssl/v3_purp.obj: cxx ../../third_party/boringssl/src/crypto/x509/v3_purp.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = v3_purp.cc
+  source_name_part = v3_purp
+build obj/third_party/boringssl/boringssl/v3_skey.obj: cxx ../../third_party/boringssl/src/crypto/x509/v3_skey.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = v3_skey.cc
+  source_name_part = v3_skey
+build obj/third_party/boringssl/boringssl/v3_utl.obj: cxx ../../third_party/boringssl/src/crypto/x509/v3_utl.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = v3_utl.cc
+  source_name_part = v3_utl
+build obj/third_party/boringssl/boringssl/x509.obj: cxx ../../third_party/boringssl/src/crypto/x509/x509.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = x509.cc
+  source_name_part = x509
+build obj/third_party/boringssl/boringssl/x509_att.obj: cxx ../../third_party/boringssl/src/crypto/x509/x509_att.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = x509_att.cc
+  source_name_part = x509_att
+build obj/third_party/boringssl/boringssl/x509_cmp.obj: cxx ../../third_party/boringssl/src/crypto/x509/x509_cmp.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = x509_cmp.cc
+  source_name_part = x509_cmp
+build obj/third_party/boringssl/boringssl/x509_d2.obj: cxx ../../third_party/boringssl/src/crypto/x509/x509_d2.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = x509_d2.cc
+  source_name_part = x509_d2
+build obj/third_party/boringssl/boringssl/x509_def.obj: cxx ../../third_party/boringssl/src/crypto/x509/x509_def.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = x509_def.cc
+  source_name_part = x509_def
+build obj/third_party/boringssl/boringssl/x509_ext.obj: cxx ../../third_party/boringssl/src/crypto/x509/x509_ext.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = x509_ext.cc
+  source_name_part = x509_ext
+build obj/third_party/boringssl/boringssl/x509_lu.obj: cxx ../../third_party/boringssl/src/crypto/x509/x509_lu.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = x509_lu.cc
+  source_name_part = x509_lu
+build obj/third_party/boringssl/boringssl/x509_obj.obj: cxx ../../third_party/boringssl/src/crypto/x509/x509_obj.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = x509_obj.cc
+  source_name_part = x509_obj
+build obj/third_party/boringssl/boringssl/x509_req.obj: cxx ../../third_party/boringssl/src/crypto/x509/x509_req.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = x509_req.cc
+  source_name_part = x509_req
+build obj/third_party/boringssl/boringssl/x509_set.obj: cxx ../../third_party/boringssl/src/crypto/x509/x509_set.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = x509_set.cc
+  source_name_part = x509_set
+build obj/third_party/boringssl/boringssl/x509_trs.obj: cxx ../../third_party/boringssl/src/crypto/x509/x509_trs.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = x509_trs.cc
+  source_name_part = x509_trs
+build obj/third_party/boringssl/boringssl/x509_txt.obj: cxx ../../third_party/boringssl/src/crypto/x509/x509_txt.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = x509_txt.cc
+  source_name_part = x509_txt
+build obj/third_party/boringssl/boringssl/x509_v3.obj: cxx ../../third_party/boringssl/src/crypto/x509/x509_v3.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = x509_v3.cc
+  source_name_part = x509_v3
+build obj/third_party/boringssl/boringssl/x509_vfy.obj: cxx ../../third_party/boringssl/src/crypto/x509/x509_vfy.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = x509_vfy.cc
+  source_name_part = x509_vfy
+build obj/third_party/boringssl/boringssl/x509_vpm.obj: cxx ../../third_party/boringssl/src/crypto/x509/x509_vpm.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = x509_vpm.cc
+  source_name_part = x509_vpm
+build obj/third_party/boringssl/boringssl/x509cset.obj: cxx ../../third_party/boringssl/src/crypto/x509/x509cset.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = x509cset.cc
+  source_name_part = x509cset
+build obj/third_party/boringssl/boringssl/x509name.obj: cxx ../../third_party/boringssl/src/crypto/x509/x509name.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = x509name.cc
+  source_name_part = x509name
+build obj/third_party/boringssl/boringssl/x509rset.obj: cxx ../../third_party/boringssl/src/crypto/x509/x509rset.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = x509rset.cc
+  source_name_part = x509rset
+build obj/third_party/boringssl/boringssl/x509spki.obj: cxx ../../third_party/boringssl/src/crypto/x509/x509spki.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = x509spki.cc
+  source_name_part = x509spki
+build obj/third_party/boringssl/boringssl/x_algor.obj: cxx ../../third_party/boringssl/src/crypto/x509/x_algor.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = x_algor.cc
+  source_name_part = x_algor
+build obj/third_party/boringssl/boringssl/x_all.obj: cxx ../../third_party/boringssl/src/crypto/x509/x_all.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = x_all.cc
+  source_name_part = x_all
+build obj/third_party/boringssl/boringssl/x_attrib.obj: cxx ../../third_party/boringssl/src/crypto/x509/x_attrib.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = x_attrib.cc
+  source_name_part = x_attrib
+build obj/third_party/boringssl/boringssl/x_crl.obj: cxx ../../third_party/boringssl/src/crypto/x509/x_crl.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = x_crl.cc
+  source_name_part = x_crl
+build obj/third_party/boringssl/boringssl/x_exten.obj: cxx ../../third_party/boringssl/src/crypto/x509/x_exten.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = x_exten.cc
+  source_name_part = x_exten
+build obj/third_party/boringssl/boringssl/x_name.obj: cxx ../../third_party/boringssl/src/crypto/x509/x_name.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = x_name.cc
+  source_name_part = x_name
+build obj/third_party/boringssl/boringssl/x_pubkey.obj: cxx ../../third_party/boringssl/src/crypto/x509/x_pubkey.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = x_pubkey.cc
+  source_name_part = x_pubkey
+build obj/third_party/boringssl/boringssl/x_req.obj: cxx ../../third_party/boringssl/src/crypto/x509/x_req.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = x_req.cc
+  source_name_part = x_req
+build obj/third_party/boringssl/boringssl/x_sig.obj: cxx ../../third_party/boringssl/src/crypto/x509/x_sig.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = x_sig.cc
+  source_name_part = x_sig
+build obj/third_party/boringssl/boringssl/x_spki.obj: cxx ../../third_party/boringssl/src/crypto/x509/x_spki.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = x_spki.cc
+  source_name_part = x_spki
+build obj/third_party/boringssl/boringssl/x_val.obj: cxx ../../third_party/boringssl/src/crypto/x509/x_val.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = x_val.cc
+  source_name_part = x_val
+build obj/third_party/boringssl/boringssl/x_x509.obj: cxx ../../third_party/boringssl/src/crypto/x509/x_x509.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = x_x509.cc
+  source_name_part = x_x509
+build obj/third_party/boringssl/boringssl/x_x509a.obj: cxx ../../third_party/boringssl/src/crypto/x509/x_x509a.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = x_x509a.cc
+  source_name_part = x_x509a
+build obj/third_party/boringssl/boringssl/err_data.obj: cxx ../../third_party/boringssl/src/gen/crypto/err_data.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = err_data.cc
+  source_name_part = err_data
+build obj/third_party/boringssl/boringssl/bio_ssl.obj: cxx ../../third_party/boringssl/src/ssl/bio_ssl.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = bio_ssl.cc
+  source_name_part = bio_ssl
+build obj/third_party/boringssl/boringssl/d1_both.obj: cxx ../../third_party/boringssl/src/ssl/d1_both.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = d1_both.cc
+  source_name_part = d1_both
+build obj/third_party/boringssl/boringssl/d1_lib.obj: cxx ../../third_party/boringssl/src/ssl/d1_lib.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = d1_lib.cc
+  source_name_part = d1_lib
+build obj/third_party/boringssl/boringssl/d1_pkt.obj: cxx ../../third_party/boringssl/src/ssl/d1_pkt.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = d1_pkt.cc
+  source_name_part = d1_pkt
+build obj/third_party/boringssl/boringssl/d1_srtp.obj: cxx ../../third_party/boringssl/src/ssl/d1_srtp.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = d1_srtp.cc
+  source_name_part = d1_srtp
+build obj/third_party/boringssl/boringssl/dtls_method.obj: cxx ../../third_party/boringssl/src/ssl/dtls_method.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = dtls_method.cc
+  source_name_part = dtls_method
+build obj/third_party/boringssl/boringssl/dtls_record.obj: cxx ../../third_party/boringssl/src/ssl/dtls_record.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = dtls_record.cc
+  source_name_part = dtls_record
+build obj/third_party/boringssl/boringssl/encrypted_client_hello.obj: cxx ../../third_party/boringssl/src/ssl/encrypted_client_hello.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = encrypted_client_hello.cc
+  source_name_part = encrypted_client_hello
+build obj/third_party/boringssl/boringssl/extensions.obj: cxx ../../third_party/boringssl/src/ssl/extensions.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = extensions.cc
+  source_name_part = extensions
+build obj/third_party/boringssl/boringssl/handoff.obj: cxx ../../third_party/boringssl/src/ssl/handoff.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = handoff.cc
+  source_name_part = handoff
+build obj/third_party/boringssl/boringssl/handshake.obj: cxx ../../third_party/boringssl/src/ssl/handshake.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = handshake.cc
+  source_name_part = handshake
+build obj/third_party/boringssl/boringssl/handshake_client.obj: cxx ../../third_party/boringssl/src/ssl/handshake_client.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = handshake_client.cc
+  source_name_part = handshake_client
+build obj/third_party/boringssl/boringssl/handshake_server.obj: cxx ../../third_party/boringssl/src/ssl/handshake_server.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = handshake_server.cc
+  source_name_part = handshake_server
+build obj/third_party/boringssl/boringssl/s3_both.obj: cxx ../../third_party/boringssl/src/ssl/s3_both.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = s3_both.cc
+  source_name_part = s3_both
+build obj/third_party/boringssl/boringssl/s3_lib.obj: cxx ../../third_party/boringssl/src/ssl/s3_lib.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = s3_lib.cc
+  source_name_part = s3_lib
+build obj/third_party/boringssl/boringssl/s3_pkt.obj: cxx ../../third_party/boringssl/src/ssl/s3_pkt.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = s3_pkt.cc
+  source_name_part = s3_pkt
+build obj/third_party/boringssl/boringssl/ssl_aead_ctx.obj: cxx ../../third_party/boringssl/src/ssl/ssl_aead_ctx.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = ssl_aead_ctx.cc
+  source_name_part = ssl_aead_ctx
+build obj/third_party/boringssl/boringssl/ssl_asn1.obj: cxx ../../third_party/boringssl/src/ssl/ssl_asn1.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = ssl_asn1.cc
+  source_name_part = ssl_asn1
+build obj/third_party/boringssl/boringssl/ssl_buffer.obj: cxx ../../third_party/boringssl/src/ssl/ssl_buffer.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = ssl_buffer.cc
+  source_name_part = ssl_buffer
+build obj/third_party/boringssl/boringssl/ssl_cert.obj: cxx ../../third_party/boringssl/src/ssl/ssl_cert.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = ssl_cert.cc
+  source_name_part = ssl_cert
+build obj/third_party/boringssl/boringssl/ssl_cipher.obj: cxx ../../third_party/boringssl/src/ssl/ssl_cipher.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = ssl_cipher.cc
+  source_name_part = ssl_cipher
+build obj/third_party/boringssl/boringssl/ssl_credential.obj: cxx ../../third_party/boringssl/src/ssl/ssl_credential.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = ssl_credential.cc
+  source_name_part = ssl_credential
+build obj/third_party/boringssl/boringssl/ssl_file.obj: cxx ../../third_party/boringssl/src/ssl/ssl_file.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = ssl_file.cc
+  source_name_part = ssl_file
+build obj/third_party/boringssl/boringssl/ssl_key_share.obj: cxx ../../third_party/boringssl/src/ssl/ssl_key_share.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = ssl_key_share.cc
+  source_name_part = ssl_key_share
+build obj/third_party/boringssl/boringssl/ssl_lib.obj: cxx ../../third_party/boringssl/src/ssl/ssl_lib.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = ssl_lib.cc
+  source_name_part = ssl_lib
+build obj/third_party/boringssl/boringssl/ssl_privkey.obj: cxx ../../third_party/boringssl/src/ssl/ssl_privkey.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = ssl_privkey.cc
+  source_name_part = ssl_privkey
+build obj/third_party/boringssl/boringssl/ssl_session.obj: cxx ../../third_party/boringssl/src/ssl/ssl_session.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = ssl_session.cc
+  source_name_part = ssl_session
+build obj/third_party/boringssl/boringssl/ssl_stat.obj: cxx ../../third_party/boringssl/src/ssl/ssl_stat.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = ssl_stat.cc
+  source_name_part = ssl_stat
+build obj/third_party/boringssl/boringssl/ssl_transcript.obj: cxx ../../third_party/boringssl/src/ssl/ssl_transcript.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = ssl_transcript.cc
+  source_name_part = ssl_transcript
+build obj/third_party/boringssl/boringssl/ssl_versions.obj: cxx ../../third_party/boringssl/src/ssl/ssl_versions.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = ssl_versions.cc
+  source_name_part = ssl_versions
+build obj/third_party/boringssl/boringssl/ssl_x509.obj: cxx ../../third_party/boringssl/src/ssl/ssl_x509.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = ssl_x509.cc
+  source_name_part = ssl_x509
+build obj/third_party/boringssl/boringssl/t1_enc.obj: cxx ../../third_party/boringssl/src/ssl/t1_enc.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = t1_enc.cc
+  source_name_part = t1_enc
+build obj/third_party/boringssl/boringssl/tls13_both.obj: cxx ../../third_party/boringssl/src/ssl/tls13_both.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = tls13_both.cc
+  source_name_part = tls13_both
+build obj/third_party/boringssl/boringssl/tls13_client.obj: cxx ../../third_party/boringssl/src/ssl/tls13_client.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = tls13_client.cc
+  source_name_part = tls13_client
+build obj/third_party/boringssl/boringssl/tls13_enc.obj: cxx ../../third_party/boringssl/src/ssl/tls13_enc.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = tls13_enc.cc
+  source_name_part = tls13_enc
+build obj/third_party/boringssl/boringssl/tls13_server.obj: cxx ../../third_party/boringssl/src/ssl/tls13_server.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = tls13_server.cc
+  source_name_part = tls13_server
+build obj/third_party/boringssl/boringssl/tls_method.obj: cxx ../../third_party/boringssl/src/ssl/tls_method.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = tls_method.cc
+  source_name_part = tls_method
+build obj/third_party/boringssl/boringssl/tls_record.obj: cxx ../../third_party/boringssl/src/ssl/tls_record.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = tls_record.cc
+  source_name_part = tls_record
+build obj/third_party/boringssl/boringssl/cert_error_id.obj: cxx ../../third_party/boringssl/src/pki/cert_error_id.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = cert_error_id.cc
+  source_name_part = cert_error_id
+build obj/third_party/boringssl/boringssl/cert_error_params.obj: cxx ../../third_party/boringssl/src/pki/cert_error_params.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = cert_error_params.cc
+  source_name_part = cert_error_params
+build obj/third_party/boringssl/boringssl/cert_errors.obj: cxx ../../third_party/boringssl/src/pki/cert_errors.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = cert_errors.cc
+  source_name_part = cert_errors
+build obj/third_party/boringssl/boringssl/cert_issuer_source_static.obj: cxx ../../third_party/boringssl/src/pki/cert_issuer_source_static.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = cert_issuer_source_static.cc
+  source_name_part = cert_issuer_source_static
+build obj/third_party/boringssl/boringssl/certificate.obj: cxx ../../third_party/boringssl/src/pki/certificate.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = certificate.cc
+  source_name_part = certificate
+build obj/third_party/boringssl/boringssl/certificate_policies.obj: cxx ../../third_party/boringssl/src/pki/certificate_policies.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = certificate_policies.cc
+  source_name_part = certificate_policies
+build obj/third_party/boringssl/boringssl/common_cert_errors.obj: cxx ../../third_party/boringssl/src/pki/common_cert_errors.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = common_cert_errors.cc
+  source_name_part = common_cert_errors
+build obj/third_party/boringssl/boringssl/crl.obj: cxx ../../third_party/boringssl/src/pki/crl.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = crl.cc
+  source_name_part = crl
+build obj/third_party/boringssl/boringssl/encode_values.obj: cxx ../../third_party/boringssl/src/pki/encode_values.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = encode_values.cc
+  source_name_part = encode_values
+build obj/third_party/boringssl/boringssl/extended_key_usage.obj: cxx ../../third_party/boringssl/src/pki/extended_key_usage.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = extended_key_usage.cc
+  source_name_part = extended_key_usage
+build obj/third_party/boringssl/boringssl/general_names.obj: cxx ../../third_party/boringssl/src/pki/general_names.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = general_names.cc
+  source_name_part = general_names
+build obj/third_party/boringssl/boringssl/input.obj: cxx ../../third_party/boringssl/src/pki/input.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = input.cc
+  source_name_part = input
+build obj/third_party/boringssl/boringssl/ip_util.obj: cxx ../../third_party/boringssl/src/pki/ip_util.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = ip_util.cc
+  source_name_part = ip_util
+build obj/third_party/boringssl/boringssl/name_constraints.obj: cxx ../../third_party/boringssl/src/pki/name_constraints.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = name_constraints.cc
+  source_name_part = name_constraints
+build obj/third_party/boringssl/boringssl/ocsp.obj: cxx ../../third_party/boringssl/src/pki/ocsp.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = ocsp.cc
+  source_name_part = ocsp
+build obj/third_party/boringssl/boringssl/parse_certificate.obj: cxx ../../third_party/boringssl/src/pki/parse_certificate.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = parse_certificate.cc
+  source_name_part = parse_certificate
+build obj/third_party/boringssl/boringssl/parse_name.obj: cxx ../../third_party/boringssl/src/pki/parse_name.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = parse_name.cc
+  source_name_part = parse_name
+build obj/third_party/boringssl/boringssl/parse_values.obj: cxx ../../third_party/boringssl/src/pki/parse_values.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = parse_values.cc
+  source_name_part = parse_values
+build obj/third_party/boringssl/boringssl/parsed_certificate.obj: cxx ../../third_party/boringssl/src/pki/parsed_certificate.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = parsed_certificate.cc
+  source_name_part = parsed_certificate
+build obj/third_party/boringssl/boringssl/parser.obj: cxx ../../third_party/boringssl/src/pki/parser.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = parser.cc
+  source_name_part = parser
+build obj/third_party/boringssl/boringssl/path_builder.obj: cxx ../../third_party/boringssl/src/pki/path_builder.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = path_builder.cc
+  source_name_part = path_builder
+build obj/third_party/boringssl/boringssl/pem.obj: cxx ../../third_party/boringssl/src/pki/pem.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = pem.cc
+  source_name_part = pem
+build obj/third_party/boringssl/boringssl/revocation_util.obj: cxx ../../third_party/boringssl/src/pki/revocation_util.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = revocation_util.cc
+  source_name_part = revocation_util
+build obj/third_party/boringssl/boringssl/signature_algorithm.obj: cxx ../../third_party/boringssl/src/pki/signature_algorithm.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = signature_algorithm.cc
+  source_name_part = signature_algorithm
+build obj/third_party/boringssl/boringssl/simple_path_builder_delegate.obj: cxx ../../third_party/boringssl/src/pki/simple_path_builder_delegate.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = simple_path_builder_delegate.cc
+  source_name_part = simple_path_builder_delegate
+build obj/third_party/boringssl/boringssl/string_util.obj: cxx ../../third_party/boringssl/src/pki/string_util.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = string_util.cc
+  source_name_part = string_util
+build obj/third_party/boringssl/boringssl/trust_store.obj: cxx ../../third_party/boringssl/src/pki/trust_store.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = trust_store.cc
+  source_name_part = trust_store
+build obj/third_party/boringssl/boringssl/trust_store_collection.obj: cxx ../../third_party/boringssl/src/pki/trust_store_collection.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = trust_store_collection.cc
+  source_name_part = trust_store_collection
+build obj/third_party/boringssl/boringssl/trust_store_in_memory.obj: cxx ../../third_party/boringssl/src/pki/trust_store_in_memory.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = trust_store_in_memory.cc
+  source_name_part = trust_store_in_memory
+build obj/third_party/boringssl/boringssl/verify.obj: cxx ../../third_party/boringssl/src/pki/verify.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = verify.cc
+  source_name_part = verify
+build obj/third_party/boringssl/boringssl/verify_certificate_chain.obj: cxx ../../third_party/boringssl/src/pki/verify_certificate_chain.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = verify_certificate_chain.cc
+  source_name_part = verify_certificate_chain
+build obj/third_party/boringssl/boringssl/verify_error.obj: cxx ../../third_party/boringssl/src/pki/verify_error.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = verify_error.cc
+  source_name_part = verify_error
+build obj/third_party/boringssl/boringssl/verify_name_match.obj: cxx ../../third_party/boringssl/src/pki/verify_name_match.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = verify_name_match.cc
+  source_name_part = verify_name_match
+build obj/third_party/boringssl/boringssl/verify_signed_data.obj: cxx ../../third_party/boringssl/src/pki/verify_signed_data.cc | phony/third_party/boringssl/boringssl.inputs
+  source_file_part = verify_signed_data.cc
+  source_name_part = verify_signed_data
+
+build obj/third_party/boringssl/boringssl.lib: alink obj/third_party/boringssl/boringssl/bcm.obj obj/third_party/boringssl/boringssl/aes.obj obj/third_party/boringssl/boringssl/a_bitstr.obj obj/third_party/boringssl/boringssl/a_bool.obj obj/third_party/boringssl/boringssl/a_d2i_fp.obj obj/third_party/boringssl/boringssl/a_dup.obj obj/third_party/boringssl/boringssl/a_gentm.obj obj/third_party/boringssl/boringssl/a_i2d_fp.obj obj/third_party/boringssl/boringssl/a_int.obj obj/third_party/boringssl/boringssl/a_mbstr.obj obj/third_party/boringssl/boringssl/a_object.obj obj/third_party/boringssl/boringssl/a_octet.obj obj/third_party/boringssl/boringssl/a_strex.obj obj/third_party/boringssl/boringssl/a_strnid.obj obj/third_party/boringssl/boringssl/a_time.obj obj/third_party/boringssl/boringssl/a_type.obj obj/third_party/boringssl/boringssl/a_utctm.obj obj/third_party/boringssl/boringssl/asn1_lib.obj obj/third_party/boringssl/boringssl/asn1_par.obj obj/third_party/boringssl/boringssl/asn_pack.obj obj/third_party/boringssl/boringssl/f_int.obj obj/third_party/boringssl/boringssl/f_string.obj obj/third_party/boringssl/boringssl/posix_time.obj obj/third_party/boringssl/boringssl/tasn_dec.obj obj/third_party/boringssl/boringssl/tasn_enc.obj obj/third_party/boringssl/boringssl/tasn_fre.obj obj/third_party/boringssl/boringssl/tasn_new.obj obj/third_party/boringssl/boringssl/tasn_typ.obj obj/third_party/boringssl/boringssl/tasn_utl.obj obj/third_party/boringssl/boringssl/base64.obj obj/third_party/boringssl/boringssl/bio.obj obj/third_party/boringssl/boringssl/bio_mem.obj obj/third_party/boringssl/boringssl/connect.obj obj/third_party/boringssl/boringssl/errno.obj obj/third_party/boringssl/boringssl/fd.obj obj/third_party/boringssl/boringssl/file.obj obj/third_party/boringssl/boringssl/hexdump.obj obj/third_party/boringssl/boringssl/pair.obj obj/third_party/boringssl/boringssl/printf.obj obj/third_party/boringssl/boringssl/socket.obj obj/third_party/boringssl/boringssl/socket_helper.obj obj/third_party/boringssl/boringssl/blake2.obj obj/third_party/boringssl/boringssl/bn_asn1.obj obj/third_party/boringssl/boringssl/convert.obj obj/third_party/boringssl/boringssl/exponentiation.obj obj/third_party/boringssl/boringssl/buf.obj obj/third_party/boringssl/boringssl/asn1_compat.obj obj/third_party/boringssl/boringssl/ber.obj obj/third_party/boringssl/boringssl/cbb.obj obj/third_party/boringssl/boringssl/cbs.obj obj/third_party/boringssl/boringssl/unicode.obj obj/third_party/boringssl/boringssl/chacha.obj obj/third_party/boringssl/boringssl/derive_key.obj obj/third_party/boringssl/boringssl/e_aesctrhmac.obj obj/third_party/boringssl/boringssl/e_aeseax.obj obj/third_party/boringssl/boringssl/e_aesgcmsiv.obj obj/third_party/boringssl/boringssl/e_chacha20poly1305.obj obj/third_party/boringssl/boringssl/e_des.obj obj/third_party/boringssl/boringssl/e_null.obj obj/third_party/boringssl/boringssl/e_rc2.obj obj/third_party/boringssl/boringssl/e_rc4.obj obj/third_party/boringssl/boringssl/e_tls.obj obj/third_party/boringssl/boringssl/get_cipher.obj obj/third_party/boringssl/boringssl/tls_cbc.obj obj/third_party/boringssl/boringssl/conf.obj obj/third_party/boringssl/boringssl/cpu_aarch64_apple.obj obj/third_party/boringssl/boringssl/cpu_aarch64_fuchsia.obj obj/third_party/boringssl/boringssl/cpu_aarch64_linux.obj obj/third_party/boringssl/boringssl/cpu_aarch64_openbsd.obj obj/third_party/boringssl/boringssl/cpu_aarch64_sysreg.obj obj/third_party/boringssl/boringssl/cpu_aarch64_win.obj obj/third_party/boringssl/boringssl/cpu_arm_freebsd.obj obj/third_party/boringssl/boringssl/cpu_arm_linux.obj obj/third_party/boringssl/boringssl/cpu_intel.obj obj/third_party/boringssl/boringssl/crypto.obj obj/third_party/boringssl/boringssl/curve25519.obj obj/third_party/boringssl/boringssl/curve25519_64_adx.obj obj/third_party/boringssl/boringssl/spake25519.obj obj/third_party/boringssl/boringssl/des.obj obj/third_party/boringssl/boringssl/dh_asn1.obj obj/third_party/boringssl/boringssl/params.obj obj/third_party/boringssl/boringssl/digest_extra.obj obj/third_party/boringssl/boringssl/dsa.obj obj/third_party/boringssl/boringssl/dsa_asn1.obj obj/third_party/boringssl/boringssl/ec_asn1.obj obj/third_party/boringssl/boringssl/ec_derive.obj obj/third_party/boringssl/boringssl/hash_to_curve.obj obj/third_party/boringssl/boringssl/ecdh.obj obj/third_party/boringssl/boringssl/ecdsa_asn1.obj obj/third_party/boringssl/boringssl/engine.obj obj/third_party/boringssl/boringssl/err.obj obj/third_party/boringssl/boringssl/evp.obj obj/third_party/boringssl/boringssl/evp_asn1.obj obj/third_party/boringssl/boringssl/evp_ctx.obj obj/third_party/boringssl/boringssl/p_dh.obj obj/third_party/boringssl/boringssl/p_dh_asn1.obj obj/third_party/boringssl/boringssl/p_dsa_asn1.obj obj/third_party/boringssl/boringssl/p_ec.obj obj/third_party/boringssl/boringssl/p_ec_asn1.obj obj/third_party/boringssl/boringssl/p_ed25519.obj obj/third_party/boringssl/boringssl/p_ed25519_asn1.obj obj/third_party/boringssl/boringssl/p_hkdf.obj obj/third_party/boringssl/boringssl/p_rsa.obj obj/third_party/boringssl/boringssl/p_rsa_asn1.obj obj/third_party/boringssl/boringssl/p_x25519.obj obj/third_party/boringssl/boringssl/p_x25519_asn1.obj obj/third_party/boringssl/boringssl/pbkdf.obj obj/third_party/boringssl/boringssl/print.obj obj/third_party/boringssl/boringssl/scrypt.obj obj/third_party/boringssl/boringssl/sign.obj obj/third_party/boringssl/boringssl/ex_data.obj obj/third_party/boringssl/boringssl/fips_shared_support.obj obj/third_party/boringssl/boringssl/fuzzer_mode.obj obj/third_party/boringssl/boringssl/hpke.obj obj/third_party/boringssl/boringssl/hrss.obj obj/third_party/boringssl/boringssl/kyber.obj obj/third_party/boringssl/boringssl/lhash.obj obj/third_party/boringssl/boringssl/md4.obj obj/third_party/boringssl/boringssl/md5.obj obj/third_party/boringssl/boringssl/mem.obj obj/third_party/boringssl/boringssl/mldsa.obj obj/third_party/boringssl/boringssl/mlkem.obj obj/third_party/boringssl/boringssl/obj.obj obj/third_party/boringssl/boringssl/obj_xref.obj obj/third_party/boringssl/boringssl/pem_all.obj obj/third_party/boringssl/boringssl/pem_info.obj obj/third_party/boringssl/boringssl/pem_lib.obj obj/third_party/boringssl/boringssl/pem_oth.obj obj/third_party/boringssl/boringssl/pem_pk8.obj obj/third_party/boringssl/boringssl/pem_pkey.obj obj/third_party/boringssl/boringssl/pem_x509.obj obj/third_party/boringssl/boringssl/pem_xaux.obj obj/third_party/boringssl/boringssl/pkcs7.obj obj/third_party/boringssl/boringssl/pkcs7_x509.obj obj/third_party/boringssl/boringssl/p5_pbev2.obj obj/third_party/boringssl/boringssl/pkcs8.obj obj/third_party/boringssl/boringssl/pkcs8_x509.obj obj/third_party/boringssl/boringssl/poly1305.obj obj/third_party/boringssl/boringssl/poly1305_arm.obj obj/third_party/boringssl/boringssl/poly1305_vec.obj obj/third_party/boringssl/boringssl/pool.obj obj/third_party/boringssl/boringssl/deterministic.obj obj/third_party/boringssl/boringssl/fork_detect.obj obj/third_party/boringssl/boringssl/forkunsafe.obj obj/third_party/boringssl/boringssl/getentropy.obj obj/third_party/boringssl/boringssl/ios.obj obj/third_party/boringssl/boringssl/passive.obj obj/third_party/boringssl/boringssl/rand.obj obj/third_party/boringssl/boringssl/trusty.obj obj/third_party/boringssl/boringssl/urandom.obj obj/third_party/boringssl/boringssl/windows.obj obj/third_party/boringssl/boringssl/rc4.obj obj/third_party/boringssl/boringssl/refcount.obj obj/third_party/boringssl/boringssl/rsa_asn1.obj obj/third_party/boringssl/boringssl/rsa_crypt.obj obj/third_party/boringssl/boringssl/rsa_extra.obj obj/third_party/boringssl/boringssl/rsa_print.obj obj/third_party/boringssl/boringssl/sha1.obj obj/third_party/boringssl/boringssl/sha256.obj obj/third_party/boringssl/boringssl/sha512.obj obj/third_party/boringssl/boringssl/siphash.obj obj/third_party/boringssl/boringssl/slhdsa.obj obj/third_party/boringssl/boringssl/spake2plus.obj obj/third_party/boringssl/boringssl/stack.obj obj/third_party/boringssl/boringssl/thread.obj obj/third_party/boringssl/boringssl/thread_none.obj obj/third_party/boringssl/boringssl/thread_pthread.obj obj/third_party/boringssl/boringssl/thread_win.obj obj/third_party/boringssl/boringssl/pmbtoken.obj obj/third_party/boringssl/boringssl/trust_token.obj obj/third_party/boringssl/boringssl/voprf.obj obj/third_party/boringssl/boringssl/a_digest.obj obj/third_party/boringssl/boringssl/a_sign.obj obj/third_party/boringssl/boringssl/a_verify.obj obj/third_party/boringssl/boringssl/algorithm.obj obj/third_party/boringssl/boringssl/asn1_gen.obj obj/third_party/boringssl/boringssl/by_dir.obj obj/third_party/boringssl/boringssl/by_file.obj obj/third_party/boringssl/boringssl/i2d_pr.obj obj/third_party/boringssl/boringssl/name_print.obj obj/third_party/boringssl/boringssl/policy.obj obj/third_party/boringssl/boringssl/rsa_pss.obj obj/third_party/boringssl/boringssl/t_crl.obj obj/third_party/boringssl/boringssl/t_req.obj obj/third_party/boringssl/boringssl/t_x509.obj obj/third_party/boringssl/boringssl/t_x509a.obj obj/third_party/boringssl/boringssl/v3_akey.obj obj/third_party/boringssl/boringssl/v3_akeya.obj obj/third_party/boringssl/boringssl/v3_alt.obj obj/third_party/boringssl/boringssl/v3_bcons.obj obj/third_party/boringssl/boringssl/v3_bitst.obj obj/third_party/boringssl/boringssl/v3_conf.obj obj/third_party/boringssl/boringssl/v3_cpols.obj obj/third_party/boringssl/boringssl/v3_crld.obj obj/third_party/boringssl/boringssl/v3_enum.obj obj/third_party/boringssl/boringssl/v3_extku.obj obj/third_party/boringssl/boringssl/v3_genn.obj obj/third_party/boringssl/boringssl/v3_ia5.obj obj/third_party/boringssl/boringssl/v3_info.obj obj/third_party/boringssl/boringssl/v3_int.obj obj/third_party/boringssl/boringssl/v3_lib.obj obj/third_party/boringssl/boringssl/v3_ncons.obj obj/third_party/boringssl/boringssl/v3_ocsp.obj obj/third_party/boringssl/boringssl/v3_pcons.obj obj/third_party/boringssl/boringssl/v3_pmaps.obj obj/third_party/boringssl/boringssl/v3_prn.obj obj/third_party/boringssl/boringssl/v3_purp.obj obj/third_party/boringssl/boringssl/v3_skey.obj obj/third_party/boringssl/boringssl/v3_utl.obj obj/third_party/boringssl/boringssl/x509.obj obj/third_party/boringssl/boringssl/x509_att.obj obj/third_party/boringssl/boringssl/x509_cmp.obj obj/third_party/boringssl/boringssl/x509_d2.obj obj/third_party/boringssl/boringssl/x509_def.obj obj/third_party/boringssl/boringssl/x509_ext.obj obj/third_party/boringssl/boringssl/x509_lu.obj obj/third_party/boringssl/boringssl/x509_obj.obj obj/third_party/boringssl/boringssl/x509_req.obj obj/third_party/boringssl/boringssl/x509_set.obj obj/third_party/boringssl/boringssl/x509_trs.obj obj/third_party/boringssl/boringssl/x509_txt.obj obj/third_party/boringssl/boringssl/x509_v3.obj obj/third_party/boringssl/boringssl/x509_vfy.obj obj/third_party/boringssl/boringssl/x509_vpm.obj obj/third_party/boringssl/boringssl/x509cset.obj obj/third_party/boringssl/boringssl/x509name.obj obj/third_party/boringssl/boringssl/x509rset.obj obj/third_party/boringssl/boringssl/x509spki.obj obj/third_party/boringssl/boringssl/x_algor.obj obj/third_party/boringssl/boringssl/x_all.obj obj/third_party/boringssl/boringssl/x_attrib.obj obj/third_party/boringssl/boringssl/x_crl.obj obj/third_party/boringssl/boringssl/x_exten.obj obj/third_party/boringssl/boringssl/x_name.obj obj/third_party/boringssl/boringssl/x_pubkey.obj obj/third_party/boringssl/boringssl/x_req.obj obj/third_party/boringssl/boringssl/x_sig.obj obj/third_party/boringssl/boringssl/x_spki.obj obj/third_party/boringssl/boringssl/x_val.obj obj/third_party/boringssl/boringssl/x_x509.obj obj/third_party/boringssl/boringssl/x_x509a.obj obj/third_party/boringssl/boringssl/err_data.obj obj/third_party/boringssl/boringssl/bio_ssl.obj obj/third_party/boringssl/boringssl/d1_both.obj obj/third_party/boringssl/boringssl/d1_lib.obj obj/third_party/boringssl/boringssl/d1_pkt.obj obj/third_party/boringssl/boringssl/d1_srtp.obj obj/third_party/boringssl/boringssl/dtls_method.obj obj/third_party/boringssl/boringssl/dtls_record.obj obj/third_party/boringssl/boringssl/encrypted_client_hello.obj obj/third_party/boringssl/boringssl/extensions.obj obj/third_party/boringssl/boringssl/handoff.obj obj/third_party/boringssl/boringssl/handshake.obj obj/third_party/boringssl/boringssl/handshake_client.obj obj/third_party/boringssl/boringssl/handshake_server.obj obj/third_party/boringssl/boringssl/s3_both.obj obj/third_party/boringssl/boringssl/s3_lib.obj obj/third_party/boringssl/boringssl/s3_pkt.obj obj/third_party/boringssl/boringssl/ssl_aead_ctx.obj obj/third_party/boringssl/boringssl/ssl_asn1.obj obj/third_party/boringssl/boringssl/ssl_buffer.obj obj/third_party/boringssl/boringssl/ssl_cert.obj obj/third_party/boringssl/boringssl/ssl_cipher.obj obj/third_party/boringssl/boringssl/ssl_credential.obj obj/third_party/boringssl/boringssl/ssl_file.obj obj/third_party/boringssl/boringssl/ssl_key_share.obj obj/third_party/boringssl/boringssl/ssl_lib.obj obj/third_party/boringssl/boringssl/ssl_privkey.obj obj/third_party/boringssl/boringssl/ssl_session.obj obj/third_party/boringssl/boringssl/ssl_stat.obj obj/third_party/boringssl/boringssl/ssl_transcript.obj obj/third_party/boringssl/boringssl/ssl_versions.obj obj/third_party/boringssl/boringssl/ssl_x509.obj obj/third_party/boringssl/boringssl/t1_enc.obj obj/third_party/boringssl/boringssl/tls13_both.obj obj/third_party/boringssl/boringssl/tls13_client.obj obj/third_party/boringssl/boringssl/tls13_enc.obj obj/third_party/boringssl/boringssl/tls13_server.obj obj/third_party/boringssl/boringssl/tls_method.obj obj/third_party/boringssl/boringssl/tls_record.obj obj/third_party/boringssl/boringssl/cert_error_id.obj obj/third_party/boringssl/boringssl/cert_error_params.obj obj/third_party/boringssl/boringssl/cert_errors.obj obj/third_party/boringssl/boringssl/cert_issuer_source_static.obj obj/third_party/boringssl/boringssl/certificate.obj obj/third_party/boringssl/boringssl/certificate_policies.obj obj/third_party/boringssl/boringssl/common_cert_errors.obj obj/third_party/boringssl/boringssl/crl.obj obj/third_party/boringssl/boringssl/encode_values.obj obj/third_party/boringssl/boringssl/extended_key_usage.obj obj/third_party/boringssl/boringssl/general_names.obj obj/third_party/boringssl/boringssl/input.obj obj/third_party/boringssl/boringssl/ip_util.obj obj/third_party/boringssl/boringssl/name_constraints.obj obj/third_party/boringssl/boringssl/ocsp.obj obj/third_party/boringssl/boringssl/parse_certificate.obj obj/third_party/boringssl/boringssl/parse_name.obj obj/third_party/boringssl/boringssl/parse_values.obj obj/third_party/boringssl/boringssl/parsed_certificate.obj obj/third_party/boringssl/boringssl/parser.obj obj/third_party/boringssl/boringssl/path_builder.obj obj/third_party/boringssl/boringssl/pem.obj obj/third_party/boringssl/boringssl/revocation_util.obj obj/third_party/boringssl/boringssl/signature_algorithm.obj obj/third_party/boringssl/boringssl/simple_path_builder_delegate.obj obj/third_party/boringssl/boringssl/string_util.obj obj/third_party/boringssl/boringssl/trust_store.obj obj/third_party/boringssl/boringssl/trust_store_collection.obj obj/third_party/boringssl/boringssl/trust_store_in_memory.obj obj/third_party/boringssl/boringssl/verify.obj obj/third_party/boringssl/boringssl/verify_certificate_chain.obj obj/third_party/boringssl/boringssl/verify_error.obj obj/third_party/boringssl/boringssl/verify_name_match.obj obj/third_party/boringssl/boringssl/verify_signed_data.obj | ../../third_party/llvm-build/Release+Asserts/lib/clang/21/lib/windows/clang_rt.builtins-x86_64.lib phony/third_party/boringssl/boringssl.inputs || obj/third_party/boringssl/boringssl_asm.lib
+  arflags = /ignore$:4221 /llvmlibthin /WX
+  output_extension = .lib
+  output_dir = obj/third_party/boringssl

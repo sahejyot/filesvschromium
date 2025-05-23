@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\out\buildDir\CMakeFiles\be144fbaf0fb44cf0a6470aa2279a640\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{1A00FA62-8DB0-38D5-ABE2-321D39133192}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

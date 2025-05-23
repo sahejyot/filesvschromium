@@ -1,0 +1,44 @@
+defines = -DUSE_AURA=1 -D_HAS_NODISCARD -D_CRT_NONSTDC_NO_WARNINGS -D_WINSOCK_DEPRECATED_NO_WARNINGS "-DCR_CLANG_REVISION=\"llvmorg-21-init-5118-g52cd27e6-5\"" -D_LIBCPP_HARDENING_MODE=_LIBCPP_HARDENING_MODE_NONE -D_HAS_EXCEPTIONS=0 -D__STD_C -D_CRT_RAND_S -D_CRT_SECURE_NO_DEPRECATE -D_SCL_SECURE_NO_DEPRECATE -D_ATL_NO_OPENGL -D_WINDOWS -DCERT_CHAIN_PARA_HAS_EXTRA_FIELDS -DPSAPI_VERSION=2 -DWIN32 -D_SECURE_ATL -DWINAPI_FAMILY=WINAPI_FAMILY_DESKTOP_APP -DWIN32_LEAN_AND_MEAN -DNOMINMAX -D_UNICODE -DUNICODE -DNTDDI_VERSION=NTDDI_WIN11_GE -D_WIN32_WINNT=0x0A00 -DWINVER=0x0A00 -DNDEBUG -DNVALGRIND -DDYNAMIC_ANNOTATIONS_ENABLED=0 -DPERFETTO_IMPLEMENTATION
+include_dirs = -I../.. -Igen -I../../third_party/perfetto -I../../third_party/perfetto/src/profiling/memory/include -I../../third_party/perfetto/include -Igen/third_party/perfetto/build_config -Igen/third_party/perfetto
+cflags = /W4 -Wimplicit-fallthrough -Wextra-semi -Wunreachable-code-aggressive -Wthread-safety -Wgnu -Wno-gnu-anonymous-struct -Wno-gnu-conditional-omitted-operand -Wno-gnu-include-next -Wno-gnu-label-as-value -Wno-gnu-redeclared-enum -Wno-gnu-statement-expression -Wno-gnu-zero-variadic-macro-arguments -Wno-zero-length-array -Wno-missing-field-initializers -Wno-unused-parameter -Wno-psabi -Wloop-analysis -Wno-unneeded-internal-declaration -Wno-nonportable-include-path -Wno-cast-function-type -Wno-thread-safety-reference-return -Wno-nontrivial-memcall -Wshadow -fno-delete-null-pointer-checks /clang$:-fno-strict-overflow -fno-ident -fcolor-diagnostics -fmerge-all-constants /Zc$:sizedDealloc- -fcrash-diagnostics-dir=../../tools/clang/crashreports -mllvm -instcombine-lower-dbg-declare=0 -mllvm -split-threshold-for-reg-with-hint=0 /clang$:-ffp-contract=off -fcomplete-member-pointers /Gy /FS /bigobj /utf-8 /Zc$:twoPhase -ffile-reproducible /D__WRL_ENABLE_FUNCTION_STATICS__ -fmsc-version=1934 -m64 -msse3 /Brepro -Wno-builtin-macro-redefined -D__DATE__= -D__TIME__= -D__TIMESTAMP__= -ffile-compilation-dir=. -no-canonical-prefixes -Xclang --warning-suppression-mappings=../../build/config/warning_suppression.txt -ftrivial-auto-var-init=pattern /O2 /clang$:-O2 /Oy- /Zc$:inline /Gw /clang$:-fno-math-errno /guard$:cf /MT -Wheader-hygiene -Wstring-conversion -Wtautological-overlap-compare -Xclang -add-plugin -Xclang find-bad-constructs -Xclang -plugin-arg-find-bad-constructs -Xclang span-ctor-from-string-literal -Xclang -plugin-arg-find-bad-constructs -Xclang raw-ref-template-as-trivial-member -Xclang -plugin-arg-find-bad-constructs -Xclang raw-span-template-as-trivial-member -Xclang -plugin-arg-find-bad-constructs -Xclang check-stack-allocated -Xclang -add-plugin -Xclang raw-ptr-plugin -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ptr-to-stack-allocated -Xclang -plugin-arg-raw-ptr-plugin -Xclang disable-check-raw-ptr-to-stack-allocated-error -Xclang -plugin-arg-raw-ptr-plugin -Xclang raw-ptr-exclude-path=../../third_party/dawn/ -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ptr-fields -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-span-fields -Xclang -plugin-arg-raw-ptr-plugin -Xclang check-raw-ref-fields
+cflags_cc = -Wno-invalid-offsetof -Wenum-compare-conditional -Wno-nullability-completeness -Wno-c++11-narrowing-const-reference -Wno-missing-template-arg-list-after-template-kw /std$:c++20 -Wno-trigraphs /TP /GR-
+label_name = protozero
+target_out_dir = obj/third_party/perfetto/src/protozero
+target_output_name = protozero
+
+build phony/third_party/perfetto/src/protozero/protozero.inputs: phony ../../build/config/unsafe_buffers_paths.txt ../../build/config/warning_suppression.txt
+build obj/third_party/perfetto/src/protozero/protozero/field.obj: cxx ../../third_party/perfetto/src/protozero/field.cc | phony/third_party/perfetto/src/protozero/protozero.inputs || phony/third_party/perfetto/gn/gen_buildflags
+  source_file_part = field.cc
+  source_name_part = field
+build obj/third_party/perfetto/src/protozero/protozero/gen_field_helpers.obj: cxx ../../third_party/perfetto/src/protozero/gen_field_helpers.cc | phony/third_party/perfetto/src/protozero/protozero.inputs || phony/third_party/perfetto/gn/gen_buildflags
+  source_file_part = gen_field_helpers.cc
+  source_name_part = gen_field_helpers
+build obj/third_party/perfetto/src/protozero/protozero/message.obj: cxx ../../third_party/perfetto/src/protozero/message.cc | phony/third_party/perfetto/src/protozero/protozero.inputs || phony/third_party/perfetto/gn/gen_buildflags
+  source_file_part = message.cc
+  source_name_part = message
+build obj/third_party/perfetto/src/protozero/protozero/message_arena.obj: cxx ../../third_party/perfetto/src/protozero/message_arena.cc | phony/third_party/perfetto/src/protozero/protozero.inputs || phony/third_party/perfetto/gn/gen_buildflags
+  source_file_part = message_arena.cc
+  source_name_part = message_arena
+build obj/third_party/perfetto/src/protozero/protozero/packed_repeated_fields.obj: cxx ../../third_party/perfetto/src/protozero/packed_repeated_fields.cc | phony/third_party/perfetto/src/protozero/protozero.inputs || phony/third_party/perfetto/gn/gen_buildflags
+  source_file_part = packed_repeated_fields.cc
+  source_name_part = packed_repeated_fields
+build obj/third_party/perfetto/src/protozero/protozero/proto_decoder.obj: cxx ../../third_party/perfetto/src/protozero/proto_decoder.cc | phony/third_party/perfetto/src/protozero/protozero.inputs || phony/third_party/perfetto/gn/gen_buildflags
+  source_file_part = proto_decoder.cc
+  source_name_part = proto_decoder
+build obj/third_party/perfetto/src/protozero/protozero/scattered_heap_buffer.obj: cxx ../../third_party/perfetto/src/protozero/scattered_heap_buffer.cc | phony/third_party/perfetto/src/protozero/protozero.inputs || phony/third_party/perfetto/gn/gen_buildflags
+  source_file_part = scattered_heap_buffer.cc
+  source_name_part = scattered_heap_buffer
+build obj/third_party/perfetto/src/protozero/protozero/scattered_stream_null_delegate.obj: cxx ../../third_party/perfetto/src/protozero/scattered_stream_null_delegate.cc | phony/third_party/perfetto/src/protozero/protozero.inputs || phony/third_party/perfetto/gn/gen_buildflags
+  source_file_part = scattered_stream_null_delegate.cc
+  source_name_part = scattered_stream_null_delegate
+build obj/third_party/perfetto/src/protozero/protozero/scattered_stream_writer.obj: cxx ../../third_party/perfetto/src/protozero/scattered_stream_writer.cc | phony/third_party/perfetto/src/protozero/protozero.inputs || phony/third_party/perfetto/gn/gen_buildflags
+  source_file_part = scattered_stream_writer.cc
+  source_name_part = scattered_stream_writer
+build obj/third_party/perfetto/src/protozero/protozero/static_buffer.obj: cxx ../../third_party/perfetto/src/protozero/static_buffer.cc | phony/third_party/perfetto/src/protozero/protozero.inputs || phony/third_party/perfetto/gn/gen_buildflags
+  source_file_part = static_buffer.cc
+  source_name_part = static_buffer
+build obj/third_party/perfetto/src/protozero/protozero/virtual_destructors.obj: cxx ../../third_party/perfetto/src/protozero/virtual_destructors.cc | phony/third_party/perfetto/src/protozero/protozero.inputs || phony/third_party/perfetto/gn/gen_buildflags
+  source_file_part = virtual_destructors.cc
+  source_name_part = virtual_destructors
+
+build phony/third_party/perfetto/src/protozero/protozero: phony obj/third_party/perfetto/src/protozero/protozero/field.obj obj/third_party/perfetto/src/protozero/protozero/gen_field_helpers.obj obj/third_party/perfetto/src/protozero/protozero/message.obj obj/third_party/perfetto/src/protozero/protozero/message_arena.obj obj/third_party/perfetto/src/protozero/protozero/packed_repeated_fields.obj obj/third_party/perfetto/src/protozero/protozero/proto_decoder.obj obj/third_party/perfetto/src/protozero/protozero/scattered_heap_buffer.obj obj/third_party/perfetto/src/protozero/protozero/scattered_stream_null_delegate.obj obj/third_party/perfetto/src/protozero/protozero/scattered_stream_writer.obj obj/third_party/perfetto/src/protozero/protozero/static_buffer.obj obj/third_party/perfetto/src/protozero/protozero/virtual_destructors.obj || phony/third_party/perfetto/gn/default_deps phony/third_party/perfetto/src/base/base phony/third_party/perfetto/src/base/perfetto_base_default_platform

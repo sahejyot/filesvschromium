@@ -1,0 +1,3095 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\x509\asn1_gen.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\ssl\ssl_asn1.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\allocator\allocator_check.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\allocator\dispatcher\dispatcher.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\allocator\dispatcher\internal\dispatch_data.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\allocator\dispatcher\memory_tagging.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\allocator\dispatcher\reentry_guard.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\allocator\dispatcher\tls.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\allocator\miracle_parameter.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\allocator\partition_alloc_features.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\allocator\partition_alloc_support.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\allocator\partition_allocator\src\partition_alloc\address_pool_manager.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\allocator\partition_allocator\src\partition_alloc\address_pool_manager_bitmap.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\allocator\partition_allocator\src\partition_alloc\address_space_randomization.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\allocator\partition_allocator\src\partition_alloc\allocation_guard.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\allocator\partition_allocator\src\partition_alloc\compressed_pointer.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\allocator\partition_allocator\src\partition_alloc\dangling_raw_ptr_checks.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\allocator\partition_allocator\src\partition_alloc\extended_api.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\allocator\partition_allocator\src\partition_alloc\gwp_asan_support.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\allocator\partition_allocator\src\partition_alloc\internal_allocator.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\allocator\partition_allocator\src\partition_alloc\lightweight_quarantine.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\allocator\partition_allocator\src\partition_alloc\memory_reclaimer.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\allocator\partition_allocator\src\partition_alloc\oom.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\allocator\partition_allocator\src\partition_alloc\oom_callback.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\allocator\partition_allocator\src\partition_alloc\page_allocator.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\allocator\partition_allocator\src\partition_alloc\partition_address_space.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\allocator\partition_allocator\src\partition_alloc\partition_alloc.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\allocator\partition_allocator\src\partition_alloc\partition_alloc_base\check.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\allocator\partition_allocator\src\partition_alloc\partition_alloc_base\cpu.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\allocator\partition_allocator\src\partition_alloc\partition_alloc_base\debug\alias.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\allocator\partition_allocator\src\partition_alloc\partition_alloc_base\debug\stack_trace.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\allocator\partition_allocator\src\partition_alloc\partition_alloc_base\debug\stack_trace_win.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\allocator\partition_allocator\src\partition_alloc\partition_alloc_base\files\file_path.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\allocator\partition_allocator\src\partition_alloc\partition_alloc_base\log_message.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\allocator\partition_allocator\src\partition_alloc\partition_alloc_base\logging.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\allocator\partition_allocator\src\partition_alloc\partition_alloc_base\memory\page_size_win.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\allocator\partition_allocator\src\partition_alloc\partition_alloc_base\memory\ref_counted.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\allocator\partition_allocator\src\partition_alloc\partition_alloc_base\native_library.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\allocator\partition_allocator\src\partition_alloc\partition_alloc_base\process\process_handle_win.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\allocator\partition_allocator\src\partition_alloc\partition_alloc_base\rand_util.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\allocator\partition_allocator\src\partition_alloc\partition_alloc_base\rand_util_win.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\allocator\partition_allocator\src\partition_alloc\partition_alloc_base\scoped_clear_last_error_win.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\allocator\partition_allocator\src\partition_alloc\partition_alloc_base\strings\cstring_builder.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\allocator\partition_allocator\src\partition_alloc\partition_alloc_base\strings\safe_sprintf.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\allocator\partition_allocator\src\partition_alloc\partition_alloc_base\strings\string_util.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\allocator\partition_allocator\src\partition_alloc\partition_alloc_base\strings\stringprintf.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\allocator\partition_allocator\src\partition_alloc\partition_alloc_base\threading\platform_thread.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\allocator\partition_allocator\src\partition_alloc\partition_alloc_base\threading\platform_thread_win.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\allocator\partition_allocator\src\partition_alloc\partition_alloc_base\time\time.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\allocator\partition_allocator\src\partition_alloc\partition_alloc_base\time\time_override.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\allocator\partition_allocator\src\partition_alloc\partition_alloc_base\time\time_win.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\allocator\partition_allocator\src\partition_alloc\partition_alloc_hooks.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\allocator\partition_allocator\src\partition_alloc\partition_bucket.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\allocator\partition_allocator\src\partition_alloc\partition_cookie.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\allocator\partition_allocator\src\partition_alloc\partition_dcheck_helper.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\allocator\partition_allocator\src\partition_alloc\partition_freelist_entry.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\allocator\partition_allocator\src\partition_alloc\partition_oom.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\allocator\partition_allocator\src\partition_alloc\partition_page.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\allocator\partition_allocator\src\partition_alloc\partition_root.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\allocator\partition_allocator\src\partition_alloc\partition_stats.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\allocator\partition_allocator\src\partition_alloc\partition_tls_win.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\allocator\partition_allocator\src\partition_alloc\pointers\empty.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\allocator\partition_allocator\src\partition_alloc\pointers\instance_tracer.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\allocator\partition_allocator\src\partition_alloc\random.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\allocator\partition_allocator\src\partition_alloc\reservation_offset_table.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\allocator\partition_allocator\src\partition_alloc\spinning_mutex.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\allocator\partition_allocator\src\partition_alloc\stack\stack.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\allocator\partition_allocator\src\partition_alloc\tagging.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\allocator\partition_allocator\src\partition_alloc\thread_cache.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\allocator\partition_allocator\src\partition_alloc\thread_isolation\pkey.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\allocator\partition_allocator\src\partition_alloc\thread_isolation\thread_isolation.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\at_exit.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\atomicops.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\barrier_closure.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\base64.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\base64url.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\base_paths.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\base_paths_win.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\base_switches.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\callback_list.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\check.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\check_example.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\check_op.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\command_line.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\containers\intrusive_heap.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\containers\linked_list.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\cpu.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\debug\alias.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\debug\asan_invalid_access.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\debug\asan_service.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\debug\buffered_dwarf_reader.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\debug\crash_logging.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\debug\debugger.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\debug\debugger_win.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\debug\dump_without_crashing.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\debug\dwarf_line_no.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\debug\gdi_debug_util_win.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\debug\handle_hooks_win.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\debug\invalid_access_win.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\debug\profiler.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\debug\stack_trace.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\debug\stack_trace_win.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\debug\task_trace.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\enterprise_util.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\enterprise_util_win.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\environment.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\feature_list.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\features.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\file_version_info_win.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\files\drive_info.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\files\drive_info_win.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\files\file.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\files\file_enumerator.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\files\file_enumerator_win.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\files\file_path.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\files\file_path_watcher.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\files\file_path_watcher_win.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\files\file_proxy.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\files\file_tracing.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\files\file_util.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\files\file_util_win.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\files\file_win.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\files\important_file_writer.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\files\important_file_writer_cleaner.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\files\memory_mapped_file.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\files\memory_mapped_file_win.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\files\safe_base_name.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\files\scoped_file.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\files\scoped_temp_dir.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\files\scoped_temp_file.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\functional\callback_helpers.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\functional\callback_internal.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\functional\concurrent_closures.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\hash\hash.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\hash\legacy_hash.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\hash\md5_boringssl.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\hash\sha1_boringssl.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\lazy_instance_helpers.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\location.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\logging.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\logging_win.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\memory\aligned_memory.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\memory\discardable_memory.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\memory\discardable_memory_allocator.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\memory\discardable_shared_memory.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\memory\memory_pressure_listener.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\memory\memory_pressure_monitor.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\memory\page_size_win.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\memory\platform_shared_memory_handle.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\memory\platform_shared_memory_mapper_win.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\memory\platform_shared_memory_region.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\memory\platform_shared_memory_region_win.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\memory\post_delayed_memory_reduction_task.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\memory\protected_memory_win.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\memory\raw_ptr_asan_bound_arg_tracker.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\memory\raw_ptr_asan_hooks.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\memory\raw_ptr_asan_service.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\memory\read_only_shared_memory_region.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\memory\ref_counted.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\memory\ref_counted_memory.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\memory\shared_memory_mapper.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\memory\shared_memory_mapping.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\memory\shared_memory_security_policy.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\memory\shared_memory_switch.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\memory\shared_memory_tracker.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\memory\unsafe_shared_memory_pool.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\memory\unsafe_shared_memory_region.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\memory\weak_ptr.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\memory\writable_shared_memory_region.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\message_loop\io_watcher.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\message_loop\message_pump.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\message_loop\message_pump_default.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\message_loop\message_pump_win.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\message_loop\work_id_provider.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\metrics\bucket_ranges.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\metrics\crc32.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\metrics\dummy_histogram.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\metrics\field_trial.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\metrics\field_trial_list_including_low_anonymity.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\metrics\field_trial_param_associator.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\metrics\field_trial_params.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\metrics\histogram.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\metrics\histogram_base.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\metrics\histogram_delta_serialization.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\metrics\histogram_functions.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\metrics\histogram_samples.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\metrics\histogram_shared_memory.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\metrics\histogram_snapshot_manager.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\metrics\metrics_hashes.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\metrics\persistent_histogram_allocator.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\metrics\persistent_histogram_storage.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\metrics\persistent_memory_allocator.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\metrics\persistent_sample_map.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\metrics\ranges_manager.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\metrics\sample_map.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\metrics\sample_vector.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\metrics\single_sample_metrics.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\metrics\sparse_histogram.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\metrics\statistics_recorder.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\metrics\user_metrics.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\native_library.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\native_library_win.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\observer_list_internal.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\observer_list_threadsafe.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\observer_list_types.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\one_shot_event.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\path_service.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\pending_task.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\pickle.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\power_monitor\battery_level_provider.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\power_monitor\battery_level_provider_win.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\power_monitor\battery_state_sampler.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\power_monitor\cpu_frequency_utils.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\power_monitor\power_monitor.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\power_monitor\power_monitor_device_source.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\power_monitor\power_monitor_device_source_stub.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\power_monitor\power_monitor_device_source_win.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\power_monitor\power_monitor_features.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\power_monitor\power_monitor_source.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\power_monitor\sampling_event_source.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\power_monitor\speed_limit_observer_win.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\power_monitor\timer_sampling_event_source.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\process\current_process.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\process\environment_internal.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\process\kill.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\process\kill_win.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\process\launch.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\process\launch_win.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\process\memory.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\process\memory_win.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\process\process_handle.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\process\process_handle_win.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\process\process_info_win.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\process\process_iterator.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\process\process_iterator_win.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\process\process_metrics.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\process\process_metrics_win.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\process\process_win.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\process\set_process_title.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\profiler\core_unwinders_win.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\profiler\frame.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\profiler\frame_pointer_unwinder.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\profiler\metadata_recorder.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\profiler\module_cache.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\profiler\module_cache_win.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\profiler\native_unwinder_win.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\profiler\periodic_sampling_scheduler.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\profiler\sample_metadata.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\profiler\sampling_profiler_thread_token.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\profiler\stack_buffer.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\profiler\stack_copier.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\profiler\stack_copier_suspend.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\profiler\stack_sampler.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\profiler\stack_sampler_win.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\profiler\stack_sampling_profiler.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\profiler\stack_unwind_data.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\profiler\suspendable_thread_delegate_win.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\profiler\thread_group_profiler.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\profiler\unwinder.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\profiler\win32_stack_frame_unwinder.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\rand_util.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\rand_util_win.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\run_loop.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\sampling_heap_profiler\lock_free_address_hash_set.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\sampling_heap_profiler\lock_free_bloom_filter.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\sampling_heap_profiler\poisson_allocation_sampler.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\sampling_heap_profiler\sampling_heap_profiler.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\scoped_add_feature_flags.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\scoped_clear_last_error_win.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\scoped_environment_variable_override.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\scoped_native_library.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\sequence_checker.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\sequence_checker_impl.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\sequence_token.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\strings\abseil_string_number_conversions.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\strings\escape.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\strings\latin1_string_conversions.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\strings\levenshtein_distance.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\strings\pattern.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\strings\safe_sprintf.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\strings\strcat.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\strings\strcat_win.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\strings\string_number_conversions.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\strings\string_number_conversions_win.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\strings\string_split.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\strings\string_split_win.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\strings\string_util.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\strings\string_util_constants.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\strings\string_util_win.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\strings\stringprintf.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\strings\sys_string_conversions_win.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\strings\utf_offset_string_conversions.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\strings\utf_ostream_operators.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\strings\utf_string_conversion_utils.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\strings\utf_string_conversions.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\substring_set_matcher\matcher_string_pattern.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\substring_set_matcher\substring_set_matcher.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\supports_user_data.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\sync_socket.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\sync_socket_win.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\synchronization\atomic_flag.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\synchronization\cancelable_event.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\synchronization\cancelable_event_win.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\synchronization\condition_variable_win.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\synchronization\lock.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\synchronization\lock_impl_win.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\synchronization\waitable_event.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\synchronization\waitable_event_watcher_win.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\synchronization\waitable_event_win.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\syslog_logging.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\system\sys_info.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\system\sys_info_win.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\system\system_monitor.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\task\cancelable_task_tracker.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\task\common\checked_lock_impl.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\task\common\lazy_now.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\task\common\operations_controller.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\task\common\scoped_defer_task_posting.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\task\common\task_annotator.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\task\current_thread.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\task\default_delayed_task_handle_delegate.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\task\deferred_sequenced_task_runner.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\task\delayed_task_handle.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\task\lazy_thread_pool_task_runner.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\task\post_job.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\task\scoped_set_task_priority_for_current_thread.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\task\sequence_manager\associated_thread_id.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\task\sequence_manager\atomic_flag_set.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\task\sequence_manager\delayed_task_handle_delegate.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\task\sequence_manager\enqueue_order_generator.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\task\sequence_manager\fence.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\task\sequence_manager\sequence_manager.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\task\sequence_manager\sequence_manager_impl.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\task\sequence_manager\sequenced_task_source.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\task\sequence_manager\task_order.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\task\sequence_manager\task_queue.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\task\sequence_manager\task_queue_impl.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\task\sequence_manager\task_queue_selector.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\task\sequence_manager\task_time_observer.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\task\sequence_manager\tasks.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\task\sequence_manager\thread_controller.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\task\sequence_manager\thread_controller_impl.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\task\sequence_manager\thread_controller_power_monitor.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\task\sequence_manager\thread_controller_with_message_pump_impl.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\task\sequence_manager\time_domain.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\task\sequence_manager\wake_up_queue.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\task\sequence_manager\work_deduplicator.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\task\sequence_manager\work_queue.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\task\sequence_manager\work_queue_sets.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\task\sequence_manager\work_tracker.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\task\sequenced_task_runner.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\task\single_thread_task_executor.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\task\single_thread_task_runner.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\task\task_features.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\task\task_runner.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\task\task_traits.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\task\thread_pool.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\task\thread_pool\delayed_priority_queue.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\task\thread_pool\delayed_task_manager.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\task\thread_pool\environment_config.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\task\thread_pool\initialization_util.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\task\thread_pool\job_task_source.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\task\thread_pool\pooled_parallel_task_runner.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\task\thread_pool\pooled_sequenced_task_runner.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\task\thread_pool\pooled_single_thread_task_runner_manager.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\task\thread_pool\pooled_task_runner_delegate.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\task\thread_pool\priority_queue.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\task\thread_pool\sequence.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\task\thread_pool\service_thread.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\task\thread_pool\task.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\task\thread_pool\task_source.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\task\thread_pool\task_source_sort_key.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\task\thread_pool\task_tracker.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\task\thread_pool\thread_group.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\task\thread_pool\thread_group_impl.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\task\thread_pool\thread_pool_impl.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\task\thread_pool\thread_pool_instance.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\task\thread_pool\worker_thread.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\task\thread_pool\worker_thread_set.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\third_party\cityhash\city.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\third_party\cityhash_v103\src\city_v103.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\third_party\double_conversion\double-conversion\bignum-dtoa.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\third_party\double_conversion\double-conversion\bignum.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\third_party\double_conversion\double-conversion\cached-powers.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\third_party\double_conversion\double-conversion\double-to-string.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\third_party\double_conversion\double-conversion\fast-dtoa.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\third_party\double_conversion\double-conversion\fixed-dtoa.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\third_party\double_conversion\double-conversion\string-to-double.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\third_party\double_conversion\double-conversion\strtod.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\third_party\nspr\prtime.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\third_party\xdg_user_dirs\xdg_user_dir_lookup.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\threading\hang_watcher.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\threading\platform_thread.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\threading\platform_thread_ref.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\threading\platform_thread_win.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\threading\post_task_and_reply_impl.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\threading\scoped_blocking_call.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\threading\scoped_blocking_call_internal.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\threading\scoped_thread_priority.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\threading\sequence_local_storage_map.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\threading\sequence_local_storage_slot.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\threading\simple_thread.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\threading\thread.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\threading\thread_checker.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\threading\thread_checker_impl.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\threading\thread_collision_warner.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\threading\thread_id_name_manager.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\threading\thread_local_storage.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\threading\thread_local_storage_win.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\threading\thread_restrictions.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\threading\thread_type_delegate.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\threading\watchdog.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\time\clock.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\time\default_clock.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\time\default_tick_clock.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\time\tick_clock.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\time\time.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\time\time_delta_from_string.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\time\time_override.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\time\time_win.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\timer\elapsed_timer.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\timer\hi_res_timer_manager_win.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\timer\lap_timer.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\timer\mock_timer.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\timer\timer.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\timer\wall_clock_timer.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\token.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\unguessable_token.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\uuid.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\value_iterators.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\values.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\version.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\version_info\version_info.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\version_info\version_string.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\vlog.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\win\access_control_list.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\win\access_token.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\win\atl_throw.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\win\com_init_balancer.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\win\com_init_check_hook.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\win\com_init_util.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\win\core_winrt_util.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\win\dark_mode_support.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\win\default_apps_util.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\win\dispatch_stub.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\win\dllmain.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\win\elevation_util.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\win\enum_variant.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\win\event_trace_controller.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\win\event_trace_provider.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\win\hardware_check.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\win\hstring_reference.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\win\iat_patch_function.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\win\message_window.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\win\nt_status.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\win\object_watcher.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\win\patch_util.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\win\pe_image.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\win\pe_image_reader.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\win\process_startup_helper.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\win\registry.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\win\resource_exhaustion.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\win\resource_util.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\win\scoped_bstr.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\win\scoped_com_initializer.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\win\scoped_gdi_object.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\win\scoped_handle.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\win\scoped_handle_verifier.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\win\scoped_hstring.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\win\scoped_pdh_query.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\win\scoped_process_information.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\win\scoped_variant.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\win\scoped_winrt_initializer.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\win\security_descriptor.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\win\security_util.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\win\shortcut.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\win\sid.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\win\startup_information.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\win\static_constants.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\win\variant_vector.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\win\vector.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\win\win_util.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\win\window_enumerator.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\win\windows_version.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\win\winrt_storage_util.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\win\wmi.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\win\wrapped_window_proc.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\base\internal\cycleclock.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\base\internal\low_level_alloc.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\base\internal\poison.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\base\internal\raw_logging.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\base\internal\scoped_set_env.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\base\internal\spinlock.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\base\internal\spinlock_wait.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\base\internal\strerror.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\base\internal\sysinfo.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\base\internal\thread_identity.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\base\internal\throw_delegate.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\base\internal\tracing.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\base\internal\unscaledcycleclock.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\base\log_severity.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\container\internal\hashtablez_sampler.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\container\internal\hashtablez_sampler_force_weak_definition.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\container\internal\raw_hash_set.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\crc\crc32c.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\crc\internal\cpu_detect.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\crc\internal\crc.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\crc\internal\crc_cord_state.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\crc\internal\crc_memcpy_fallback.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\crc\internal\crc_memcpy_x86_arm_combined.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\crc\internal\crc_non_temporal_memcpy.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\crc\internal\crc_x86_arm_combined.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\debugging\failure_signal_handler.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\debugging\internal\address_is_readable.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\debugging\internal\decode_rust_punycode.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\debugging\internal\elf_mem_image.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\debugging\internal\examine_stack.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\debugging\internal\stack_consumption.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\debugging\internal\utf8_for_code_point.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\debugging\internal\vdso_support.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\debugging\leak_check.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\debugging\stacktrace.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\flags\commandlineflag.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\flags\internal\commandlineflag.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\flags\internal\flag.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\flags\internal\private_handle_accessor.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\flags\internal\program_name.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\flags\internal\usage.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\flags\marshalling.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\flags\parse.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\flags\reflection.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\flags\usage.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\flags\usage_config.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\hash\internal\city.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\hash\internal\hash.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\hash\internal\low_level_hash.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\hash\internal\print_hash_of.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\log\die_if_null.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\log\flags.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\log\globals.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\log\initialize.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\log\internal\check_op.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\log\internal\conditions.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\log\internal\fnmatch.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\log\internal\globals.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\log\internal\log_format.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\log\internal\log_message.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\log\internal\log_sink_set.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\log\internal\nullguard.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\log\internal\proto.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\log\internal\structured_proto.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\log\internal\vlog_config.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\log\log_sink.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\numeric\int128.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\profiling\internal\exponential_biased.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\profiling\internal\periodic_sampler.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\random\discrete_distribution.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\random\gaussian_distribution.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\random\internal\chi_square.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\random\internal\entropy_pool.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\random\internal\gaussian_distribution_gentables.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\random\internal\nanobenchmark.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\random\internal\randen.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\random\internal\randen_detect.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\random\internal\randen_hwaes.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\random\internal\randen_round_keys.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\random\internal\randen_slow.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\random\internal\seed_material.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\random\seed_gen_exception.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\random\seed_sequences.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\status\internal\status_internal.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\status\status.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\status\status_payload_printer.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\status\statusor.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\strings\ascii.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\strings\charconv.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\strings\cord.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\strings\cord_analysis.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\strings\escaping.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\strings\internal\charconv_bigint.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\strings\internal\charconv_parse.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\strings\internal\cord_internal.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\strings\internal\cord_rep_btree.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\strings\internal\cord_rep_btree_navigator.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\strings\internal\cord_rep_btree_reader.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\strings\internal\cord_rep_consume.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\strings\internal\cord_rep_crc.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\strings\internal\cordz_functions.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\strings\internal\cordz_handle.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\strings\internal\cordz_info.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\strings\internal\cordz_sample_token.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\strings\internal\damerau_levenshtein_distance.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\strings\internal\escaping.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\strings\internal\memutil.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\strings\internal\ostringstream.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\strings\internal\pow10_helper.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\strings\internal\str_format\arg.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\strings\internal\str_format\bind.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\strings\internal\str_format\extension.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\strings\internal\str_format\float_conversion.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\strings\internal\str_format\output.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\strings\internal\str_format\parser.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\strings\internal\stringify_sink.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\strings\internal\utf8.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\strings\match.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\strings\numbers.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\strings\str_cat.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\strings\str_replace.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\strings\str_split.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\strings\string_view.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\strings\substitute.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\synchronization\barrier.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\synchronization\blocking_counter.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\synchronization\internal\create_thread_identity.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\synchronization\internal\futex_waiter.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\synchronization\internal\graphcycles.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\synchronization\internal\kernel_timeout.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\synchronization\internal\per_thread_sem.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\synchronization\internal\pthread_waiter.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\synchronization\internal\sem_waiter.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\synchronization\internal\stdcpp_waiter.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\synchronization\internal\waiter_base.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\synchronization\internal\win32_waiter.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\synchronization\mutex.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\synchronization\notification.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\time\civil_time.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\time\clock.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\time\duration.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\time\format.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\time\internal\cctz\src\civil_time_detail.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\time\internal\cctz\src\time_zone_fixed.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\time\internal\cctz\src\time_zone_format.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\time\internal\cctz\src\time_zone_if.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\time\internal\cctz\src\time_zone_impl.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\time\internal\cctz\src\time_zone_info.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\time\internal\cctz\src\time_zone_libc.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\time\internal\cctz\src\time_zone_lookup.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\time\internal\cctz\src\zone_info_source.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\abseil-cpp\absl\time\time.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\aes\aes.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\asn1\a_bitstr.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\asn1\a_bool.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\asn1\a_d2i_fp.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\asn1\a_dup.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\asn1\a_gentm.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\asn1\a_i2d_fp.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\asn1\a_int.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\asn1\a_mbstr.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\asn1\a_object.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\asn1\a_octet.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\asn1\a_strex.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\asn1\a_strnid.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\asn1\a_time.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\asn1\a_type.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\asn1\a_utctm.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\asn1\asn1_lib.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\asn1\asn1_par.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\asn1\asn_pack.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\asn1\f_int.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\asn1\f_string.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\asn1\tasn_dec.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\asn1\tasn_enc.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\asn1\tasn_fre.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\asn1\tasn_new.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\asn1\tasn_typ.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\asn1\tasn_utl.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\base64\base64.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\bio\bio.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\bio\bio_mem.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\bio\connect.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\bio\errno.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\bio\fd.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\bio\file.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\bio\hexdump.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\bio\pair.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\bio\printf.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\bio\socket.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\bio\socket_helper.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\blake2\blake2.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\bn\bn_asn1.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\bn\convert.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\bn\exponentiation.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\buf\buf.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\chacha\chacha.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\cipher\derive_key.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\cipher\e_aeseax.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\cipher\e_aesgcmsiv.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\cipher\e_chacha20poly1305.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\cipher\e_des.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\cipher\e_null.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\cipher\e_rc2.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\cipher\e_rc4.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\cipher\e_tls.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\cipher\get_cipher.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\cipher\tls_cbc.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\conf\conf.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\cpu_aarch64_sysreg.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\cpu_aarch64_win.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\cpu_intel.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\crypto.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\curve25519\curve25519.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\curve25519\curve25519_64_adx.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\curve25519\spake25519.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\des\des.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\dh\dh_asn1.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\dh\params.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\digest\digest_extra.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\dsa\dsa.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\dsa\dsa_asn1.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\ec\ec_asn1.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\ec\ec_derive.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\ec\hash_to_curve.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\ecdh\ecdh.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\ecdsa\ecdsa_asn1.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\engine\engine.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\err\err.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\evp\evp.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\evp\evp_asn1.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\evp\evp_ctx.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\evp\p_dh.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\evp\p_dh_asn1.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\evp\p_dsa_asn1.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\evp\p_ec.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\evp\p_ec_asn1.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\evp\p_ed25519.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\evp\p_ed25519_asn1.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\evp\p_hkdf.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\evp\p_rsa.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\evp\p_rsa_asn1.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\evp\p_x25519.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\evp\p_x25519_asn1.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\evp\pbkdf.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\evp\print.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\evp\scrypt.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\evp\sign.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\ex_data.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\fipsmodule\bcm.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\fipsmodule\fips_shared_support.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\fuzzer_mode.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\hpke\hpke.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\hrss\hrss.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\kyber\kyber.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\lhash\lhash.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\md4\md4.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\md5\md5.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\mem.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\mldsa\mldsa.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\mlkem\mlkem.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\obj\obj.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\obj\obj_xref.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\pem\pem_all.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\pem\pem_info.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\pem\pem_lib.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\pem\pem_oth.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\pem\pem_pk8.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\pem\pem_pkey.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\pem\pem_x509.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\pem\pem_xaux.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\pkcs7\pkcs7.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\pkcs7\pkcs7_x509.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\pkcs8\p5_pbev2.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\pkcs8\pkcs8.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\pkcs8\pkcs8_x509.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\poly1305\poly1305.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\poly1305\poly1305_arm.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\poly1305\poly1305_vec.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\pool\pool.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\rand\deterministic.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\rand\fork_detect.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\rand\forkunsafe.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\rand\getentropy.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\rand\ios.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\rand\passive.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\rand\rand.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\rand\trusty.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\rand\urandom.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\rand\windows.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\rc4\rc4.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\refcount.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\rsa\rsa_asn1.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\rsa\rsa_crypt.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\rsa\rsa_extra.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\rsa\rsa_print.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\sha\sha1.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\sha\sha256.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\sha\sha512.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\siphash\siphash.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\slhdsa\slhdsa.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\spake2plus\spake2plus.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\stack\stack.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\thread.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\thread_none.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\thread_pthread.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\thread_win.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\trust_token\pmbtoken.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\trust_token\trust_token.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\trust_token\voprf.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\x509\a_digest.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\x509\a_sign.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\x509\a_verify.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\x509\algorithm.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\x509\by_dir.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\x509\by_file.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\x509\i2d_pr.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\x509\name_print.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\x509\policy.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\x509\rsa_pss.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\x509\t_crl.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\x509\t_req.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\x509\t_x509.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\x509\t_x509a.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\x509\v3_akey.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\x509\v3_akeya.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\x509\v3_alt.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\x509\v3_bcons.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\x509\v3_bitst.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\x509\v3_conf.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\x509\v3_cpols.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\x509\v3_crld.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\x509\v3_enum.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\x509\v3_extku.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\x509\v3_genn.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\x509\v3_ia5.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\x509\v3_info.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\x509\v3_int.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\x509\v3_lib.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\x509\v3_ncons.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\x509\v3_ocsp.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\x509\v3_pcons.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\x509\v3_pmaps.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\x509\v3_prn.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\x509\v3_purp.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\x509\v3_skey.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\x509\v3_utl.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\x509\x509.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\x509\x509_att.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\x509\x509_cmp.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\x509\x509_d2.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\x509\x509_def.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\x509\x509_ext.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\x509\x509_lu.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\x509\x509_obj.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\x509\x509_req.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\x509\x509_set.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\x509\x509_trs.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\x509\x509_txt.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\x509\x509_v3.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\x509\x509_vfy.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\x509\x509_vpm.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\x509\x509cset.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\x509\x509name.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\x509\x509rset.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\x509\x509spki.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\x509\x_algor.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\x509\x_all.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\x509\x_attrib.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\x509\x_crl.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\x509\x_exten.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\x509\x_name.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\x509\x_pubkey.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\x509\x_req.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\x509\x_sig.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\x509\x_spki.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\x509\x_val.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\x509\x_x509.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\x509\x_x509a.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\decrepit\bio\base64_bio.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\decrepit\blowfish\blowfish.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\decrepit\cast\cast.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\decrepit\cast\cast_tables.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\decrepit\cfb\cfb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\decrepit\des\cfb64ede.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\decrepit\dh\dh_decrepit.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\decrepit\dsa\dsa_decrepit.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\decrepit\evp\dss1.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\decrepit\evp\evp_do_all.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\decrepit\obj\obj_decrepit.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\decrepit\rc4\rc4_decrepit.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\decrepit\ripemd\ripemd.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\decrepit\rsa\rsa_decrepit.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\decrepit\ssl\ssl_decrepit.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\decrepit\x509\x509_decrepit.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\decrepit\xts\xts.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\fuzz\arm_cpuinfo.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\fuzz\bn_div.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\fuzz\bn_mod_exp.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\fuzz\cert.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\fuzz\client.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\fuzz\conf.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\fuzz\decode_client_hello_inner.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\fuzz\der_roundtrip.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\fuzz\dtls_client.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\fuzz\dtls_server.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\fuzz\pkcs12.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\fuzz\pkcs8.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\fuzz\privkey.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\fuzz\read_pem.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\fuzz\server.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\fuzz\session.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\fuzz\spki.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\fuzz\ssl_ctx_api.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\gen\crypto\err_data.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\pki\cert_error_id.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\pki\cert_error_params.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\pki\cert_errors.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\pki\cert_issuer_source_static.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\pki\certificate.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\pki\certificate_policies.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\pki\common_cert_errors.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\pki\crl.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\pki\encode_values.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\pki\extended_key_usage.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\pki\general_names.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\pki\input.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\pki\ip_util.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\pki\mock_signature_verify_cache.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\pki\name_constraints.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\pki\ocsp.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\pki\parse_certificate.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\pki\parse_name.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\pki\parse_values.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\pki\parsed_certificate.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\pki\parser.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\pki\path_builder.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\pki\pem.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\pki\revocation_util.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\pki\signature_algorithm.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\pki\simple_path_builder_delegate.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\pki\string_util.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\pki\trust_store.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\pki\trust_store_collection.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\pki\trust_store_in_memory.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\pki\verify.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\pki\verify_certificate_chain.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\pki\verify_error.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\pki\verify_name_match.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\pki\verify_signed_data.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\rust\bssl-sys\rust_wrapper.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\ssl\bio_ssl.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\ssl\d1_both.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\ssl\d1_lib.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\ssl\d1_pkt.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\ssl\d1_srtp.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\ssl\dtls_method.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\ssl\dtls_record.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\ssl\encrypted_client_hello.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\ssl\extensions.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\ssl\handoff.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\ssl\handshake.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\ssl\handshake_client.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\ssl\handshake_server.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\ssl\s3_both.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\ssl\s3_lib.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\ssl\s3_pkt.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\ssl\ssl_aead_ctx.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\ssl\ssl_buffer.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\ssl\ssl_cert.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\ssl\ssl_cipher.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\ssl\ssl_credential.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\ssl\ssl_file.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\ssl\ssl_key_share.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\ssl\ssl_lib.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\ssl\ssl_privkey.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\ssl\ssl_session.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\ssl\ssl_stat.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\ssl\ssl_transcript.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\ssl\ssl_versions.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\ssl\ssl_x509.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\ssl\t1_enc.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\ssl\tls13_both.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\ssl\tls13_client.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\ssl\tls13_enc.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\ssl\tls13_server.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\ssl\tls_method.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\ssl\tls_record.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\tool\args.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\tool\ciphers.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\tool\client.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\tool\const.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\tool\digest.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\tool\fd.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\tool\file.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\tool\generate_ech.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\tool\generate_ed25519.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\tool\genrsa.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\tool\pkcs12.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\tool\rand.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\tool\server.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\tool\sign.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\tool\speed.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\tool\tool.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\tool\transport_common.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\util\bazel-example\example.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\modp_b64\modp_b64.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\third_party\superfasthash\superfasthash.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\trace_event\memory_allocator_dump_guid.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\trace_event\heap_profiler_allocation_context_tracker.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\trace_event\trace_event_stub.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\base\trace_event\histogram_scope.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\service\windows_service.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\service\main.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\curve25519\asm\x25519-asm-arm.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\hrss\asm\poly_rq_mul.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\crypto\poly1305\poly1305_arm_asm.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\gen\bcm\aes-gcm-avx2-x86_64-linux.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\gen\bcm\aes-gcm-avx512-x86_64-linux.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\gen\bcm\aesni-gcm-x86_64-linux.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\gen\bcm\aesni-x86-linux.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\gen\bcm\aesni-x86_64-linux.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\gen\bcm\aesv8-armv7-linux.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\gen\bcm\aesv8-armv8-linux.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\gen\bcm\aesv8-armv8-win.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\gen\bcm\aesv8-gcm-armv8-linux.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\gen\bcm\aesv8-gcm-armv8-win.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\gen\bcm\armv4-mont-linux.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\gen\bcm\armv8-mont-linux.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\gen\bcm\armv8-mont-win.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\gen\bcm\bn-586-linux.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\gen\bcm\bn-armv8-linux.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\gen\bcm\bn-armv8-win.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\gen\bcm\bsaes-armv7-linux.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\gen\bcm\co-586-linux.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\gen\bcm\ghash-armv4-linux.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\gen\bcm\ghash-neon-armv8-linux.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\gen\bcm\ghash-neon-armv8-win.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\gen\bcm\ghash-ssse3-x86-linux.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\gen\bcm\ghash-ssse3-x86_64-linux.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\gen\bcm\ghash-x86-linux.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\gen\bcm\ghash-x86_64-linux.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\gen\bcm\ghashv8-armv7-linux.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\gen\bcm\ghashv8-armv8-linux.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\gen\bcm\ghashv8-armv8-win.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\gen\bcm\p256-armv8-asm-linux.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\gen\bcm\p256-armv8-asm-win.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\gen\bcm\p256-x86_64-asm-linux.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\gen\bcm\p256_beeu-armv8-asm-linux.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\gen\bcm\p256_beeu-armv8-asm-win.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\gen\bcm\p256_beeu-x86_64-asm-linux.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\gen\bcm\rdrand-x86_64-linux.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\gen\bcm\rsaz-avx2-linux.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\gen\bcm\sha1-586-linux.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\gen\bcm\sha1-armv4-large-linux.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\gen\bcm\sha1-armv8-linux.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\gen\bcm\sha1-armv8-win.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\gen\bcm\sha1-x86_64-linux.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\gen\bcm\sha256-586-linux.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\gen\bcm\sha256-armv4-linux.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\gen\bcm\sha256-armv8-linux.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\gen\bcm\sha256-armv8-win.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\gen\bcm\sha256-x86_64-linux.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\gen\bcm\sha512-586-linux.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\gen\bcm\sha512-armv4-linux.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\gen\bcm\sha512-armv8-linux.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\gen\bcm\sha512-armv8-win.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\gen\bcm\sha512-x86_64-linux.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\gen\bcm\vpaes-armv7-linux.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\gen\bcm\vpaes-armv8-linux.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\gen\bcm\vpaes-armv8-win.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\gen\bcm\vpaes-x86-linux.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\gen\bcm\vpaes-x86_64-linux.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\gen\bcm\x86-mont-linux.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\gen\bcm\x86_64-mont-linux.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\gen\bcm\x86_64-mont5-linux.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\gen\crypto\aes128gcmsiv-x86_64-linux.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\gen\crypto\chacha-armv4-linux.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\gen\crypto\chacha-armv8-linux.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\gen\crypto\chacha-armv8-win.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\gen\crypto\chacha-x86-linux.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\gen\crypto\chacha-x86_64-linux.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\gen\crypto\chacha20_poly1305_armv8-linux.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\gen\crypto\chacha20_poly1305_armv8-win.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\gen\crypto\chacha20_poly1305_x86_64-linux.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\gen\crypto\md5-586-linux.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\gen\crypto\md5-x86_64-linux.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\third_party\fiat\asm\fiat_curve25519_adx_mul.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\third_party\fiat\asm\fiat_curve25519_adx_square.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\third_party\fiat\asm\fiat_p256_adx_mul.S" />
+    <None Include="C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\boringssl\src\third_party\fiat\asm\fiat_p256_adx_sqr.S" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{5D98D573-77D7-3ECA-9B46-F911AB3603B4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
