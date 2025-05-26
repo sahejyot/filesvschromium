@@ -1,3 +1,4 @@
+#define CPPHTTPLIB_OPENSSL_SUPPORT
 #include <base/task/thread_pool.h>
 #include <base/synchronization/waitable_event.h>
 #include <third_party/boringssl/src/include/openssl/sha.h>
@@ -21,6 +22,9 @@ constexpr char kDbPath[] = "data/storage.db";
 constexpr char kLogFile[] = "data/storage.log";
 constexpr int kStoragePort = 8081;
 
+constexpr char kStorageServerCert[] = "C:/Users/Qikfox/Desktop/modular-chromium-threading/src/service/certs/main_service/server.crt";
+constexpr char kStorageServerKey[] = "C:/Users/Qikfox/Desktop/modular-chromium-threading/src/service/certs/main_service/server.key";
+
 int main() {
     sqlite3* db = initialize_database(kDbPath, kDataFolder, kLogFile);
     if (!db) {
@@ -28,7 +32,7 @@ int main() {
         return 1;
     }
 
-    httplib::Server svr;
+    httplib::SSLServer svr(kStorageServerCert, kStorageServerKey);
 
     svr.Get("/check_cid", [db](const httplib::Request& req, httplib::Response& res) {
         auto start = std::chrono::steady_clock::now();

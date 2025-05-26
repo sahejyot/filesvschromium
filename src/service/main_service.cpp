@@ -1,3 +1,4 @@
+#define CPPHTTPLIB_OPENSSL_SUPPORT
 #include <base/task/thread_pool.h>
 #include <base/synchronization/waitable_event.h>
 #include <third_party/boringssl/src/include/openssl/sha.h>
@@ -17,9 +18,13 @@
 #include "database_initializer.h"
 
 
-constexpr size_t kChunkSize = 1024 * 1024; // 1 MB
+constexpr size_t kChunkSize = 1024 * 1024; // 4 MB
 constexpr int kServerPort = 8080;
-constexpr char kStorageServiceUrl[] = "localhost:8081";
+constexpr char kStorageServiceUrl[] = "https://localhost:8081";
+
+// Paths to self-signed certificate and key (replace with actual paths)
+constexpr char kMainServerCert[] = "C:/Users/Qikfox/Desktop/modular-chromium-threading/src/service/certs/main_service/server.crt";
+constexpr char kMainServerKey[] = "C:/Users/Qikfox/Desktop/modular-chromium-threading/src/service/certs/main_service/server.key";
 
 // Converts a byte array to a hex string.
 std::string BytesToHex(const uint8_t* data, size_t length) {
@@ -107,9 +112,10 @@ void SendChunkToStorage(
 int main() {
     base::ThreadPoolInstance::CreateAndStartWithDefaultParams("MainServer");
 
-    httplib::Server svr;
+    httplib::SSLServer svr(kMainServerCert, kMainServerKey);
 
     httplib::Client cli(kStorageServiceUrl);
+    cli.enable_server_certificate_verification(false);
     cli.set_connection_timeout(5, 0);  // Reduce timeout to 1 second
     cli.set_read_timeout(5, 0);
     cli.set_write_timeout(5, 0);
