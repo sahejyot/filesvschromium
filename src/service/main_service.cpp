@@ -115,8 +115,8 @@ int main() {
     httplib::SSLServer svr(kMainServerCert, kMainServerKey);
 
     httplib::Client cli(kStorageServiceUrl);
-    cli.enable_server_certificate_verification(false);
-    cli.set_connection_timeout(5, 0);  // Reduce timeout to 1 second
+    cli.enable_server_certificate_verification(false); // Handle self-signed certs
+    cli.set_connection_timeout(5, 0);
     cli.set_read_timeout(5, 0);
     cli.set_write_timeout(5, 0);
     cli.set_keep_alive(true);
@@ -140,45 +140,14 @@ int main() {
             return;
         }
 
+        // Compute CID
         auto cid_start = std::chrono::steady_clock::now();
         std::string cid = GenerateCID(file_data, file.filename, file.content_type);
-
-        auto check_start = std::chrono::steady_clock::now();
-        auto check_res = cli.Get("/check_cid?cid=" + cid);
-        auto check_end = std::chrono::steady_clock::now();
-        std::cout << "HTTP Get for check_cid took "
-                  << std::chrono::duration<double>(check_end - check_start).count() << " seconds" << std::endl;
-
-        nlohmann::json response;
-
         auto cid_end = std::chrono::steady_clock::now();
-        std::cout << "CID generation and check took "
+        std::cout << "CID generation took "
                   << std::chrono::duration<double>(cid_end - cid_start).count() << " seconds" << std::endl;
 
-        if (check_res && check_res->status == 200) {
-            auto check_json = nlohmann::json::parse(check_res->body);
-            if (check_json["exists"].get<bool>()) {
-                response["status"] = "success";
-                response["cid"] = cid;
-                response["message"] = "File already exists, reference count incremented";
-                res.set_content(response.dump(), "application/json");
-                res.status = 200;
-
-                auto total_end = std::chrono::steady_clock::now();
-                std::cout << "Total upload (duplicate) took "
-                          << std::chrono::duration<double>(total_end - total_start).count() << " seconds" << std::endl;
-                return;
-            }
-        } else {
-            std::cerr << "Failed to check CID: " << (check_res ? std::to_string(check_res->status) : "connection error")
-                      << ", Response: " << (check_res ? check_res->body : "N/A") << std::endl;
-            response["status"] = "error";
-            response["error"] = "Failed to check CID with storage service";
-            res.set_content(response.dump(), "application/json");
-            res.status = 500;
-            return;
-        }
-
+        // Chunk and upload
         auto chunk_start = std::chrono::steady_clock::now();
         size_t num_chunks = (file_size + kChunkSize - 1) / kChunkSize;
         std::vector<std::string> chunk_hashes(num_chunks);
@@ -214,6 +183,7 @@ int main() {
         std::cout << "Chunk processing took "
                   << std::chrono::duration<double>(chunk_end - chunk_start).count() << " seconds" << std::endl;
 
+        nlohmann::json response;
         bool all_chunks_successful = true;
         for (size_t i = 0; i < num_chunks; ++i) {
             if (chunk_hashes[i].empty()) {
@@ -233,6 +203,7 @@ int main() {
             return;
         }
 
+        // Store metadata
         auto metadata_start = std::chrono::steady_clock::now();
         nlohmann::json metadata;
         metadata["cid"] = cid;

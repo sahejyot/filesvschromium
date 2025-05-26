@@ -34,68 +34,6 @@ int main() {
 
     httplib::SSLServer svr(kStorageServerCert, kStorageServerKey);
 
-    svr.Get("/check_cid", [db](const httplib::Request& req, httplib::Response& res) {
-        auto start = std::chrono::steady_clock::now();
-
-        if (!req.has_param("cid")) {
-            res.set_content("{\"error\": \"Missing cid parameter\"}", "application/json");
-            res.status = 400;
-            return;
-        }
-
-        std::string cid = req.get_param_value("cid");
-        sqlite3_stmt* stmt;
-        const char* query = "SELECT ref_count FROM metadata WHERE cid = ?;";
-        int rc = sqlite3_prepare_v2(db, query, -1, &stmt, nullptr);
-        if (rc != SQLITE_OK) {
-            res.set_content("{\"error\": \"Failed to prepare query\"}", "application/json");
-            res.status = 500;
-            return;
-        }
-
-        sqlite3_bind_text(stmt, 1, cid.c_str(), -1, SQLITE_STATIC);
-        bool exists = false;
-        int ref_count = 0;
-
-        if (sqlite3_step(stmt) == SQLITE_ROW) {
-            exists = true;
-            ref_count = sqlite3_column_int(stmt, 0);
-        }
-        sqlite3_finalize(stmt);
-
-        nlohmann::json response;
-        if (exists) {
-            const char* update = "UPDATE metadata SET ref_count = ref_count + 1 WHERE cid = ?;";
-            rc = sqlite3_prepare_v2(db, update, -1, &stmt, nullptr);
-            if (rc != SQLITE_OK) {
-                res.set_content("{\"error\": \"Failed to prepare update\"}", "application/json");
-                res.status = 500;
-                return;
-            }
-
-            sqlite3_bind_text(stmt, 1, cid.c_str(), -1, SQLITE_STATIC);
-            rc = sqlite3_step(stmt);
-            sqlite3_finalize(stmt);
-
-            if (rc != SQLITE_DONE) {
-                res.set_content("{\"error\": \"Failed to increment ref_count\"}", "application/json");
-                res.status = 500;
-                return;
-            }
-
-            response["exists"] = true;
-            response["ref_count"] = ref_count + 1;
-        } else {
-            response["exists"] = false;
-        }
-
-        res.set_content(response.dump(), "application/json");
-        res.status = 200;
-
-        auto end = std::chrono::steady_clock::now();
-        std::cout << "check_cid took " << std::chrono::duration<double>(end - start).count() << " seconds" << std::endl;
-    });
-
     svr.Post("/store_chunk", [db](const httplib::Request& req, httplib::Response& res) {
         auto start = std::chrono::steady_clock::now();
 
@@ -191,7 +129,8 @@ int main() {
             }
         }
 
-        std::cout << "Stored chunk with hash: " << hash << ", size: " << chunk_data.size() << " bytes, ref_count: " << (chunk_exists ? ref_count + 1 : 1) << std::endl;
+        std::cout << "Stored chunk with hash: " << hash << ", size: " << chunk_data.size() << " bytes, ref_count: "
+                  << (chunk_exists ? ref_count + 1 : 1) << std::endl;
 
         nlohmann::json response;
         response["status"] = "success";
@@ -228,9 +167,61 @@ int main() {
         int64_t file_size = metadata["file_size"];
         std::vector<std::string> chunk_hashes = metadata["chunk_hashes"];
 
+        // Check if CID exists
         sqlite3_stmt* stmt;
+        const char* query = "SELECT ref_count FROM metadata WHERE cid = ?;";
+        int rc = sqlite3_prepare_v2(db, query, -1, &stmt, nullptr);
+        if (rc != SQLITE_OK) {
+            res.set_content("{\"error\": \"Failed to prepare query\"}", "application/json");
+            res.status = 500;
+            return;
+        }
+
+        sqlite3_bind_text(stmt, 1, cid.c_str(), -1, SQLITE_STATIC);
+        bool cid_exists = false;
+        int ref_count = 0;
+
+        if (sqlite3_step(stmt) == SQLITE_ROW) {
+            cid_exists = true;
+            ref_count = sqlite3_column_int(stmt, 0);
+        }
+        sqlite3_finalize(stmt);
+
+        nlohmann::json response;
+        if (cid_exists) {
+            // Increment ref_count
+            const char* update = "UPDATE metadata SET ref_count = ref_count + 1 WHERE cid = ?;";
+            rc = sqlite3_prepare_v2(db, update, -1, &stmt, nullptr);
+            if (rc != SQLITE_OK) {
+                res.set_content("{\"error\": \"Failed to prepare update\"}", "application/json");
+                res.status = 500;
+                return;
+            }
+
+            sqlite3_bind_text(stmt, 1, cid.c_str(), -1, SQLITE_STATIC);
+            rc = sqlite3_step(stmt);
+            sqlite3_finalize(stmt);
+
+            if (rc != SQLITE_DONE) {
+                res.set_content("{\"error\": \"Failed to increment ref_count\"}", "application/json");
+                res.status = 500;
+                return;
+            }
+
+            response["status"] = "success";
+            response["message"] = "File already exists, reference count incremented";
+            res.set_content(response.dump(), "application/json");
+            res.status = 200;
+
+            auto end = std::chrono::steady_clock::now();
+            std::cout << "store_metadata (existing CID) took "
+                      << std::chrono::duration<double>(end - start).count() << " seconds" << std::endl;
+            return;
+        }
+
+        // Insert new metadata
         const char* insert_metadata = "INSERT INTO metadata (cid, filename, file_type, file_size, ref_count) VALUES (?, ?, ?, ?, 1);";
-        int rc = sqlite3_prepare_v2(db, insert_metadata, -1, &stmt, nullptr);
+        rc = sqlite3_prepare_v2(db, insert_metadata, -1, &stmt, nullptr);
         if (rc != SQLITE_OK) {
             res.set_content("{\"error\": \"Failed to prepare metadata insert\"}", "application/json");
             res.status = 500;
@@ -250,6 +241,7 @@ int main() {
             return;
         }
 
+        // Insert chunk hashes
         const char* insert_chunk_hash = "INSERT INTO chunk_hashes (cid, chunk_index, chunk_hash) VALUES (?, ?, ?);";
         for (size_t i = 0; i < chunk_hashes.size(); ++i) {
             rc = sqlite3_prepare_v2(db, insert_chunk_hash, -1, &stmt, nullptr);
@@ -272,13 +264,13 @@ int main() {
             }
         }
 
-        nlohmann::json response;
         response["status"] = "success";
         res.set_content(response.dump(), "application/json");
         res.status = 200;
 
         auto end = std::chrono::steady_clock::now();
-        std::cout << "store_metadata took " << std::chrono::duration<double>(end - start).count() << " seconds" << std::endl;
+        std::cout << "store_metadata (new CID) took "
+                  << std::chrono::duration<double>(end - start).count() << " seconds" << std::endl;
     });
 
     svr.Get("/get", [db](const httplib::Request& req, httplib::Response& res) {
