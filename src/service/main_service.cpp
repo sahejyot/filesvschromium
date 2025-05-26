@@ -40,13 +40,8 @@ std::string ComputeSHA256(const uint8_t* data, size_t length) {
 
 // Generates a CID by hashing the concatenation of the content hash, filename, and file type.
 std::string GenerateCID(const std::string& content, const std::string& filename, const std::string& file_type) {
-    // Compute the hash of the content.
     std::string content_hash = ComputeSHA256(reinterpret_cast<const uint8_t*>(content.data()), content.size());
-
-    // Concatenate content hash, filename, and file type.
     std::string combined = content_hash + filename + file_type;
-
-    // Compute the hash of the combined string to create the CID.
     return ComputeSHA256(reinterpret_cast<const uint8_t*>(combined.data()), combined.size());
 }
 
@@ -59,26 +54,31 @@ void SendChunkToStorage(
     std::mutex* hashes_mutex,
     size_t num_chunks,
     std::atomic<size_t>* completed_tasks,
-    base::WaitableEvent* all_tasks_done) {
+    base::WaitableEvent* all_tasks_done,
+    httplib::Client* cli) {
+    auto start = std::chrono::steady_clock::now();
+    std::cout << "Chunk " << chunk_index << " started at "
+              << std::chrono::duration<double>(start.time_since_epoch()).count() << " seconds" << std::endl;
+
     std::string hash = ComputeSHA256(data.data(), size);
 
-    // Prepare the multipart form data.
     httplib::MultipartFormDataItems items = {
         {"hash", hash, "", "text/plain"},
         {"chunk", std::string(data.begin(), data.end()), "chunk.bin", "application/octet-stream"}
     };
 
-    // Send the chunk to the storage service.
-    httplib::Client cli(kStorageServiceUrl);
-    cli.set_connection_timeout(5, 0); // 5 seconds timeout
-    cli.set_read_timeout(5, 0);
-    cli.set_write_timeout(5, 0);
+    auto post_start = std::chrono::steady_clock::now();
+    auto res = cli->Post("/store_chunk", items);
+    auto post_end = std::chrono::steady_clock::now();
+    std::cout << "HTTP Post for chunk " << chunk_index << " took "
+              << std::chrono::duration<double>(post_end - post_start).count() << " seconds" << std::endl;
 
-    auto res = cli.Post("/store_chunk", items);
-    if (!res || res->status != 200) {
-        std::cerr << "Failed to send chunk " << chunk_index << " to storage service: "
-                  << (res ? std::to_string(res->status) : "connection error")
-                  << ", Response: " << (res ? res->body : "N/A") << std::endl;
+    if (!res) {
+        std::cerr << "HTTP Post for chunk " << chunk_index << " failed: connection error" << std::endl;
+        hash.clear();
+    } else if (res->status != 200) {
+        std::cerr << "HTTP Post for chunk " << chunk_index << " failed with status: " << res->status
+                  << ", Response: " << res->body << std::endl;
         hash.clear();
     } else {
         auto response_json = nlohmann::json::parse(res->body);
@@ -88,27 +88,36 @@ void SendChunkToStorage(
         }
     }
 
-    // Store the hash in the correct position.
     {
         std::lock_guard<std::mutex> lock(*hashes_mutex);
         (*chunk_hashes)[chunk_index] = hash;
     }
 
-    // Increment the completed tasks counter and signal if all tasks are done.
     if (completed_tasks->fetch_add(1, std::memory_order_relaxed) + 1 == num_chunks) {
         all_tasks_done->Signal();
     }
+
+    auto end = std::chrono::steady_clock::now();
+    std::cout << "Chunk " << chunk_index << " finished at "
+              << std::chrono::duration<double>(end.time_since_epoch()).count() << " seconds" << std::endl;
+    std::cout << "SendChunkToStorage for chunk " << chunk_index << " took "
+              << std::chrono::duration<double>(end - start).count() << " seconds" << std::endl;
 }
 
 int main() {
-    // Initialize the thread pool.
     base::ThreadPoolInstance::CreateAndStartWithDefaultParams("MainServer");
 
-    // Set up the HTTP server.
     httplib::Server svr;
 
-    // Define the /upload endpoint.
-    svr.Post("/upload", [&](const httplib::Request& req, httplib::Response& res) {
+    httplib::Client cli(kStorageServiceUrl);
+    cli.set_connection_timeout(5, 0);  // Reduce timeout to 1 second
+    cli.set_read_timeout(5, 0);
+    cli.set_write_timeout(5, 0);
+    cli.set_keep_alive(true);
+
+    svr.Post("/upload", [&cli](const httplib::Request& req, httplib::Response& res) {
+        auto total_start = std::chrono::steady_clock::now();
+
         if (!req.has_file("file")) {
             res.set_content("{\"error\": \"No file uploaded\"}", "application/json");
             res.status = 400;
@@ -125,27 +134,33 @@ int main() {
             return;
         }
 
-        // Generate the CID.
+        auto cid_start = std::chrono::steady_clock::now();
         std::string cid = GenerateCID(file_data, file.filename, file.content_type);
 
-        // Check if the CID already exists in the storage service.
-        httplib::Client cli(kStorageServiceUrl);
-        cli.set_connection_timeout(5, 0);
-        cli.set_read_timeout(5, 0);
-        cli.set_write_timeout(5, 0);
-
+        auto check_start = std::chrono::steady_clock::now();
         auto check_res = cli.Get("/check_cid?cid=" + cid);
+        auto check_end = std::chrono::steady_clock::now();
+        std::cout << "HTTP Get for check_cid took "
+                  << std::chrono::duration<double>(check_end - check_start).count() << " seconds" << std::endl;
+
         nlohmann::json response;
+
+        auto cid_end = std::chrono::steady_clock::now();
+        std::cout << "CID generation and check took "
+                  << std::chrono::duration<double>(cid_end - cid_start).count() << " seconds" << std::endl;
 
         if (check_res && check_res->status == 200) {
             auto check_json = nlohmann::json::parse(check_res->body);
             if (check_json["exists"].get<bool>()) {
-                // CID exists, no need to process chunks.
                 response["status"] = "success";
                 response["cid"] = cid;
                 response["message"] = "File already exists, reference count incremented";
                 res.set_content(response.dump(), "application/json");
                 res.status = 200;
+
+                auto total_end = std::chrono::steady_clock::now();
+                std::cout << "Total upload (duplicate) took "
+                          << std::chrono::duration<double>(total_end - total_start).count() << " seconds" << std::endl;
                 return;
             }
         } else {
@@ -158,14 +173,13 @@ int main() {
             return;
         }
 
-        // CID does not exist, proceed with chunking.
+        auto chunk_start = std::chrono::steady_clock::now();
         size_t num_chunks = (file_size + kChunkSize - 1) / kChunkSize;
         std::vector<std::string> chunk_hashes(num_chunks);
         std::mutex hashes_mutex;
         std::atomic<size_t> completed_tasks(0);
         base::WaitableEvent all_tasks_done;
 
-        // Process each chunk using the thread pool.
         for (size_t i = 0; i < num_chunks; ++i) {
             size_t offset = i * kChunkSize;
             size_t bytes_to_read = std::min(kChunkSize, file_size - offset);
@@ -173,7 +187,6 @@ int main() {
                 reinterpret_cast<const uint8_t*>(file_data.data()) + offset,
                 reinterpret_cast<const uint8_t*>(file_data.data()) + offset + bytes_to_read);
 
-            // Post task to thread pool to compute hash and send chunk to storage service.
             base::ThreadPool::PostTask(
                 FROM_HERE,
                 base::BindOnce(
@@ -185,14 +198,16 @@ int main() {
                     &hashes_mutex,
                     num_chunks,
                     &completed_tasks,
-                    &all_tasks_done
+                    &all_tasks_done,
+                    &cli
                 ));
         }
 
-        // Wait for all tasks to complete.
         all_tasks_done.Wait();
+        auto chunk_end = std::chrono::steady_clock::now();
+        std::cout << "Chunk processing took "
+                  << std::chrono::duration<double>(chunk_end - chunk_start).count() << " seconds" << std::endl;
 
-        // Check for any failed chunks.
         bool all_chunks_successful = true;
         for (size_t i = 0; i < num_chunks; ++i) {
             if (chunk_hashes[i].empty()) {
@@ -212,7 +227,7 @@ int main() {
             return;
         }
 
-        // Send metadata to the storage service.
+        auto metadata_start = std::chrono::steady_clock::now();
         nlohmann::json metadata;
         metadata["cid"] = cid;
         metadata["filename"] = file.filename;
@@ -220,7 +235,16 @@ int main() {
         metadata["file_size"] = file_size;
         metadata["chunk_hashes"] = chunk_hashes;
 
+        auto metadata_post_start = std::chrono::steady_clock::now();
         auto metadata_res = cli.Post("/store_metadata", metadata.dump(), "application/json");
+        auto metadata_post_end = std::chrono::steady_clock::now();
+        std::cout << "HTTP Post for store_metadata took "
+                  << std::chrono::duration<double>(metadata_post_end - metadata_post_start).count() << " seconds" << std::endl;
+
+        auto metadata_end = std::chrono::steady_clock::now();
+        std::cout << "Metadata storage took "
+                  << std::chrono::duration<double>(metadata_end - metadata_start).count() << " seconds" << std::endl;
+
         if (!metadata_res || metadata_res->status != 200) {
             std::cerr << "Failed to store metadata: " << (metadata_res ? std::to_string(metadata_res->status) : "connection error")
                       << ", Response: " << (metadata_res ? metadata_res->body : "N/A") << std::endl;
@@ -232,7 +256,6 @@ int main() {
             return;
         }
 
-        // Prepare response.
         response["status"] = "success";
         response["cid"] = cid;
         response["chunks_processed"] = num_chunks;
@@ -240,9 +263,12 @@ int main() {
 
         res.set_content(response.dump(), "application/json");
         res.status = 200;
+
+        auto total_end = std::chrono::steady_clock::now();
+        std::cout << "Total upload took "
+                  << std::chrono::duration<double>(total_end - total_start).count() << " seconds" << std::endl;
     });
 
-    // Start the server.
     std::cout << "Main server listening on port " << kServerPort << "..." << std::endl;
     svr.listen("0.0.0.0", kServerPort);
 
