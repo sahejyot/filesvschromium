@@ -11,8 +11,10 @@
 #include <sstream>
 #include <C:/Users/Qikfox/Desktop/modular-chromium-threading/src/base/task/thread_pool/thread_pool_instance.h>
 #include <fstream>
+#include <sqlite3.h>
 #include <base/logging.h>
 #include <base/threading/platform_thread.h>
+#include "database_initializer.h"
 
 
 constexpr size_t kChunkSize = 1024 * 1024; // 1 MB
@@ -34,6 +36,18 @@ std::string ComputeSHA256(const uint8_t* data, size_t length) {
     uint8_t hash[SHA256_DIGEST_LENGTH];
     SHA256(data, length, hash);
     return BytesToHex(hash, SHA256_DIGEST_LENGTH);
+}
+
+// Generates a CID by hashing the concatenation of the content hash, filename, and file type.
+std::string GenerateCID(const std::string& content, const std::string& filename, const std::string& file_type) {
+    // Compute the hash of the content.
+    std::string content_hash = ComputeSHA256(reinterpret_cast<const uint8_t*>(content.data()), content.size());
+
+    // Concatenate content hash, filename, and file type.
+    std::string combined = content_hash + filename + file_type;
+
+    // Compute the hash of the combined string to create the CID.
+    return ComputeSHA256(reinterpret_cast<const uint8_t*>(combined.data()), combined.size());
 }
 
 // Sends a chunk and its hash to the storage service using multipart form data.
@@ -63,7 +77,8 @@ void SendChunkToStorage(
     auto res = cli.Post("/store_chunk", items);
     if (!res || res->status != 200) {
         std::cerr << "Failed to send chunk " << chunk_index << " to storage service: "
-                  << (res ? std::to_string(res->status) : "connection error") << std::endl;
+                  << (res ? std::to_string(res->status) : "connection error")
+                  << ", Response: " << (res ? res->body : "N/A") << std::endl;
         hash.clear();
     } else {
         auto response_json = nlohmann::json::parse(res->body);
@@ -110,7 +125,40 @@ int main() {
             return;
         }
 
-        // Calculate number of chunks.
+        // Generate the CID.
+        std::string cid = GenerateCID(file_data, file.filename, file.content_type);
+
+        // Check if the CID already exists in the storage service.
+        httplib::Client cli(kStorageServiceUrl);
+        cli.set_connection_timeout(5, 0);
+        cli.set_read_timeout(5, 0);
+        cli.set_write_timeout(5, 0);
+
+        auto check_res = cli.Get("/check_cid?cid=" + cid);
+        nlohmann::json response;
+
+        if (check_res && check_res->status == 200) {
+            auto check_json = nlohmann::json::parse(check_res->body);
+            if (check_json["exists"].get<bool>()) {
+                // CID exists, no need to process chunks.
+                response["status"] = "success";
+                response["cid"] = cid;
+                response["message"] = "File already exists, reference count incremented";
+                res.set_content(response.dump(), "application/json");
+                res.status = 200;
+                return;
+            }
+        } else {
+            std::cerr << "Failed to check CID: " << (check_res ? std::to_string(check_res->status) : "connection error")
+                      << ", Response: " << (check_res ? check_res->body : "N/A") << std::endl;
+            response["status"] = "error";
+            response["error"] = "Failed to check CID with storage service";
+            res.set_content(response.dump(), "application/json");
+            res.status = 500;
+            return;
+        }
+
+        // CID does not exist, proceed with chunking.
         size_t num_chunks = (file_size + kChunkSize - 1) / kChunkSize;
         std::vector<std::string> chunk_hashes(num_chunks);
         std::mutex hashes_mutex;
@@ -144,23 +192,54 @@ int main() {
         // Wait for all tasks to complete.
         all_tasks_done.Wait();
 
-        // Prepare response.
-        nlohmann::json response;
-        response["status"] = "success";
-        response["chunks_processed"] = num_chunks;
-        response["chunk_hashes"] = chunk_hashes;
-
         // Check for any failed chunks.
+        bool all_chunks_successful = true;
         for (size_t i = 0; i < num_chunks; ++i) {
             if (chunk_hashes[i].empty()) {
-                response["status"] = "partial_success";
-                response["error"] = "Some chunks failed to process. Check logs for details.";
+                all_chunks_successful = false;
                 break;
             }
         }
 
+        if (!all_chunks_successful) {
+            response["status"] = "partial_success";
+            response["error"] = "Some chunks failed to process. Check logs for details.";
+            response["cid"] = cid;
+            response["chunks_processed"] = num_chunks;
+            response["chunk_hashes"] = chunk_hashes;
+            res.set_content(response.dump(), "application/json");
+            res.status = 207;
+            return;
+        }
+
+        // Send metadata to the storage service.
+        nlohmann::json metadata;
+        metadata["cid"] = cid;
+        metadata["filename"] = file.filename;
+        metadata["file_type"] = file.content_type;
+        metadata["file_size"] = file_size;
+        metadata["chunk_hashes"] = chunk_hashes;
+
+        auto metadata_res = cli.Post("/store_metadata", metadata.dump(), "application/json");
+        if (!metadata_res || metadata_res->status != 200) {
+            std::cerr << "Failed to store metadata: " << (metadata_res ? std::to_string(metadata_res->status) : "connection error")
+                      << ", Response: " << (metadata_res ? metadata_res->body : "N/A") << std::endl;
+            response["status"] = "error";
+            response["error"] = "Failed to store metadata with storage service";
+            response["cid"] = cid;
+            res.set_content(response.dump(), "application/json");
+            res.status = 500;
+            return;
+        }
+
+        // Prepare response.
+        response["status"] = "success";
+        response["cid"] = cid;
+        response["chunks_processed"] = num_chunks;
+        response["chunk_hashes"] = chunk_hashes;
+
         res.set_content(response.dump(), "application/json");
-        res.status = response["status"] == "success" ? 200 : 207;
+        res.status = 200;
     });
 
     // Start the server.
@@ -168,4 +247,4 @@ int main() {
     svr.listen("0.0.0.0", kServerPort);
 
     return 0;
-}   
+}
