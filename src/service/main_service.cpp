@@ -436,7 +436,44 @@ int main() {
         std::cout << "Total update took "
                   << std::chrono::duration<double>(total_end - total_start).count() << " seconds" << std::endl;
     });
+    svr.Get("/get", [&cli](const httplib::Request& req, httplib::Response& res) {
+        if (!req.has_param("cid")) {
+            res.set_content("{\"error\": \"Missing cid parameter\"}", "application/json");
+            res.status = 400;
+            return;
+        }
 
+        std::string cid = req.get_param_value("cid");
+
+        auto get_start = std::chrono::steady_clock::now();
+        auto get_res = cli.Get("/get?cid=" + cid);
+        auto get_end = std::chrono::steady_clock::now();
+        std::cout << "HTTP Get for CID " << cid << " took "
+                  << std::chrono::duration<double>(get_end - get_start).count() << " seconds" << std::endl;
+
+        if (!get_res) {
+            std::cerr << "Failed to retrieve CID " << cid << ": connection error (" << get_res.error() << ")" << std::endl;
+            res.set_content("{\"error\": \"Failed to connect to storage server\"}", "application/json");
+            res.status = 500;
+            return;
+        }
+
+        if (get_res->status != 200) {
+            std::cerr << "Failed to retrieve CID " << cid << ": storage server returned status " << get_res->status
+                      << ", Response: " << get_res->body << std::endl;
+            res.set_content(get_res->body, "application/json");
+            res.status = get_res->status;
+            return;
+        }
+
+        // Forward the content and headers from the storage server
+        res.set_content(get_res->body, get_res->headers.find("Content-Type")->second);
+        auto it = get_res->headers.find("Content-Disposition");
+        if (it != get_res->headers.end()) {
+            res.set_header("Content-Disposition", it->second);
+        }
+        res.status = 200;
+    });
     svr.Delete("/delete", [&cli](const httplib::Request& req, httplib::Response& res) {
         if (!req.has_param("cid")) {
             res.set_content("{\"error\": \"Missing cid parameter\"}", "application/json");
