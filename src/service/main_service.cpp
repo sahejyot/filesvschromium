@@ -2,8 +2,8 @@
 #include <base/task/thread_pool.h>
 #include <base/synchronization/waitable_event.h>
 #include <third_party/boringssl/src/include/openssl/sha.h>
-#include "C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\cpp-httplib\httplib.h"
-#include "C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\json\single_include\nlohmann\json.hpp"
+#include "C:\\Users\\Qikfox\\Desktop\\modular-chromium-threading\\src\\third_party\\cpp-httplib\\httplib.h"
+#include "C:\\Users\\Qikfox\\Desktop\\modular-chromium-threading\\src\\third_party\\json\\single_include\\nlohmann\\json.hpp"
 #include <filesystem>
 #include <vector>
 #include <string>
@@ -15,16 +15,22 @@
 #include <sqlite3.h>
 #include <base/logging.h>
 #include <base/threading/platform_thread.h>
-#include "database_initializer.h"
-
+#include <base/threading/thread.h>
+#include <windows.h>
+#include <atomic>
 
 constexpr size_t kChunkSize = 1024 * 1024; // 4 MB
 constexpr int kServerPort = 8080;
 constexpr char kStorageServiceUrl[] = "https://localhost:8081";
-
-// Paths to self-signed certificate and key (replace with actual paths)
 constexpr char kMainServerCert[] = "C:/Users/Qikfox/Desktop/modular-chromium-threading/src/service/certs/main_service/server.crt";
 constexpr char kMainServerKey[] = "C:/Users/Qikfox/Desktop/modular-chromium-threading/src/service/certs/main_service/server.key";
+
+// Windows Service variables
+static SERVICE_STATUS g_ServiceStatus = {0};
+static SERVICE_STATUS_HANDLE g_StatusHandle = nullptr;
+static std::atomic<bool> g_Running(true);
+static std::atomic<bool> g_Paused(false);
+static std::unique_ptr<base::Thread> g_ServerThread;
 
 std::string BytesToHex(const uint8_t* data, size_t length) {
     std::ostringstream oss;
@@ -49,7 +55,7 @@ std::string GenerateCID(const std::string& content, const std::string& filename,
 
 bool CheckStorageServerAvailability(httplib::Client* cli) {
     const int max_attempts = 3;
-    const int retry_delay_ms = 1000; // 1 second delay between retries
+    const int retry_delay_ms = 1000;
 
     for (int attempt = 1; attempt <= max_attempts; ++attempt) {
         std::cout << "Attempting to check storage server availability (attempt " << attempt << " of " << max_attempts << ")..." << std::endl;
@@ -136,24 +142,57 @@ void SendChunkToStorage(
               << std::chrono::duration<double>(end - start).count() << " seconds" << std::endl;
 }
 
-int main() {
-    base::ThreadPoolInstance::CreateAndStartWithDefaultParams("MainServer");
+void UpdateServiceStatus(DWORD currentState, DWORD exitCode = NO_ERROR) {
+    g_ServiceStatus.dwCurrentState = currentState;
+    g_ServiceStatus.dwWin32ExitCode = exitCode;
+    SetServiceStatus(g_StatusHandle, &g_ServiceStatus);
+}
 
-    httplib::SSLServer svr(kMainServerCert, kMainServerKey);
+void WINAPI ServiceCtrlHandler(DWORD controlCode) {
+    switch (controlCode) {
+        case SERVICE_CONTROL_STOP:
+            g_Running = false;
+            UpdateServiceStatus(SERVICE_STOP_PENDING);
+            break;
+        case SERVICE_CONTROL_PAUSE:
+            g_Paused = true;
+            UpdateServiceStatus(SERVICE_PAUSED);
+            break;
+        case SERVICE_CONTROL_CONTINUE:
+            g_Paused = false;
+            UpdateServiceStatus(SERVICE_RUNNING);
+            break;
+        case SERVICE_CONTROL_SHUTDOWN:
+            g_Running = false;
+            UpdateServiceStatus(SERVICE_STOP_PENDING);
+            break;
+        default:
+            break;
+    }
+}
+
+void RunServer(httplib::SSLServer* svr) {
+    base::ThreadPoolInstance::CreateAndStartWithDefaultParams("MainServer");
 
     httplib::Client cli(kStorageServiceUrl);
     cli.enable_server_certificate_verification(false);
-    cli.set_connection_timeout(10, 0); // 10 seconds
-    cli.set_read_timeout(10, 0); // 10 seconds
-    cli.set_write_timeout(10, 0); // 10 seconds
+    cli.set_connection_timeout(10, 0);
+    cli.set_read_timeout(10, 0);
+    cli.set_write_timeout(10, 0);
     cli.set_keep_alive(true);
 
     if (!CheckStorageServerAvailability(&cli)) {
         std::cerr << "Cannot start main server: storage server is unavailable" << std::endl;
-        return 1;
+        UpdateServiceStatus(SERVICE_STOPPED, ERROR_SERVICE_DEPENDENCY_FAIL);
+        return;
     }
 
-    svr.Post("/upload", [&cli](const httplib::Request& req, httplib::Response& res) {
+    svr->Post("/upload", [&cli](const httplib::Request& req, httplib::Response& res) {
+        if (g_Paused) {
+            res.set_content("{\"error\": \"Service is paused\"}", "application/json");
+            res.status = 503;
+            return;
+        }
         auto total_start = std::chrono::steady_clock::now();
 
         if (!req.has_file("file")) {
@@ -275,7 +314,12 @@ int main() {
                   << std::chrono::duration<double>(total_end - total_start).count() << " seconds" << std::endl;
     });
 
-    svr.Put("/update", [&cli](const httplib::Request& req, httplib::Response& res) {
+    svr->Put("/update", [&cli](const httplib::Request& req, httplib::Response& res) {
+        if (g_Paused) {
+            res.set_content("{\"error\": \"Service is paused\"}", "application/json");
+            res.status = 503;
+            return;
+        }
         auto total_start = std::chrono::steady_clock::now();
 
         if (!req.has_param("cid")) {
@@ -436,7 +480,13 @@ int main() {
         std::cout << "Total update took "
                   << std::chrono::duration<double>(total_end - total_start).count() << " seconds" << std::endl;
     });
-    svr.Get("/get", [&cli](const httplib::Request& req, httplib::Response& res) {
+
+    svr->Get("/get", [&cli](const httplib::Request& req, httplib::Response& res) {
+        if (g_Paused) {
+            res.set_content("{\"error\": \"Service is paused\"}", "application/json");
+            res.status = 503;
+            return;
+        }
         if (!req.has_param("cid")) {
             res.set_content("{\"error\": \"Missing cid parameter\"}", "application/json");
             res.status = 400;
@@ -466,7 +516,6 @@ int main() {
             return;
         }
 
-        // Forward the content and headers from the storage server
         res.set_content(get_res->body, get_res->headers.find("Content-Type")->second);
         auto it = get_res->headers.find("Content-Disposition");
         if (it != get_res->headers.end()) {
@@ -474,7 +523,13 @@ int main() {
         }
         res.status = 200;
     });
-    svr.Delete("/delete", [&cli](const httplib::Request& req, httplib::Response& res) {
+
+    svr->Delete("/delete", [&cli](const httplib::Request& req, httplib::Response& res) {
+        if (g_Paused) {
+            res.set_content("{\"error\": \"Service is paused\"}", "application/json");
+            res.status = 503;
+            return;
+        }
         if (!req.has_param("cid")) {
             res.set_content("{\"error\": \"Missing cid parameter\"}", "application/json");
             res.status = 400;
@@ -509,7 +564,68 @@ int main() {
     });
 
     std::cout << "Main server listening on port " << kServerPort << "..." << std::endl;
-    svr.listen("0.0.0.0", kServerPort);
+    svr->listen("0.0.0.0", kServerPort);
+}
+
+void WINAPI ServiceMain(DWORD argc, LPTSTR* argv) {
+    g_StatusHandle = RegisterServiceCtrlHandler(L"sezmainsvs", ServiceCtrlHandler);
+    if (!g_StatusHandle) {
+        return;
+    }
+
+    g_ServiceStatus.dwServiceType = SERVICE_WIN32_OWN_PROCESS;
+    g_ServiceStatus.dwControlsAccepted = SERVICE_ACCEPT_STOP | SERVICE_ACCEPT_PAUSE_CONTINUE;
+    g_ServiceStatus.dwCurrentState = SERVICE_START_PENDING;
+    g_ServiceStatus.dwWin32ExitCode = NO_ERROR;
+    g_ServiceStatus.dwServiceSpecificExitCode = 0;
+    g_ServiceStatus.dwCheckPoint = 0;
+    g_ServiceStatus.dwWaitHint = 1000;
+    SetServiceStatus(g_StatusHandle, &g_ServiceStatus);
+
+    g_Running = true;
+    g_Paused = false;
+
+    // Initialize base::Thread for the server
+    g_ServerThread = std::make_unique<base::Thread>("MainServerThread");
+    if (!g_ServerThread->Start()) {
+        std::cerr << "Failed to start server thread" << std::endl;
+        UpdateServiceStatus(SERVICE_STOPPED, ERROR_SERVICE_SPECIFIC_ERROR);
+        return;
+    }
+
+    // Create the SSL server instance
+    httplib::SSLServer svr(kMainServerCert, kMainServerKey);
+
+    // Post the server task to the thread
+    g_ServerThread->task_runner()->PostTask(
+        FROM_HERE,
+        base::BindOnce(&RunServer, &svr));
+
+    g_ServiceStatus.dwCurrentState = SERVICE_RUNNING;
+    SetServiceStatus(g_StatusHandle, &g_ServiceStatus);
+
+    while (g_Running) {
+        base::PlatformThread::Sleep(base::Milliseconds(1000));
+    }
+
+    UpdateServiceStatus(SERVICE_STOP_PENDING);
+    svr.stop();
+    g_ServerThread->Stop();
+    g_ServerThread.reset();
+    base::ThreadPoolInstance::Get()->Shutdown();
+    UpdateServiceStatus(SERVICE_STOPPED);
+}
+
+int main() {
+    SERVICE_TABLE_ENTRY serviceTable[] = {
+        {L"sezmainsvs", ServiceMain},
+        {nullptr, nullptr}
+    };
+
+    if (!StartServiceCtrlDispatcher(serviceTable)) {
+        std::cerr << "Failed to start service dispatcher: " << GetLastError() << std::endl;
+        return 1;
+    }
 
     return 0;
 }

@@ -2,7 +2,7 @@
 #include <base/task/thread_pool.h>
 #include <base/synchronization/waitable_event.h>
 #include <third_party/boringssl/src/include/openssl/sha.h>
-#include "C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\cpp-httplib\httplib.h"
+#include "C:\\Users\\Qikfox\\Desktop\\modular-chromium-threading\\src\\third_party\\cpp-httplib\\httplib.h"
 #include <filesystem>
 #include <vector>
 #include <string>
@@ -13,36 +13,83 @@
 #include <fstream>
 #include <base/logging.h>
 #include <base/threading/platform_thread.h>
-#include "C:\Users\Qikfox\Desktop\modular-chromium-threading\src\third_party\json\single_include\nlohmann\json.hpp"
+#include <base/threading/thread.h>
+#include "C:\\Users\\Qikfox\\Desktop\\modular-chromium-threading\\src\\third_party\\json\\single_include\\nlohmann\\json.hpp"
+#include <sqlite3.h>
+#include <windows.h>
+#include <atomic>
 #include "database_initializer.h"
-
 
 constexpr char kDataFolder[] = "data";
 constexpr char kDbPath[] = "data/storage.db";
 constexpr char kLogFile[] = "data/storage.log";
 constexpr int kStoragePort = 8081;
-
 constexpr char kStorageServerCert[] = "C:/Users/Qikfox/Desktop/modular-chromium-threading/src/service/certs/storage_service/server.crt";
 constexpr char kStorageServerKey[] = "C:/Users/Qikfox/Desktop/modular-chromium-threading/src/service/certs/storage_service/server.key";
 
+// Windows Service variables
+static SERVICE_STATUS g_ServiceStatus = {0};
+static SERVICE_STATUS_HANDLE g_StatusHandle = nullptr;
+static std::atomic<bool> g_Running(true);
+static std::atomic<bool> g_Paused(false);
+static std::unique_ptr<base::Thread> g_ServerThread;
+static sqlite3* g_db = nullptr;
 
-int main() {
-    sqlite3* db = initialize_database(kDbPath, kDataFolder, kLogFile);
-    if (!db) {
+void UpdateServiceStatus(DWORD currentState, DWORD exitCode = NO_ERROR) {
+    g_ServiceStatus.dwCurrentState = currentState;
+    g_ServiceStatus.dwWin32ExitCode = exitCode;
+    SetServiceStatus(g_StatusHandle, &g_ServiceStatus);
+}
+
+void WINAPI ServiceCtrlHandler(DWORD controlCode) {
+    switch (controlCode) {
+        case SERVICE_CONTROL_STOP:
+            g_Running = false;
+            UpdateServiceStatus(SERVICE_STOP_PENDING);
+            break;
+        case SERVICE_CONTROL_PAUSE:
+            g_Paused = true;
+            UpdateServiceStatus(SERVICE_PAUSED);
+            break;
+        case SERVICE_CONTROL_CONTINUE:
+            g_Paused = false;
+            UpdateServiceStatus(SERVICE_RUNNING);
+            break;
+        case SERVICE_CONTROL_SHUTDOWN:
+            g_Running = false;
+            UpdateServiceStatus(SERVICE_STOP_PENDING);
+            break;
+        default:
+            break;
+    }
+}
+
+void RunServer(httplib::SSLServer* svr) {
+    g_db = initialize_database(kDbPath, kDataFolder, kLogFile);
+    if (!g_db) {
         std::cerr << "Failed to initialize database" << std::endl;
-        return 1;
+        UpdateServiceStatus(SERVICE_STOPPED, ERROR_SERVICE_SPECIFIC_ERROR);
+        return;
     }
 
-    httplib::SSLServer svr(kStorageServerCert, kStorageServerKey);
-
-    svr.Get("/health", [](const httplib::Request& req, httplib::Response& res) {
+    svr->Get("/health", [](const httplib::Request& req, httplib::Response& res) {
+        if (g_Paused) {
+            res.set_content("{\"error\": \"Service is paused\"}", "application/json");
+            res.status = 503;
+            return;
+        }
         nlohmann::json response;
         response["status"] = "healthy";
         res.set_content(response.dump(), "application/json");
         res.status = 200;
     });
 
-    svr.Post("/store_chunk", [db](const httplib::Request& req, httplib::Response& res) {
+    svr->Post("/store_chunk", [](const httplib::Request& req, httplib::Response& res) {
+        if (g_Paused) {
+            res.set_content("{\"error\": \"Service is paused\"}", "application/json");
+            res.status = 503;
+            return;
+        }
         auto start = std::chrono::steady_clock::now();
 
         if (!req.is_multipart_form_data()) {
@@ -51,7 +98,6 @@ int main() {
             std::cout << "store_chunk failed: Expected multipart form data" << std::endl;
             return;
         }
-
         if (!req.has_file("hash") || !req.has_file("chunk")) {
             res.set_content("{\"error\": \"Missing hash or chunk in request\"}", "application/json");
             res.status = 400;
@@ -72,16 +118,16 @@ int main() {
         std::string hash = hash_part.content;
         std::vector<uint8_t> chunk_data(chunk_part.content.begin(), chunk_part.content.end());
 
-        sqlite3_exec(db, "BEGIN TRANSACTION;", nullptr, nullptr, nullptr);
+        sqlite3_exec(g_db, "BEGIN TRANSACTION;", nullptr, nullptr, nullptr);
 
         sqlite3_stmt* stmt;
         const char* query = "SELECT ref_count FROM chunk_references WHERE chunk_hash = ?;";
-        int rc = sqlite3_prepare_v2(db, query, -1, &stmt, nullptr);
+        int rc = sqlite3_prepare_v2(g_db, query, -1, &stmt, nullptr);
         if (rc != SQLITE_OK) {
-            sqlite3_exec(db, "ROLLBACK;", nullptr, nullptr, nullptr);
+            sqlite3_exec(g_db, "ROLLBACK;", nullptr, nullptr, nullptr);
             res.set_content("{\"error\": \"Failed to prepare query\"}", "application/json");
             res.status = 500;
-            std::cout << "store_chunk failed: Failed to prepare query - " << sqlite3_errmsg(db) << std::endl;
+            std::cout << "store_chunk failed: Failed to prepare query - " << sqlite3_errmsg(g_db) << std::endl;
             return;
         }
 
@@ -97,12 +143,12 @@ int main() {
 
         if (chunk_exists) {
             const char* update = "UPDATE chunk_references SET ref_count = ref_count + 1 WHERE chunk_hash = ?;";
-            rc = sqlite3_prepare_v2(db, update, -1, &stmt, nullptr);
+            rc = sqlite3_prepare_v2(g_db, update, -1, &stmt, nullptr);
             if (rc != SQLITE_OK) {
-                sqlite3_exec(db, "ROLLBACK;", nullptr, nullptr, nullptr);
+                sqlite3_exec(g_db, "ROLLBACK;", nullptr, nullptr, nullptr);
                 res.set_content("{\"error\": \"Failed to prepare update\"}", "application/json");
                 res.status = 500;
-                std::cout << "store_chunk failed: Failed to prepare update - " << sqlite3_errmsg(db) << std::endl;
+                std::cout << "store_chunk failed: Failed to prepare update - " << sqlite3_errmsg(g_db) << std::endl;
                 return;
             }
 
@@ -111,10 +157,10 @@ int main() {
             sqlite3_finalize(stmt);
 
             if (rc != SQLITE_DONE) {
-                sqlite3_exec(db, "ROLLBACK;", nullptr, nullptr, nullptr);
+                sqlite3_exec(g_db, "ROLLBACK;", nullptr, nullptr, nullptr);
                 res.set_content("{\"error\": \"Failed to increment ref_count\"}", "application/json");
                 res.status = 500;
-                std::cout << "store_chunk failed: Failed to increment ref_count - " << sqlite3_errmsg(db) << std::endl;
+                std::cout << "store_chunk failed: Failed to increment ref_count - " << sqlite3_errmsg(g_db) << std::endl;
                 return;
             }
         } else {
@@ -122,7 +168,7 @@ int main() {
             std::string filename = std::string(kDataFolder) + "/" + hash + ".chunk";
             std::ofstream out_file(filename, std::ios::binary);
             if (!out_file) {
-                sqlite3_exec(db, "ROLLBACK;", nullptr, nullptr, nullptr);
+                sqlite3_exec(g_db, "ROLLBACK;", nullptr, nullptr, nullptr);
                 res.set_content("{\"error\": \"Failed to write chunk to file\"}", "application/json");
                 res.status = 500;
                 std::cout << "store_chunk failed: Failed to write chunk to file" << std::endl;
@@ -132,12 +178,12 @@ int main() {
             out_file.close();
 
             const char* insert = "INSERT INTO chunk_references (chunk_hash, ref_count) VALUES (?, 1);";
-            rc = sqlite3_prepare_v2(db, insert, -1, &stmt, nullptr);
+            rc = sqlite3_prepare_v2(g_db, insert, -1, &stmt, nullptr);
             if (rc != SQLITE_OK) {
-                sqlite3_exec(db, "ROLLBACK;", nullptr, nullptr, nullptr);
+                sqlite3_exec(g_db, "ROLLBACK;", nullptr, nullptr, nullptr);
                 res.set_content("{\"error\": \"Failed to prepare insert\"}", "application/json");
                 res.status = 500;
-                std::cout << "store_chunk failed: Failed to prepare insert - " << sqlite3_errmsg(db) << std::endl;
+                std::cout << "store_chunk failed: Failed to prepare insert - " << sqlite3_errmsg(g_db) << std::endl;
                 return;
             }
 
@@ -146,15 +192,15 @@ int main() {
             sqlite3_finalize(stmt);
 
             if (rc != SQLITE_DONE) {
-                sqlite3_exec(db, "ROLLBACK;", nullptr, nullptr, nullptr);
+                sqlite3_exec(g_db, "ROLLBACK;", nullptr, nullptr, nullptr);
                 res.set_content("{\"error\": \"Failed to insert chunk reference\"}", "application/json");
                 res.status = 500;
-                std::cout << "store_chunk failed: Failed to insert chunk reference - " << sqlite3_errmsg(db) << std::endl;
+                std::cout << "store_chunk failed: Failed to insert chunk reference - " << sqlite3_errmsg(g_db) << std::endl;
                 return;
             }
         }
 
-        sqlite3_exec(db, "COMMIT;", nullptr, nullptr, nullptr);
+        sqlite3_exec(g_db, "COMMIT;", nullptr, nullptr, nullptr);
 
         std::cout << "Stored chunk with hash: " << hash << ", size: " << chunk_data.size() << " bytes, ref_count: "
                   << (chunk_exists ? ref_count + 1 : 1) << std::endl;
@@ -169,7 +215,12 @@ int main() {
         std::cout << "store_chunk took " << std::chrono::duration<double>(end - start).count() << " seconds" << std::endl;
     });
 
-    svr.Post("/store_metadata", [db](const httplib::Request& req, httplib::Response& res) {
+    svr->Post("/store_metadata", [](const httplib::Request& req, httplib::Response& res) {
+        if (g_Paused) {
+            res.set_content("{\"error\": \"Service is paused\"}", "application/json");
+            res.status = 503;
+            return;
+        }
         auto start = std::chrono::steady_clock::now();
 
         nlohmann::json metadata;
@@ -196,16 +247,16 @@ int main() {
         int64_t file_size = metadata["file_size"];
         std::vector<std::string> chunk_hashes = metadata["chunk_hashes"];
 
-        sqlite3_exec(db, "BEGIN TRANSACTION;", nullptr, nullptr, nullptr);
+        sqlite3_exec(g_db, "BEGIN TRANSACTION;", nullptr, nullptr, nullptr);
 
         sqlite3_stmt* stmt;
         const char* query = "SELECT ref_count FROM metadata WHERE cid = ?;";
-        int rc = sqlite3_prepare_v2(db, query, -1, &stmt, nullptr);
+        int rc = sqlite3_prepare_v2(g_db, query, -1, &stmt, nullptr);
         if (rc != SQLITE_OK) {
-            sqlite3_exec(db, "ROLLBACK;", nullptr, nullptr, nullptr);
+            sqlite3_exec(g_db, "ROLLBACK;", nullptr, nullptr, nullptr);
             res.set_content("{\"error\": \"Failed to prepare query\"}", "application/json");
             res.status = 500;
-            std::cout << "store_metadata failed: Failed to prepare query - " << sqlite3_errmsg(db) << std::endl;
+            std::cout << "store_metadata failed: Failed to prepare query - " << sqlite3_errmsg(g_db) << std::endl;
             return;
         }
 
@@ -222,12 +273,12 @@ int main() {
         nlohmann::json response;
         if (cid_exists) {
             const char* update = "UPDATE metadata SET ref_count = ref_count + 1 WHERE cid = ?;";
-            rc = sqlite3_prepare_v2(db, update, -1, &stmt, nullptr);
+            rc = sqlite3_prepare_v2(g_db, update, -1, &stmt, nullptr);
             if (rc != SQLITE_OK) {
-                sqlite3_exec(db, "ROLLBACK;", nullptr, nullptr, nullptr);
+                sqlite3_exec(g_db, "ROLLBACK;", nullptr, nullptr, nullptr);
                 res.set_content("{\"error\": \"Failed to prepare update\"}", "application/json");
                 res.status = 500;
-                std::cout << "store_metadata failed: Failed to prepare update - " << sqlite3_errmsg(db) << std::endl;
+                std::cout << "store_metadata failed: Failed to prepare update - " << sqlite3_errmsg(g_db) << std::endl;
                 return;
             }
 
@@ -236,10 +287,10 @@ int main() {
             sqlite3_finalize(stmt);
 
             if (rc != SQLITE_DONE) {
-                sqlite3_exec(db, "ROLLBACK;", nullptr, nullptr, nullptr);
+                sqlite3_exec(g_db, "ROLLBACK;", nullptr, nullptr, nullptr);
                 res.set_content("{\"error\": \"Failed to increment ref_count\"}", "application/json");
                 res.status = 500;
-                std::cout << "store_metadata failed: Failed to increment ref_count - " << sqlite3_errmsg(db) << std::endl;
+                std::cout << "store_metadata failed: Failed to increment ref_count - " << sqlite3_errmsg(g_db) << std::endl;
                 return;
             }
 
@@ -255,12 +306,12 @@ int main() {
         }
 
         const char* insert_metadata = "INSERT INTO metadata (cid, filename, file_type, file_size, ref_count) VALUES (?, ?, ?, ?, 1);";
-        rc = sqlite3_prepare_v2(db, insert_metadata, -1, &stmt, nullptr);
+        rc = sqlite3_prepare_v2(g_db, insert_metadata, -1, &stmt, nullptr);
         if (rc != SQLITE_OK) {
-            sqlite3_exec(db, "ROLLBACK;", nullptr, nullptr, nullptr);
+            sqlite3_exec(g_db, "ROLLBACK;", nullptr, nullptr, nullptr);
             res.set_content("{\"error\": \"Failed to prepare metadata insert\"}", "application/json");
             res.status = 500;
-            std::cout << "store_metadata failed: Failed to prepare metadata insert - " << sqlite3_errmsg(db) << std::endl;
+            std::cout << "store_metadata failed: Failed to prepare metadata insert - " << sqlite3_errmsg(g_db) << std::endl;
             return;
         }
 
@@ -272,20 +323,20 @@ int main() {
         sqlite3_finalize(stmt);
 
         if (rc != SQLITE_DONE) {
-            sqlite3_exec(db, "ROLLBACK;", nullptr, nullptr, nullptr);
+            sqlite3_exec(g_db, "ROLLBACK;", nullptr, nullptr, nullptr);
             res.set_content("{\"error\": \"Failed to insert metadata\"}", "application/json");
             res.status = 500;
-            std::cout << "store_metadata failed: Failed to insert metadata - " << sqlite3_errmsg(db) << std::endl;
+            std::cout << "store_metadata failed: Failed to insert metadata - " << sqlite3_errmsg(g_db) << std::endl;
             return;
         }
 
         const char* insert_chunk_hash = "INSERT INTO chunk_hashes (cid, chunk_index, chunk_hash) VALUES (?, ?, ?);";
-        rc = sqlite3_prepare_v2(db, insert_chunk_hash, -1, &stmt, nullptr);
+        rc = sqlite3_prepare_v2(g_db, insert_chunk_hash, -1, &stmt, nullptr);
         if (rc != SQLITE_OK) {
-            sqlite3_exec(db, "ROLLBACK;", nullptr, nullptr, nullptr);
+            sqlite3_exec(g_db, "ROLLBACK;", nullptr, nullptr, nullptr);
             res.set_content("{\"error\": \"Failed to prepare chunk hash insert\"}", "application/json");
             res.status = 500;
-            std::cout << "store_metadata failed: Failed to prepare chunk hash insert - " << sqlite3_errmsg(db) << std::endl;
+            std::cout << "store_metadata failed: Failed to prepare chunk hash insert - " << sqlite3_errmsg(g_db) << std::endl;
             return;
         }
 
@@ -298,16 +349,16 @@ int main() {
 
             if (rc != SQLITE_DONE) {
                 sqlite3_finalize(stmt);
-                sqlite3_exec(db, "ROLLBACK;", nullptr, nullptr, nullptr);
+                sqlite3_exec(g_db, "ROLLBACK;", nullptr, nullptr, nullptr);
                 res.set_content("{\"error\": \"Failed to insert chunk hash at index " + std::to_string(i) + "\"}", "application/json");
                 res.status = 500;
-                std::cout << "store_metadata failed: Failed to insert chunk hash at index " << i << " - " << sqlite3_errmsg(db) << std::endl;
+                std::cout << "store_metadata failed: Failed to insert chunk hash at index " << i << " - " << sqlite3_errmsg(g_db) << std::endl;
                 return;
             }
         }
         sqlite3_finalize(stmt);
 
-        sqlite3_exec(db, "COMMIT;", nullptr, nullptr, nullptr);
+        sqlite3_exec(g_db, "COMMIT;", nullptr, nullptr, nullptr);
 
         response["status"] = "success";
         res.set_content(response.dump(), "application/json");
@@ -318,7 +369,12 @@ int main() {
                   << std::chrono::duration<double>(end - start).count() << " seconds" << std::endl;
     });
 
-    svr.Get("/get", [db](const httplib::Request& req, httplib::Response& res) {
+    svr->Get("/get", [](const httplib::Request& req, httplib::Response& res) {
+        if (g_Paused) {
+            res.set_content("{\"error\": \"Service is paused\"}", "application/json");
+            res.status = 503;
+            return;
+        }
         auto start = std::chrono::steady_clock::now();
 
         if (!req.has_param("cid")) {
@@ -332,11 +388,11 @@ int main() {
 
         sqlite3_stmt* stmt;
         const char* query_metadata = "SELECT filename, file_type, file_size FROM metadata WHERE cid = ?;";
-        int rc = sqlite3_prepare_v2(db, query_metadata, -1, &stmt, nullptr);
+        int rc = sqlite3_prepare_v2(g_db, query_metadata, -1, &stmt, nullptr);
         if (rc != SQLITE_OK) {
             res.set_content("{\"error\": \"Failed to prepare metadata query\"}", "application/json");
             res.status = 500;
-            std::cout << "get failed: Failed to prepare metadata query - " << sqlite3_errmsg(db) << std::endl;
+            std::cout << "get failed: Failed to prepare metadata query - " << sqlite3_errmsg(g_db) << std::endl;
             return;
         }
 
@@ -356,11 +412,11 @@ int main() {
 
         std::vector<std::string> chunk_hashes;
         const char* query_chunks = "SELECT chunk_hash FROM chunk_hashes WHERE cid = ? ORDER BY chunk_index;";
-        rc = sqlite3_prepare_v2(db, query_chunks, -1, &stmt, nullptr);
+        rc = sqlite3_prepare_v2(g_db, query_chunks, -1, &stmt, nullptr);
         if (rc != SQLITE_OK) {
             res.set_content("{\"error\": \"Failed to prepare chunk query\"}", "application/json");
             res.status = 500;
-            std::cout << "get failed: Failed to prepare chunk query - " << sqlite3_errmsg(db) << std::endl;
+            std::cout << "get failed: Failed to prepare chunk query - " << sqlite3_errmsg(g_db) << std::endl;
             return;
         }
 
@@ -394,7 +450,12 @@ int main() {
         std::cout << "get took " << std::chrono::duration<double>(end - start).count() << " seconds" << std::endl;
     });
 
-    svr.Delete("/delete", [db](const httplib::Request& req, httplib::Response& res) {
+    svr->Delete("/delete", [](const httplib::Request& req, httplib::Response& res) {
+        if (g_Paused) {
+            res.set_content("{\"error\": \"Service is paused\"}", "application/json");
+            res.status = 503;
+            return;
+        }
         auto start = std::chrono::steady_clock::now();
 
         if (!req.has_param("cid")) {
@@ -406,16 +467,16 @@ int main() {
 
         std::string cid = req.get_param_value("cid");
 
-        sqlite3_exec(db, "BEGIN TRANSACTION;", nullptr, nullptr, nullptr);
+        sqlite3_exec(g_db, "BEGIN TRANSACTION;", nullptr, nullptr, nullptr);
 
         sqlite3_stmt* stmt;
         const char* query = "SELECT ref_count FROM metadata WHERE cid = ?;";
-        int rc = sqlite3_prepare_v2(db, query, -1, &stmt, nullptr);
+        int rc = sqlite3_prepare_v2(g_db, query, -1, &stmt, nullptr);
         if (rc != SQLITE_OK) {
-            sqlite3_exec(db, "ROLLBACK;", nullptr, nullptr, nullptr);
+            sqlite3_exec(g_db, "ROLLBACK;", nullptr, nullptr, nullptr);
             res.set_content("{\"error\": \"Failed to prepare query\"}", "application/json");
             res.status = 500;
-            std::cout << "delete failed: Failed to prepare query - " << sqlite3_errmsg(db) << std::endl;
+            std::cout << "delete failed: Failed to prepare query - " << sqlite3_errmsg(g_db) << std::endl;
             return;
         }
 
@@ -430,7 +491,7 @@ int main() {
         sqlite3_finalize(stmt);
 
         if (!cid_exists) {
-            sqlite3_exec(db, "ROLLBACK;", nullptr, nullptr, nullptr);
+            sqlite3_exec(g_db, "ROLLBACK;", nullptr, nullptr, nullptr);
             res.set_content("{\"error\": \"File not found\"}", "application/json");
             res.status = 404;
             std::cout << "delete failed: File not found for CID " << cid << std::endl;
@@ -439,12 +500,12 @@ int main() {
 
         std::vector<std::string> chunk_hashes;
         const char* query_chunks = "SELECT chunk_hash FROM chunk_hashes WHERE cid = ? ORDER BY chunk_index;";
-        rc = sqlite3_prepare_v2(db, query_chunks, -1, &stmt, nullptr);
+        rc = sqlite3_prepare_v2(g_db, query_chunks, -1, &stmt, nullptr);
         if (rc != SQLITE_OK) {
-            sqlite3_exec(db, "ROLLBACK;", nullptr, nullptr, nullptr);
+            sqlite3_exec(g_db, "ROLLBACK;", nullptr, nullptr, nullptr);
             res.set_content("{\"error\": \"Failed to prepare chunk query\"}", "application/json");
             res.status = 500;
-            std::cout << "delete failed: Failed to prepare chunk query - " << sqlite3_errmsg(db) << std::endl;
+            std::cout << "delete failed: Failed to prepare chunk query - " << sqlite3_errmsg(g_db) << std::endl;
             return;
         }
 
@@ -456,12 +517,12 @@ int main() {
 
         if (ref_count > 1) {
             const char* update = "UPDATE metadata SET ref_count = ref_count - 1 WHERE cid = ?;";
-            rc = sqlite3_prepare_v2(db, update, -1, &stmt, nullptr);
+            rc = sqlite3_prepare_v2(g_db, update, -1, &stmt, nullptr);
             if (rc != SQLITE_OK) {
-                sqlite3_exec(db, "ROLLBACK;", nullptr, nullptr, nullptr);
+                sqlite3_exec(g_db, "ROLLBACK;", nullptr, nullptr, nullptr);
                 res.set_content("{\"error\": \"Failed to prepare update\"}", "application/json");
                 res.status = 500;
-                std::cout << "delete failed: Failed to prepare update - " << sqlite3_errmsg(db) << std::endl;
+                std::cout << "delete failed: Failed to prepare update - " << sqlite3_errmsg(g_db) << std::endl;
                 return;
             }
 
@@ -470,20 +531,20 @@ int main() {
             sqlite3_finalize(stmt);
 
             if (rc != SQLITE_DONE) {
-                sqlite3_exec(db, "ROLLBACK;", nullptr, nullptr, nullptr);
+                sqlite3_exec(g_db, "ROLLBACK;", nullptr, nullptr, nullptr);
                 res.set_content("{\"error\": \"Failed to decrement ref_count\"}", "application/json");
                 res.status = 500;
-                std::cout << "delete failed: Failed to decrement ref_count - " << sqlite3_errmsg(db) << std::endl;
+                std::cout << "delete failed: Failed to decrement ref_count - " << sqlite3_errmsg(g_db) << std::endl;
                 return;
             }
         } else {
             const char* delete_metadata = "DELETE FROM metadata WHERE cid = ?;";
-            rc = sqlite3_prepare_v2(db, delete_metadata, -1, &stmt, nullptr);
+            rc = sqlite3_prepare_v2(g_db, delete_metadata, -1, &stmt, nullptr);
             if (rc != SQLITE_OK) {
-                sqlite3_exec(db, "ROLLBACK;", nullptr, nullptr, nullptr);
+                sqlite3_exec(g_db, "ROLLBACK;", nullptr, nullptr, nullptr);
                 res.set_content("{\"error\": \"Failed to prepare delete metadata\"}", "application/json");
                 res.status = 500;
-                std::cout << "delete failed: Failed to prepare delete metadata - " << sqlite3_errmsg(db) << std::endl;
+                std::cout << "delete failed: Failed to prepare delete metadata - " << sqlite3_errmsg(g_db) << std::endl;
                 return;
             }
 
@@ -492,20 +553,20 @@ int main() {
             sqlite3_finalize(stmt);
 
             if (rc != SQLITE_DONE) {
-                sqlite3_exec(db, "ROLLBACK;", nullptr, nullptr, nullptr);
+                sqlite3_exec(g_db, "ROLLBACK;", nullptr, nullptr, nullptr);
                 res.set_content("{\"error\": \"Failed to delete metadata\"}", "application/json");
                 res.status = 500;
-                std::cout << "delete failed: Failed to delete metadata - " << sqlite3_errmsg(db) << std::endl;
+                std::cout << "delete failed: Failed to delete metadata - " << sqlite3_errmsg(g_db) << std::endl;
                 return;
             }
 
             const char* delete_chunk_hashes = "DELETE FROM chunk_hashes WHERE cid = ?;";
-            rc = sqlite3_prepare_v2(db, delete_chunk_hashes, -1, &stmt, nullptr);
+            rc = sqlite3_prepare_v2(g_db, delete_chunk_hashes, -1, &stmt, nullptr);
             if (rc != SQLITE_OK) {
-                sqlite3_exec(db, "ROLLBACK;", nullptr, nullptr, nullptr);
+                sqlite3_exec(g_db, "ROLLBACK;", nullptr, nullptr, nullptr);
                 res.set_content("{\"error\": \"Failed to prepare delete chunk_hashes\"}", "application/json");
                 res.status = 500;
-                std::cout << "delete failed: Failed to prepare delete chunk_hashes - " << sqlite3_errmsg(db) << std::endl;
+                std::cout << "delete failed: Failed to prepare delete chunk_hashes - " << sqlite3_errmsg(g_db) << std::endl;
                 return;
             }
 
@@ -514,22 +575,22 @@ int main() {
             sqlite3_finalize(stmt);
 
             if (rc != SQLITE_DONE) {
-                sqlite3_exec(db, "ROLLBACK;", nullptr, nullptr, nullptr);
+                sqlite3_exec(g_db, "ROLLBACK;", nullptr, nullptr, nullptr);
                 res.set_content("{\"error\": \"Failed to delete chunk_hashes\"}", "application/json");
                 res.status = 500;
-                std::cout << "delete failed: Failed to delete chunk_hashes - " << sqlite3_errmsg(db) << std::endl;
+                std::cout << "delete failed: Failed to delete chunk_hashes - " << sqlite3_errmsg(g_db) << std::endl;
                 return;
             }
         }
 
         for (const auto& hash : chunk_hashes) {
             const char* query_ref = "SELECT ref_count FROM chunk_references WHERE chunk_hash = ?;";
-            rc = sqlite3_prepare_v2(db, query_ref, -1, &stmt, nullptr);
+            rc = sqlite3_prepare_v2(g_db, query_ref, -1, &stmt, nullptr);
             if (rc != SQLITE_OK) {
-                sqlite3_exec(db, "ROLLBACK;", nullptr, nullptr, nullptr);
+                sqlite3_exec(g_db, "ROLLBACK;", nullptr, nullptr, nullptr);
                 res.set_content("{\"error\": \"Failed to prepare chunk ref query\"}", "application/json");
                 res.status = 500;
-                std::cout << "delete failed: Failed to prepare chunk ref query - " << sqlite3_errmsg(db) << std::endl;
+                std::cout << "delete failed: Failed to prepare chunk ref query - " << sqlite3_errmsg(g_db) << std::endl;
                 return;
             }
 
@@ -542,12 +603,12 @@ int main() {
 
             if (chunk_ref_count > 1) {
                 const char* update_chunk = "UPDATE chunk_references SET ref_count = ref_count - 1 WHERE chunk_hash = ?;";
-                rc = sqlite3_prepare_v2(db, update_chunk, -1, &stmt, nullptr);
+                rc = sqlite3_prepare_v2(g_db, update_chunk, -1, &stmt, nullptr);
                 if (rc != SQLITE_OK) {
-                    sqlite3_exec(db, "ROLLBACK;", nullptr, nullptr, nullptr);
+                    sqlite3_exec(g_db, "ROLLBACK;", nullptr, nullptr, nullptr);
                     res.set_content("{\"error\": \"Failed to prepare chunk update\"}", "application/json");
                     res.status = 500;
-                    std::cout << "delete failed: Failed to prepare chunk update - " << sqlite3_errmsg(db) << std::endl;
+                    std::cout << "delete failed: Failed to prepare chunk update - " << sqlite3_errmsg(g_db) << std::endl;
                     return;
                 }
 
@@ -556,20 +617,20 @@ int main() {
                 sqlite3_finalize(stmt);
 
                 if (rc != SQLITE_DONE) {
-                    sqlite3_exec(db, "ROLLBACK;", nullptr, nullptr, nullptr);
+                    sqlite3_exec(g_db, "ROLLBACK;", nullptr, nullptr, nullptr);
                     res.set_content("{\"error\": \"Failed to decrement chunk ref_count\"}", "application/json");
                     res.status = 500;
-                    std::cout << "delete failed: Failed to decrement chunk ref_count - " << sqlite3_errmsg(db) << std::endl;
+                    std::cout << "delete failed: Failed to decrement chunk ref_count - " << sqlite3_errmsg(g_db) << std::endl;
                     return;
                 }
             } else {
                 const char* delete_chunk = "DELETE FROM chunk_references WHERE chunk_hash = ?;";
-                rc = sqlite3_prepare_v2(db, delete_chunk, -1, &stmt, nullptr);
+                rc = sqlite3_prepare_v2(g_db, delete_chunk, -1, &stmt, nullptr);
                 if (rc != SQLITE_OK) {
-                    sqlite3_exec(db, "ROLLBACK;", nullptr, nullptr, nullptr);
+                    sqlite3_exec(g_db, "ROLLBACK;", nullptr, nullptr, nullptr);
                     res.set_content("{\"error\": \"Failed to prepare chunk delete\"}", "application/json");
                     res.status = 500;
-                    std::cout << "delete failed: Failed to prepare chunk delete - " << sqlite3_errmsg(db) << std::endl;
+                    std::cout << "delete failed: Failed to prepare chunk delete - " << sqlite3_errmsg(g_db) << std::endl;
                     return;
                 }
 
@@ -578,10 +639,10 @@ int main() {
                 sqlite3_finalize(stmt);
 
                 if (rc != SQLITE_DONE) {
-                    sqlite3_exec(db, "ROLLBACK;", nullptr, nullptr, nullptr);
+                    sqlite3_exec(g_db, "ROLLBACK;", nullptr, nullptr, nullptr);
                     res.set_content("{\"error\": \"Failed to delete chunk reference\"}", "application/json");
                     res.status = 500;
-                    std::cout << "delete failed: Failed to delete chunk reference - " << sqlite3_errmsg(db) << std::endl;
+                    std::cout << "delete failed: Failed to delete chunk reference - " << sqlite3_errmsg(g_db) << std::endl;
                     return;
                 }
 
@@ -590,7 +651,7 @@ int main() {
             }
         }
 
-        sqlite3_exec(db, "COMMIT;", nullptr, nullptr, nullptr);
+        sqlite3_exec(g_db, "COMMIT;", nullptr, nullptr, nullptr);
 
         nlohmann::json response;
         response["status"] = "success";
@@ -603,8 +664,71 @@ int main() {
     });
 
     std::cout << "Storage server listening on port " << kStoragePort << "..." << std::endl;
-    svr.listen("0.0.0.0", kStoragePort);
+    svr->listen("0.0.0.0", kStoragePort);
+}
 
-    sqlite3_close(db);
+void WINAPI ServiceMain(DWORD argc, LPTSTR* argv) {
+    g_StatusHandle = RegisterServiceCtrlHandler(L"sezstoragesvs", ServiceCtrlHandler);
+    if (!g_StatusHandle) {
+        return;
+    }
+
+    g_ServiceStatus.dwServiceType = SERVICE_WIN32_OWN_PROCESS;
+    g_ServiceStatus.dwControlsAccepted = SERVICE_ACCEPT_STOP | SERVICE_ACCEPT_PAUSE_CONTINUE;
+    g_ServiceStatus.dwCurrentState = SERVICE_START_PENDING;
+    g_ServiceStatus.dwWin32ExitCode = NO_ERROR;
+    g_ServiceStatus.dwServiceSpecificExitCode = 0;
+    g_ServiceStatus.dwCheckPoint = 0;
+    g_ServiceStatus.dwWaitHint = 1000;
+    SetServiceStatus(g_StatusHandle, &g_ServiceStatus);
+
+    g_Running = true;
+    g_Paused = false;
+
+    // Initialize base::Thread for the server
+    g_ServerThread = std::make_unique<base::Thread>("StorageServerThread");
+    if (!g_ServerThread->Start()) {
+        std::cerr << "Failed to start server thread" << std::endl;
+        UpdateServiceStatus(SERVICE_STOPPED, ERROR_SERVICE_SPECIFIC_ERROR);
+        return;
+    }
+
+    // Create the SSL server instance
+    httplib::SSLServer svr(kStorageServerCert, kStorageServerKey);
+
+    // Post the server task to the thread
+    g_ServerThread->task_runner()->PostTask(
+        FROM_HERE,
+        base::BindOnce(&RunServer, &svr));
+
+    g_ServiceStatus.dwCurrentState = SERVICE_RUNNING;
+    SetServiceStatus(g_StatusHandle, &g_ServiceStatus);
+
+    while (g_Running) {
+        base::PlatformThread::Sleep(base::Milliseconds(1000));
+    }
+
+    UpdateServiceStatus(SERVICE_STOP_PENDING);
+    svr.stop();
+    g_ServerThread->Stop();
+    g_ServerThread.reset();
+    if (g_db) {
+        sqlite3_close(g_db);
+        g_db = nullptr;
+    }
+    UpdateServiceStatus(SERVICE_STOPPED);
+}
+
+int main() {
+    SERVICE_TABLE_ENTRY serviceTable[] = {
+        {L"sezstoragesvs", ServiceMain},
+        {nullptr, nullptr}
+    };
+
+    if (!StartServiceCtrlDispatcher(serviceTable)) {
+        std::cerr << "Failed to start service dispatcher: " << GetLastError() << std::endl;
+        return 1;
+    }
+
     return 0;
 }
