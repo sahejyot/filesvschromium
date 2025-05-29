@@ -42,6 +42,14 @@ sqlite3* initialize_database(const std::string& db_path, const std::string& data
         throw std::runtime_error("Failed to open database");
     }
 
+    // Enable WAL mode
+    rc = sqlite3_exec(db, "PRAGMA journal_mode=WAL;", nullptr, nullptr, nullptr);
+    if (rc != SQLITE_OK) {
+        log_message(log_file, "Failed to enable WAL mode: " + std::string(sqlite3_errmsg(db)));
+        sqlite3_close(db);
+        throw std::runtime_error("Failed to enable WAL mode");
+    }
+
     const char* create_metadata_table =
         "CREATE TABLE IF NOT EXISTS metadata ("
         "cid TEXT PRIMARY KEY,"
@@ -83,6 +91,32 @@ sqlite3* initialize_database(const std::string& db_path, const std::string& data
         log_message(log_file, "Failed to create chunk_hashes table: " + std::string(sqlite3_errmsg(db)));
         sqlite3_close(db);
         throw std::runtime_error("Failed to create chunk_hashes table");
+    }
+
+    // Create indexes for performance
+    const char* create_metadata_index = "CREATE INDEX IF NOT EXISTS idx_metadata_cid ON metadata(cid);";
+    rc = sqlite3_exec(db, create_metadata_index, nullptr, nullptr, nullptr);
+    if (rc != SQLITE_OK) {
+        log_message(log_file, "Failed to create index on metadata(cid): " + std::string(sqlite3_errmsg(db)));
+        sqlite3_close(db);
+        throw std::runtime_error("Failed to create index on metadata(cid)");
+    }
+
+    const char* create_chunk_index = "CREATE INDEX IF NOT EXISTS idx_chunk_hash ON chunk_references(chunk_hash);";
+    rc = sqlite3_exec(db, create_chunk_index, nullptr, nullptr, nullptr);
+    if (rc != SQLITE_OK) {
+        log_message(log_file, "Failed to create index on chunk_references(chunk_hash): " + std::string(sqlite3_errmsg(db)));
+        sqlite3_close(db);
+        throw std::runtime_error("Failed to create index on chunk_references(chunk_hash)");
+    }
+
+    // Add index for chunk_hashes(cid)
+    const char* create_chunk_hashes_index = "CREATE INDEX IF NOT EXISTS idx_chunk_hashes_cid ON chunk_hashes(cid);";
+    rc = sqlite3_exec(db, create_chunk_hashes_index, nullptr, nullptr, nullptr);
+    if (rc != SQLITE_OK) {
+        log_message(log_file, "Failed to create index on chunk_hashes(cid): " + std::string(sqlite3_errmsg(db)));
+        sqlite3_close(db);
+        throw std::runtime_error("Failed to create index on chunk_hashes(cid)");
     }
 
     auto end = std::chrono::steady_clock::now();
